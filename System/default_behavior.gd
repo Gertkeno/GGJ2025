@@ -20,6 +20,9 @@ func _physics_process(delta: float) -> void:
 	# debug
 	# if bubble_animal.navigation_agent.is_target_reachable() == false:
 	# 	var dbg = 0
+	pass
+	
+func process_behavior(delta: float) -> void:
 	if is_nav_finished():
 		increment_curve_point()
 		update_target_position()
@@ -29,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	bubble_animal.reset_move_speed()
 	bubble_animal.direction = direction
 	bubble_animal.apply_movement()
-
+	
 func init_curve_points(curve: Curve3D) -> void:
 	for pt in curve.point_count:
 		curve_points.append(curve.get_point_position(pt))

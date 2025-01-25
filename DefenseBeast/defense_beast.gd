@@ -1,9 +1,9 @@
 extends Node3D
 class_name DefenseBeast
 
-@onready var bubble_animal = $DefaultBehavior/Path3D/PathFollow3D/NeutralBubbleAnimal
-@onready var default_behavior = $DefaultBehavior
-@onready var defense_behavior = $DefenseBehavior
+@onready var bubble_animal = $DefaultBehavior/BubbleAnimal
+@onready var default_behavior: DefaultBehavior = $DefaultBehavior
+@onready var defense_behavior: DefenseBehavior = $DefenseBehavior
 
 @export var default_curve: Curve3D
 
@@ -16,6 +16,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _physics_process(delta: float) -> void:
+	if bubble_animal.get_parent() == default_behavior:
+		default_behavior.process_behavior(delta) # do default behavior stuff
+	else:
+		defense_behavior.process_behavior(delta) # do defense behavior stuff
 	
 func _input(event: InputEvent) -> void:
 	# TODO have it change behavior if it notices the player.
