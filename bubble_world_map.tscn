@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
-[ext_resource type="NavigationMesh" path="res://new_navigation_mesh.res" id="3_donix"]
+[ext_resource type="NavigationMesh" uid="uid://cir6womydt81o" path="res://new_navigation_mesh.res" id="3_donix"]
 [ext_resource type="PackedScene" uid="uid://c3xxmyyaacn6y" path="res://TutorialPopup/tutorial_text.tscn" id="4_1krrg"]
 [ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="4_7jfbh"]
 [ext_resource type="PackedScene" uid="uid://dldd3obkxo5mx" path="res://Alex Test Junk/Map playground/Main.tscn" id="5_gogxq"]

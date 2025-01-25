@@ -16,6 +16,8 @@ static var y_invert: float = 1.0
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
 @onready var animator: AnimationTree = $AnimationTree
+@export var player_mesh: MeshInstance3D
+var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
 
 
@@ -38,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := transform.basis.orthonormalized() * Vector3(input_dir.x, 0, input_dir.y)
+	var direction: Vector3 = $CameraPivot.global_basis.orthonormalized() * Vector3(input_dir.x, 0, input_dir.y)
 
 	if hurt_timer.is_stopped():
 		var accel: float = GROUND_ACCELERATION if is_on_floor() else AIR_ACCELERATION
@@ -59,6 +61,7 @@ func _physics_process(delta: float) -> void:
 var screen_size: Vector2
 func _ready() -> void:
 	screen_size = DisplayServer.screen_get_size()
+	eye_material = player_mesh.get_surface_override_material(1)
 
 
 func _process(delta: float) -> void:

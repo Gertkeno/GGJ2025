@@ -1,7 +1,7 @@
 extends Node3D
 class_name DefenseBeast
 
-@onready var bubble_animal = $DefaultBehavior/BubbleAnimal
+@onready var bubble_animal: Node3D = $DefaultBehavior/BubbleAnimal
 @onready var default_behavior: DefaultBehavior = $DefaultBehavior
 @onready var defense_behavior: DefenseBehavior = $DefenseBehavior
 @onready var dizzy_timer: Timer = $DefenseBehavior/DizzyTimer
@@ -16,28 +16,27 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 func _physics_process(delta: float) -> void:
 	if dizzy_timer.is_stopped():
 		if bubble_animal.get_parent() == default_behavior:
 			default_behavior.process_behavior(delta) # do default behavior stuff
 		else:
 			defense_behavior.process_behavior(delta) # do defense behavior stuff
-	
+
+
 func _input(event: InputEvent) -> void:
 	# TODO have it change behavior if it notices the player.
 	if event.is_action_pressed("jump"):
 		if bubble_animal.get_parent() == defense_behavior:
 			bubble_animal.reparent(default_behavior)
 
+
 func _on_bubble_animal_notice_player(player: Player) -> void:
 	# do the collisioning
 	if bubble_animal.get_parent() == default_behavior:
 		defense_behavior.player = player
 		bubble_animal.reparent(defense_behavior)
+
 
 func _on_bullhorn_body_entered(body: Node3D) -> void:
 	if body is Player:
