@@ -1,20 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://vnpmxqbs7r86"]
+[gd_scene load_steps=7 format=3 uid="uid://vnpmxqbs7r86"]
 
 [ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="1_ifvjf"]
 [ext_resource type="Curve3D" uid="uid://hm1okgxcurwp" path="res://DefenseBeast/test_curve.tres" id="2_db824"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_smj01"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_i0hte"]
+sky_material = SubResource("ProceduralSkyMaterial_smj01")
+
+[sub_resource type="Environment" id="Environment_wsdc6"]
+background_mode = 2
+sky = SubResource("Sky_i0hte")
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_0kej5"]
+vertices = PackedVector3Array(-10.5, 1, -0.5, -10.5, 1, 0.5, -7.5, 1, 7.5, -0.5, 1, 10.5, 0.5, 1, 10.5, 7.5, 1, 7.5, 10.5, 1, 0.5, 10.5, 1, -0.5, 7.5, 1, -7.5, 0.5, 1, -10.5, -0.5, 1, -10.5, -7.5, 1, -7.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 2), PackedInt32Array(7, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 7), PackedInt32Array(0, 11, 10), PackedInt32Array(5, 4, 7), PackedInt32Array(7, 4, 2), PackedInt32Array(7, 2, 0), PackedInt32Array(7, 0, 10)]
+cell_height = 0.5
+
 [node name="BobbyTestScene" type="Node3D"]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-use_collision = true
-radius = 11.0
-height = 1.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wsdc6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="DefenseBeast" parent="." instance=ExtResource("1_ifvjf")]
 default_curve = ExtResource("2_db824")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 2.46, 2.99)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
 
 [node name="Path3D" type="Path3D" parent="."]
+curve = ExtResource("2_db824")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_0kej5")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+radius = 11.0
+height = 1.0

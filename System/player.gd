@@ -86,6 +86,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_game_settings_continue_pressed() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Settings.hide()
 
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://by4by86dfprkd"]
+
+[ext_resource type="Script" path="res://System/bubble_animal.gd" id="1_qslwe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bx24e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xy4i"]
+
+[node name="BubbleAnimal" type="CharacterBody3D"]
+script = ExtResource("1_qslwe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bx24e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7xy4i")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true

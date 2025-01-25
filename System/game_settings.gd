@@ -17,3 +17,8 @@ func _on_quit_pressed() -> void:
 func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	continue_pressed.emit()
+
+
+func _on_visibility_changed() -> void:
+	if is_visible_in_tree():
+		%Continue.grab_focus()
