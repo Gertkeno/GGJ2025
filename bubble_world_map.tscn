@@ -131,7 +131,7 @@ height = 14.0
 material = SubResource("StandardMaterial3D_3fkp6")
 
 [node name="BasicIsland2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, -22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1, -22)
 use_collision = true
 radius = 14.0
 material = SubResource("StandardMaterial3D_h82wv")
@@ -174,9 +174,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4)
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 12.82, 0, 5.8)
 
 [node name="TutorialText" parent="." instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128495, -8)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128496, -8)
 action_icon = "↧/␺"
 
 [node name="TutorialTextCatch" parent="." instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128495, -75.8275)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128496, -75.8275)
 action_text = "GAME_ACTION_CAST_FISHING"
+
+[node name="TutorialTextSneak" parent="." instance=ExtResource("4_1krrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.1285, -15)
+action_text = "GAME_ACTION_CROUCH"
+action_icon = "↜/␩"

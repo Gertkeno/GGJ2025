@@ -15,6 +15,7 @@ static var y_invert: float = 1.0
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
+var crouching: bool = false # for enemy detection
 
 
 func _physics_process(delta: float) -> void:
@@ -83,6 +84,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("catch"):
 		if catch():
 			pass
+	elif event.is_action("crouch"):
+		crouching = event.is_pressed()
+		var f: Callable = $AnimationPlayer.play if crouching else $AnimationPlayer.play_backwards
+		f.call("Crouch")
 
 
 func _on_game_settings_continue_pressed() -> void:
