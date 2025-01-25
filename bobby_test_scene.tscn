@@ -14,22 +14,20 @@ use_collision = true
 radius = 11.0
 height = 1.0
 
-[node name="NeutralBubbleAnimal" parent="." instance=ExtResource("1_idjio")]
+[node name="DefenseBeast" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
-
-[node name="DefenseBeast" type="Node3D" parent="NeutralBubbleAnimal"]
 script = ExtResource("2_jkigi")
 
-[node name="DefaultBehavior" type="Node3D" parent="NeutralBubbleAnimal/DefenseBeast"]
+[node name="DefaultBehavior" type="Node3D" parent="DefenseBeast"]
 
-[node name="Path3D" type="Path3D" parent="NeutralBubbleAnimal/DefenseBeast/DefaultBehavior"]
+[node name="Path3D" type="Path3D" parent="DefenseBeast/DefaultBehavior"]
 curve = SubResource("Curve3D_l6trd")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="NeutralBubbleAnimal/DefenseBeast/DefaultBehavior/Path3D"]
+[node name="PathFollow3D" type="PathFollow3D" parent="DefenseBeast/DefaultBehavior/Path3D"]
 
-[node name="NeutralBubbleAnimal" parent="NeutralBubbleAnimal/DefenseBeast/DefaultBehavior/Path3D/PathFollow3D" instance=ExtResource("1_idjio")]
+[node name="NeutralBubbleAnimal" parent="DefenseBeast/DefaultBehavior/Path3D/PathFollow3D" instance=ExtResource("1_idjio")]
 
-[node name="DefenseBehavior" type="Node3D" parent="NeutralBubbleAnimal/DefenseBeast"]
+[node name="DefenseBehavior" type="Node3D" parent="DefenseBeast"]
 script = ExtResource("2_byurr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
