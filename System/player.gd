@@ -86,9 +86,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if catch():
 			pass
 	elif event.is_action("crouch"):
-		crouching = event.is_pressed()
-		var f: Callable = $AnimationPlayer.play if crouching else $AnimationPlayer.play_backwards
-		f.call("Crouch")
+		if crouching != event.is_pressed():
+			crouching = event.is_pressed()
+			var f: Callable = $AnimationPlayer.play if crouching else $AnimationPlayer.play_backwards
+			f.call("Crouch")
 
 
 func _on_game_settings_continue_pressed() -> void:
