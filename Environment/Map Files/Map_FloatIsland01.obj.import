@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ccs4r5etfg05h"
+path="res://.godot/imported/Map_FloatIsland01.obj-4f9d8275a302744f2f2ee2cea9b1839e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Map_FloatIsland01.obj-4f9d8275a302744f2f2ee2cea9b1839e.mesh"]
+
+source_file="res://Environment/Map Files/Map_FloatIsland01.obj"
+dest_files=["res://.godot/imported/Map_FloatIsland01.obj-4f9d8275a302744f2f2ee2cea9b1839e.mesh", "res://.godot/imported/Map_FloatIsland01.obj-4f9d8275a302744f2f2ee2cea9b1839e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
