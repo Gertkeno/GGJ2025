@@ -15,6 +15,7 @@ static var y_invert: float = 1.0
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
+@onready var animator: AnimationTree = $AnimationTree
 var crouching: bool = false # for enemy detection
 
 
@@ -43,6 +44,10 @@ func _physics_process(delta: float) -> void:
 		var accel: float = GROUND_ACCELERATION if is_on_floor() else AIR_ACCELERATION
 		var speed: float = CROUCH_SPEED if Input.is_action_pressed("crouch") else SPEED
 		horizontal_velocity = horizontal_velocity.move_toward(direction*speed, accel*delta)
+
+		if direction:
+			rotation.y += $CameraPivot.rotation.y
+			$CameraPivot.rotation.y = 0.0
 	else:
 		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, AIR_ACCELERATION*delta)
 		
@@ -60,9 +65,9 @@ func _process(delta: float) -> void:
 	var controller_direction: Vector2 = Input.get_vector("turn_left", "turn_right", "turn_up", "turn_down")
 	if controller_direction:
 		var camera_move: Vector2 = controller_direction * PI * delta * camera_sensitivity
-		rotate_y(-camera_move.x)
-		$CameraPivot.rotate_x(camera_move.y * y_invert)
-		$CameraPivot.rotation.x = clampf($CameraPivot.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
+		$CameraPivot.rotate_y(-camera_move.x)
+		$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
+		$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 
 
 const CAMERA_ANGLE_MAX = deg_to_rad(70)
@@ -72,9 +77,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var camera_move: Vector2 = event.screen_relative / screen_size * -PI * camera_sensitivity
 
 			# TODO: rotate camera around player model
-			rotate_y(camera_move.x)
-			$CameraPivot.rotate_x(camera_move.y * y_invert)
-			$CameraPivot.rotation.x = clampf($CameraPivot.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
+			$CameraPivot.rotate_y(camera_move.x)
+			$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
+			$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 	elif event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -88,8 +93,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
-			var f: Callable = $AnimationPlayer.play if crouching else $AnimationPlayer.play_backwards
-			f.call("Crouch")
+			var crouch_tween: Tween = create_tween()
+			var final_value: float = 1.0 if crouching else 0.0
+			crouch_tween.tween_property(animator, "parameters/Crouch/blend_amount", final_value, 0.125)
 
 
 func _on_game_settings_continue_pressed() -> void:
