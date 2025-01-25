@@ -78,6 +78,7 @@ menu={
 3d_physics/layer_2="Dynamic World"
 3d_physics/layer_4="Bubble Beasts"
 3d_physics/layer_6="Player"
+3d_physics/layer_8="Pointy Things Ouch"
 
 [physics]
 

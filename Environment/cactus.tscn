@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1jvf850kdle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pib0m"]
+albedo_color = Color(0, 0.284269, 0.123593, 1)
+metallic_specular = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sts4y"]
+radius = 0.67034
+height = 2.33
+
+[node name="Cactus" type="Area3D"]
+collision_layer = 128
+collision_mask = 32
+
+[node name="Visual Placeholder" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_pib0m")
+
+[node name="Top" type="CSGSphere3D" parent="Visual Placeholder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radial_segments = 8
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61339, 0)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, -0.5)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.5)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5, 1, 0)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 1, 0)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, -0.353553, 0.552863, -0.353553)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 0.353553, 0.552863, 0.353553)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(-3.09086e-08, 0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, 0.707107, 0.353553, 0.552863, -0.353553)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="Visual Placeholder"]
+transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, 1, -4.37114e-08, 0, 3.09086e-08, 0.707107, 0.707107, -0.353553, 0.552863, 0.353553)
+radius = 0.17
+height = 0.33
+cone = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668856, 0)
+shape = SubResource("CapsuleShape3D_sts4y")
