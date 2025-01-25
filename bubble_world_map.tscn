@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=20 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
+[ext_resource type="NavigationMesh" uid="uid://cir6womydt81o" path="res://new_navigation_mesh.res" id="3_donix"]
 [ext_resource type="PackedScene" uid="uid://c3xxmyyaacn6y" path="res://TutorialPopup/tutorial_text.tscn" id="4_1krrg"]
+[ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="4_7jfbh"]
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
@@ -70,6 +72,13 @@ albedo_color = Color(0.571918, 0.39397, 0.289686, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fkp6"]
 albedo_color = Color(0.0797454, 0.441318, 0.0867042, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_ybibw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.39711, 0.346241, -3.57548, 0, 0, 0, 0, 0, 0, -2.48915, 0.0882788, -4.43643, 0, 0, 0, 0, 0, 0, -5.24222, 0.1722, -0.992601, 0, 0, 0, 0, 0, 0, -4.03069, 0.342986, 1.71422, 0, 0, 0, 0, 0, 0, 5.1157, 0.243605, 6.02063, 0, 0, 0, 0, 0, 0, 7.21857, -0.181262, -2.13426, 0, 0, 0, 0, 0, 0, 5.0038, 0.326994, -1.98621, 0, 0, 0, 0, 0, 0, 2.39711, 0.446241, -3.57548),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
 [node name="BubbleWorldMap" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -112,7 +121,8 @@ respawn_pos = NodePath("../RespawnPoint")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillFloor"]
 shape = SubResource("WorldBoundaryShape3D_pvp1t")
 
-[node name="Islands" type="Node3D" parent="."]
+[node name="Islands" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("3_donix")
 
 [node name="BasicIsland" type="CSGSphere3D" parent="Islands"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -18)
@@ -161,6 +171,12 @@ operation = 2
 radius = 16.0
 height = 14.0
 material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="Path3D" type="Path3D" parent="Islands/BasicIsland2"]
+curve = SubResource("Curve3D_ybibw")
+
+[node name="DefenseBeast" parent="Islands/BasicIsland2" node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+default_curve = NodePath("../Path3D")
 
 [node name="BasicIsland3" type="CSGSphere3D" parent="Islands"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -83)

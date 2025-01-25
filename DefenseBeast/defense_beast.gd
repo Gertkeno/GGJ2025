@@ -5,7 +5,7 @@ class_name DefenseBeast
 @onready var default_behavior: DefaultBehavior = $DefaultBehavior
 @onready var defense_behavior: DefenseBehavior = $DefenseBehavior
 
-@export var default_curve: Curve3D
+@export var default_curve: Path3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

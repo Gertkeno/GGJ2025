@@ -33,9 +33,9 @@ func process_behavior(delta: float) -> void:
 	bubble_animal.direction = direction
 	bubble_animal.apply_movement()
 	
-func init_curve_points(curve: Curve3D) -> void:
-	for pt in curve.point_count:
-		curve_points.append(curve.get_point_position(pt))
+func init_curve_points(path: Path3D) -> void:
+	for pt in path.curve.point_count:
+		curve_points.append(path.curve.get_point_position(pt) + path.global_position)
 	update_target_position()
 
 # func find_closest_curve_point() -> Vector3:
