@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://by4by86dfprkd"]
+
+[node name="NeutralBubbleAnimal" type="CharacterBody3D"]
