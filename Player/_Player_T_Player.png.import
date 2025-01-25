@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxkqlsmifcu1o"
-path.s3tc="res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.s3tc.ctex"
-path.etc2="res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.etc2.ctex"
+path.bptc="res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.bptc.ctex"
+path.astc="res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -16,12 +16,12 @@ generator_parameters={
 [deps]
 
 source_file="res://Player/_Player_T_Player.png"
-dest_files=["res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.s3tc.ctex", "res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.etc2.ctex"]
+dest_files=["res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.bptc.ctex", "res://.godot/imported/_Player_T_Player.png-05a22e6583b0f153f2225823128c68e8.astc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

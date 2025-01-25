@@ -68,6 +68,7 @@ func _process(delta: float) -> void:
 		$CameraPivot.rotate_y(-camera_move.x)
 		$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
 		$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
+	animator.set("parameters/Walk/WalkSpeed/scale", velocity.length() / SPEED)
 
 
 const CAMERA_ANGLE_MAX = deg_to_rad(70)
@@ -76,7 +77,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			var camera_move: Vector2 = event.screen_relative / screen_size * -PI * camera_sensitivity
 
-			# TODO: rotate camera around player model
 			$CameraPivot.rotate_y(camera_move.x)
 			$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
 			$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
@@ -95,7 +95,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			crouching = event.is_pressed()
 			var crouch_tween: Tween = create_tween()
 			var final_value: float = 1.0 if crouching else 0.0
-			crouch_tween.tween_property(animator, "parameters/Crouch/blend_amount", final_value, 0.125)
+			crouch_tween.tween_property(animator, "parameters/Idle/blend_position", final_value, 0.125)
 
 
 func _on_game_settings_continue_pressed() -> void:

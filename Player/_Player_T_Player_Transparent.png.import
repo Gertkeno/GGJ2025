@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgvjlf50uu1p1"
-path.s3tc="res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.s3tc.ctex"
-path.etc2="res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.etc2.ctex"
+path.bptc="res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.bptc.ctex"
+path.astc="res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -16,12 +16,12 @@ generator_parameters={
 [deps]
 
 source_file="res://Player/_Player_T_Player_Transparent.png"
-dest_files=["res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.s3tc.ctex", "res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.etc2.ctex"]
+dest_files=["res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.bptc.ctex", "res://.godot/imported/_Player_T_Player_Transparent.png-e61d7606537f304c079cc2f74bbab600.astc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
