@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bavfrwdoykxp"
-path="res://.godot/imported/Mrs Beasley.ttf-1350401bd95390ccf31f748df5e8c640.fontdata"
+path="res://.godot/imported/Mrs Beasley.ttf-1d0407a0fd182465f5a901328507bc1e.fontdata"
 
 [deps]
 
-source_file="res://MainMenu/MrsBeasley/Mrs Beasley.ttf"
-dest_files=["res://.godot/imported/Mrs Beasley.ttf-1350401bd95390ccf31f748df5e8c640.fontdata"]
+source_file="res://Menus/MrsBeasley/Mrs Beasley.ttf"
+dest_files=["res://.godot/imported/Mrs Beasley.ttf-1d0407a0fd182465f5a901328507bc1e.fontdata"]
 
 [params]
 
