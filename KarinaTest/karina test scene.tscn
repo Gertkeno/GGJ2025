@@ -1,8 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb4isqtwgj7ei"]
-
-[ext_resource type="PackedScene" uid="uid://38rvs7550mu" path="res://Player/_player.gltf" id="1_h88ae"]
+[gd_scene format=3 uid="uid://cb4isqtwgj7ei"]
 
 [node name="KarinaTestScene" type="Node3D"]
-
-[node name="_player" parent="." instance=ExtResource("1_h88ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00615942, 0, 0.0136425)
