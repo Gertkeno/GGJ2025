@@ -5430,7 +5430,21 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"M_Bubble": {
+"use_external/enabled": true,
+"use_external/path": "res://Bubble/BubbleMat.tres"
+},
+"M_Player": {
+"use_external/enabled": true,
+"use_external/path": "res://Player/player_body.tres"
+},
+"M_Player_Transparent": {
+"use_external/enabled": true,
+"use_external/path": "res://Player/player_face.tres"
+}
 }
 }
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=0
