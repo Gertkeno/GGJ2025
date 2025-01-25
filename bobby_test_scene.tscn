@@ -1,10 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://vnpmxqbs7r86"]
+[gd_scene load_steps=2 format=3 uid="uid://vnpmxqbs7r86"]
 
-[ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/neutral_bubble_animal.tscn" id="1_idjio"]
-[ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="2_byurr"]
-[ext_resource type="Script" path="res://DefenseBeast/defense_beast.gd" id="2_jkigi"]
-
-[sub_resource type="Curve3D" id="Curve3D_l6trd"]
+[ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="1_ifvjf"]
 
 [node name="BobbyTestScene" type="Node3D"]
 
@@ -14,21 +10,7 @@ use_collision = true
 radius = 11.0
 height = 1.0
 
-[node name="DefenseBeast" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
-script = ExtResource("2_jkigi")
-
-[node name="DefaultBehavior" type="Node3D" parent="DefenseBeast"]
-
-[node name="Path3D" type="Path3D" parent="DefenseBeast/DefaultBehavior"]
-curve = SubResource("Curve3D_l6trd")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="DefenseBeast/DefaultBehavior/Path3D"]
-
-[node name="NeutralBubbleAnimal" parent="DefenseBeast/DefaultBehavior/Path3D/PathFollow3D" instance=ExtResource("1_idjio")]
-
-[node name="DefenseBehavior" type="Node3D" parent="DefenseBeast"]
-script = ExtResource("2_byurr")
+[node name="DefenseBeast" parent="." instance=ExtResource("1_ifvjf")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 2.46, 2.99)
