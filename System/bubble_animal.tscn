@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://by4by86dfprkd"]
+[gd_scene load_steps=6 format=3 uid="uid://by4by86dfprkd"]
 
 [ext_resource type="Script" path="res://System/bubble_animal.gd" id="1_qslwe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bx24e"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5tddd"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xy4i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g7hgu"]
 
 [node name="BubbleAnimal" type="CharacterBody3D"]
 script = ExtResource("1_qslwe")
@@ -12,8 +16,21 @@ script = ExtResource("1_qslwe")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_bx24e")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.431424, 0, 0, 0, -1.26316e-08, -0.416704, 0, 0.288976, -1.82147e-08, 0, 0, -0.687681)
+mesh = SubResource("CapsuleMesh_5tddd")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_7xy4i")
 
+[node name="VisionArea" type="Area3D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1.938)
+shape = SubResource("SphereShape3D_g7hgu")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_collision_entered_tree"]

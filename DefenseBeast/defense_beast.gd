@@ -10,6 +10,7 @@ class_name DefenseBeast
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	default_behavior.init_curve_points(default_curve)
+	defense_behavior.bubble_animal = bubble_animal
 	pass # Replace with function body.
 
 
@@ -26,8 +27,12 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	# TODO have it change behavior if it notices the player.
 	if event.is_action_pressed("jump"):
-		if bubble_animal.get_parent() == default_behavior:
-			bubble_animal.reparent(defense_behavior)
-		else:
+		if bubble_animal.get_parent() == defense_behavior:
 			bubble_animal.reparent(default_behavior)
-		pass
+
+func _on_bubble_animal_notice_player(player: Player) -> void:
+	# do the collisioning
+	if bubble_animal.get_parent() == default_behavior:
+		defense_behavior.player = player
+		bubble_animal.reparent(defense_behavior)
+	
