@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b4qyratd0pfy8" path="res://System/game_settings.tscn" id="2_6stdy"]
 [ext_resource type="PackedScene" uid="uid://di7kjb7yshrqr" path="res://Player/_Player.glb" id="2_a56bu"]
 [ext_resource type="Material" uid="uid://c14wcr4tvi78f" path="res://Bubble/BubbleMat.tres" id="3_1s7s4"]
-[ext_resource type="Texture2D" uid="uid://pnktjf1g18vo" path="res://Player/Textures/_T_Player_Transparent.png" id="3_twb6u"]
+[ext_resource type="Texture2D" path="res://Player/Textures/player_face.png" id="3_twb6u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bepga"]
 
