@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=16 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
+[ext_resource type="PackedScene" uid="uid://c3xxmyyaacn6y" path="res://TutorialPopup/tutorial_text.tscn" id="4_1krrg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -171,3 +172,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4)
 
 [node name="Cactus2" parent="." instance=ExtResource("3_7ys0e")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 12.82, 0, 5.8)
+
+[node name="TutorialText" parent="." instance=ExtResource("4_1krrg")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128495, -8)
+action_icon = "↧/␺"
+
+[node name="TutorialTextCatch" parent="." instance=ExtResource("4_1krrg")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128495, -75.8275)
+action_text = "GAME_ACTION_CAST_FISHING"

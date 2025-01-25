@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vnpmxqbs7r86"]
 
-[ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="1_ifvjf"]
-[ext_resource type="Curve3D" uid="uid://hm1okgxcurwp" path="res://DefenseBeast/test_curve.tres" id="2_db824"]
+[ext_resource type="PackedScene" path="res://DefenseBeast/defense_beast.tscn" id="1_ifvjf"]
+[ext_resource type="Curve3D" path="res://DefenseBeast/test_curve.tres" id="2_db824"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_smj01"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

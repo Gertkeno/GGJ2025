@@ -11,14 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4s1sl")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Sensitivity" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="Sensitivity"]
 layout_mode = 2
 text = "MENU_CAMERA"
 
-[node name="CameraSlider" type="HSlider" parent="HBoxContainer"]
+[node name="CameraSlider" type="HSlider" parent="Sensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -27,15 +27,31 @@ max_value = 3.0
 step = 0.05
 value = 1.0
 
-[node name="YInvert" type="CheckButton" parent="HBoxContainer"]
+[node name="YInvert" type="CheckButton" parent="Sensitivity"]
 layout_mode = 2
 text = "MENU_CAMERA_INVERTED"
+
+[node name="Audio" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Audio"]
+layout_mode = 2
+text = "MENU_OPTIONS_SOUND_VOLUME"
+
+[node name="MasterVolume" type="HSlider" parent="Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Close" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Continue" type="Button" parent="Close"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "MENU_LABEL_CONTINUE"
@@ -44,7 +60,8 @@ text = "MENU_LABEL_CONTINUE"
 layout_mode = 2
 text = "MENU_LABEL_QUIT"
 
-[connection signal="value_changed" from="HBoxContainer/CameraSlider" to="." method="_on_camera_slider_value_changed"]
-[connection signal="toggled" from="HBoxContainer/YInvert" to="." method="_on_y_invert_toggled"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="value_changed" from="Sensitivity/CameraSlider" to="." method="_on_camera_slider_value_changed"]
+[connection signal="toggled" from="Sensitivity/YInvert" to="." method="_on_y_invert_toggled"]
 [connection signal="pressed" from="Close/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Close/Quit" to="." method="_on_quit_pressed"]

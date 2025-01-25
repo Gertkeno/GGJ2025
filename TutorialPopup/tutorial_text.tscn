@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3xxmyyaacn6y"]
+[gd_scene load_steps=4 format=3 uid="uid://c3xxmyyaacn6y"]
 
+[ext_resource type="Script" path="res://TutorialPopup/tutorial_text.gd" id="1_jj304"]
 [ext_resource type="Material" uid="uid://lvl0e73x7fgp" path="res://TutorialPopup/HologramMat.tres" id="1_upbiv"]
 [ext_resource type="FontFile" uid="uid://ew066fir1d13" path="res://TutorialPopup/PromptFont/promptfont.otf" id="1_vqfy1"]
 
 [node name="TutorialText" type="Node3D"]
+script = ExtResource("1_jj304")
+action_text = "GAME_ACTION_JUMP"
+action_icon = "↦/⟵"
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(0.593496, 0, 0, 0, 0.593496, 0, 0, 0, 0.593496, 0, 0, 0)
@@ -19,7 +23,7 @@ cone = true
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 2
-text = "AHH JUMP (↧/␺)"
+text = "GAME_ACTION_JUMP⟵"
 font = ExtResource("1_vqfy1")
 font_size = 102
 outline_size = 22
