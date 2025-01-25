@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
+	# TODO have it change behavior if it notices the player.
 	if event.is_action_pressed("jump"):
 		if bubble_animal.get_parent() == default_behavior:
 			bubble_animal.reparent(defense_behavior)
