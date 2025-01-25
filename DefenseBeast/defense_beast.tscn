@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bso8oicnpy2nr"]
+[gd_scene load_steps=4 format=3 uid="uid://bso8oicnpy2nr"]
 
 [ext_resource type="Script" path="res://DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/neutral_bubble_animal.tscn" id="2_30sx1"]
 [ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="3_cdged"]
-
-[sub_resource type="Curve3D" id="Curve3D_l6trd"]
 
 [node name="DefenseBeast" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
@@ -13,11 +11,12 @@ script = ExtResource("1_363l7")
 [node name="DefaultBehavior" type="Node3D" parent="."]
 
 [node name="Path3D" type="Path3D" parent="DefaultBehavior"]
-curve = SubResource("Curve3D_l6trd")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="DefaultBehavior/Path3D"]
+transform = Transform3D(-0.00796779, 0, 0.999968, 0, 1, 0, -0.999968, 0, -0.00796779, 0, 0, 0)
 
 [node name="NeutralBubbleAnimal" parent="DefaultBehavior/Path3D/PathFollow3D" instance=ExtResource("2_30sx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="DefenseBehavior" type="Node3D" parent="."]
 script = ExtResource("3_cdged")
