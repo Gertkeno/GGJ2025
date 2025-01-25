@@ -22,3 +22,7 @@ func _on_continue_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
 		%Continue.grab_focus()
+
+
+func _on_master_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
