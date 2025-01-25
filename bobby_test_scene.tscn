@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnpmxqbs7r86"]
+
+[ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/neutral_bubble_animal.tscn" id="1_idjio"]
+[ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="2_byurr"]
+
+[sub_resource type="Curve3D" id="Curve3D_l6trd"]
+
+[node name="BobbyTestScene" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+radius = 11.0
+height = 1.0
+
+[node name="NeutralBubbleAnimal" parent="." instance=ExtResource("1_idjio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
+
+[node name="DefensePet" type="Node3D" parent="NeutralBubbleAnimal"]
+
+[node name="DefaultBehavior" type="Node3D" parent="NeutralBubbleAnimal/DefensePet"]
+
+[node name="Path3D" type="Path3D" parent="NeutralBubbleAnimal/DefensePet/DefaultBehavior"]
+curve = SubResource("Curve3D_l6trd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="NeutralBubbleAnimal/DefensePet/DefaultBehavior/Path3D"]
+
+[node name="NeutralBubbleAnimal" parent="NeutralBubbleAnimal/DefensePet/DefaultBehavior/Path3D/PathFollow3D" instance=ExtResource("1_idjio")]
+
+[node name="DefenseBehavior" type="Node3D" parent="NeutralBubbleAnimal/DefensePet"]
+script = ExtResource("2_byurr")
