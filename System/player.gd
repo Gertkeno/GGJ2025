@@ -42,3 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_y(event.screen_relative.x / screen_size.x * PI)
 			$CameraPivot.rotate_x(event.screen_relative.y / screen_size.y * PI)
+	elif event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	elif event.is_action_pressed("menu"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

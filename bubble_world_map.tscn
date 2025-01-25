@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dydmub3swggmv"]
+
+[ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3q27d"]
+sky_material = SubResource("ProceduralSkyMaterial_8syn1")
+
+[sub_resource type="Environment" id="Environment_h62p6"]
+background_mode = 2
+sky = SubResource("Sky_3q27d")
+tonemap_mode = 2
+
+[node name="BubbleWorldMap" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h62p6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+use_collision = true
+radius = 11.0
+height = 0.6
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -13)
+size = Vector3(6, 1, 6)
+
+[node name="Player" parent="." instance=ExtResource("1_swvyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
