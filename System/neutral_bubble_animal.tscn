@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://by4by86dfprkd"]
+[gd_scene load_steps=3 format=3 uid="uid://by4by86dfprkd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbt8y"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bols8"]
+material = SubResource("ShaderMaterial_bbt8y")
 
 [node name="NeutralBubbleAnimal" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_bols8")

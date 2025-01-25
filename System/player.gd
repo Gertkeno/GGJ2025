@@ -37,11 +37,13 @@ func _ready() -> void:
 	screen_size = DisplayServer.screen_get_size()
 
 
+const CAMERA_ANGLE_MAX = deg_to_rad(70)
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_y(-event.screen_relative.x / screen_size.x * PI)
 			$CameraPivot.rotate_x(-event.screen_relative.y / screen_size.y * PI)
+			$CameraPivot.rotation.x = clampf($CameraPivot.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 	elif event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("menu"):
