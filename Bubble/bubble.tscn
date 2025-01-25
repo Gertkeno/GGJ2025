@@ -3,5 +3,7 @@
 [ext_resource type="Material" uid="uid://c14wcr4tvi78f" path="res://Bubble/BubbleMat.tres" id="1_r7nj5"]
 
 [node name="CSGSphere3D" type="CSGSphere3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50694, 2.88775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36166, 1.49749, 3.21668)
+radial_segments = 42
+rings = 66
 material = ExtResource("1_r7nj5")

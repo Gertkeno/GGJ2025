@@ -11,6 +11,14 @@ uniform vec2 distortion_direction = vec2(1.0, 1.0);
 uniform float distortion_scale : hint_range(0.1, 10.0) = 1.0;
 uniform float distortion_factor : hint_range(0.1, 10.0) = 1.0;
 
+// Ripple Effect
+uniform float ripple_state : hint_range(0.0, 1.0) = 0.0;
+uniform float ripple_strength : hint_range(0.0, 10.0) = 1.0;
+uniform float ripple_speed : hint_range(0.0, 30.0) = 20.0;
+uniform float point_strength : hint_range(0.1, 2.0) = 1.5;
+uniform vec3 ripple_direction = vec3(0.0, 1.0, 0.0);
+
+
 float fresnel(vec3 normal, vec3 view, float power) {
 	return pow(1.0 - dot(normal, view), power);
 }
@@ -29,11 +37,25 @@ float fractional_brownian_motion(vec2 point) {
 	return value;
 }
 
+float calculate_distortion(vec2 uv) {
+	vec2 distortion = distortion_direction * TIME * 0.1;
+	vec2 distorted_point = uv * distortion_scale + distortion;
+	return fractional_brownian_motion(distorted_point) * distortion_factor * 0.1;
+}
+
+float calculate_ripple(vec3 normal, float time) {
+	float ripple_effect = dot(normal, normalize(ripple_direction));
+	float ripple = sin(ripple_speed * (ripple_effect - time));
+	float ripple_divisor = (ripple_effect + point_strength) * 1.5;
+	float ripple_intensity = 0.1 * ripple / ripple_divisor * ripple_strength;
+	return ripple_intensity * ripple_state;
+}
+
 void vertex() {
 	// Called for every vertex the material is visible on.
-	vec2 distortion = distortion_direction * TIME * 0.1;
-	float displacement = fractional_brownian_motion(UV * distortion_scale + distortion) * distortion_factor;
-	VERTEX += NORMAL * displacement * 0.1;
+	vec3 time_displacement = NORMAL * calculate_distortion(UV);
+	vec3 ripple_displacement = NORMAL * calculate_ripple(NORMAL, TIME);
+	VERTEX += time_displacement + ripple_displacement;
 }
 
 void fragment() {
