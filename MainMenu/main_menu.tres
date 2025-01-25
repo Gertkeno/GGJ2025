@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://benc2fv0e5te2"]
+
+[ext_resource type="FontFile" uid="uid://bavfrwdoykxp" path="res://MainMenu/MrsBeasley/Mrs Beasley.ttf" id="1_fxlj3"]
+
+[resource]
+default_font = ExtResource("1_fxlj3")
+Button/font_sizes/font_size = 32
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+VBoxContainer/constants/separation = 16
