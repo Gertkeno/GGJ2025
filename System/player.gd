@@ -15,6 +15,7 @@ static var y_invert: float = 1.0
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
+var crouching: bool = false # for enemy detection
 
 
 func _physics_process(delta: float) -> void:
@@ -28,7 +29,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and hurt_timer.is_stopped():
 		var last_collision := get_last_slide_collision()
 		# set respawn point if on *solid* ground
-		if last_collision.get_collider().collision_layer == 1:
+		# This is evil, mayhaps Mac compile?
+		if last_collision and last_collision.get_collider().collision_layer == 1:
 			set_meta("last_jump", position)
 		vertical_velocity = JUMP_VELOCITY * up_direction
 
@@ -83,6 +85,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("catch"):
 		if catch():
 			pass
+	elif event.is_action("crouch"):
+		if crouching != event.is_pressed():
+			crouching = event.is_pressed()
+			var f: Callable = $AnimationPlayer.play if crouching else $AnimationPlayer.play_backwards
+			f.call("Crouch")
 
 
 func _on_game_settings_continue_pressed() -> void:

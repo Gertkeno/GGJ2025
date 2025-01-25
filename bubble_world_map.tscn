@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=20 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
+[ext_resource type="NavigationMesh" uid="uid://cir6womydt81o" path="res://new_navigation_mesh.res" id="3_donix"]
 [ext_resource type="PackedScene" uid="uid://c3xxmyyaacn6y" path="res://TutorialPopup/tutorial_text.tscn" id="4_1krrg"]
+[ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="4_7jfbh"]
+[ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,13 +64,20 @@ _data = {
 "moving platofrm": SubResource("Animation_oq74b")
 }
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pvp1t"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h82wv"]
 albedo_color = Color(0.571918, 0.39397, 0.289686, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fkp6"]
 albedo_color = Color(0.0797454, 0.441318, 0.0867042, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pvp1t"]
+[sub_resource type="Curve3D" id="Curve3D_ybibw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.39711, 0.346241, -3.57548, 0, 0, 0, 0, 0, 0, -2.48915, 0.0882788, -4.43643, 0, 0, 0, 0, 0, 0, -5.24222, 0.1722, -0.992601, 0, 0, 0, 0, 0, 0, -4.03069, 0.342986, 1.71422, 0, 0, 0, 0, 0, 0, 5.1157, 0.243605, 6.02063, 0, 0, 0, 0, 0, 0, 7.21857, -0.181262, -2.13426, 0, 0, 0, 0, 0, 0, 5.0038, 0.326994, -1.98621, 0, 0, 0, 0, 0, 0, 2.39711, 0.446241, -3.57548),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [node name="BubbleWorldMap" type="Node3D"]
 
@@ -102,62 +112,6 @@ autoplay = "moving platofrm"
 [node name="RespawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="BasicIsland" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -18)
-use_collision = true
-radius = 14.0
-material = SubResource("StandardMaterial3D_h82wv")
-metadata/_edit_group_ = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-operation = 2
-radius = 16.0
-height = 14.0
-material = SubResource("StandardMaterial3D_3fkp6")
-
-[node name="BasicIsland4" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.1566, 0, 0.810531)
-use_collision = true
-radius = 14.0
-material = SubResource("StandardMaterial3D_h82wv")
-metadata/_edit_group_ = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-operation = 2
-radius = 16.0
-height = 14.0
-material = SubResource("StandardMaterial3D_3fkp6")
-
-[node name="BasicIsland2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, -22)
-use_collision = true
-radius = 14.0
-material = SubResource("StandardMaterial3D_h82wv")
-metadata/_edit_group_ = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-operation = 2
-radius = 16.0
-height = 14.0
-material = SubResource("StandardMaterial3D_3fkp6")
-
-[node name="BasicIsland3" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -83)
-use_collision = true
-radius = 14.0
-material = SubResource("StandardMaterial3D_h82wv")
-metadata/_edit_group_ = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-operation = 2
-radius = 16.0
-height = 14.0
-material = SubResource("StandardMaterial3D_3fkp6")
-
 [node name="KillFloor" type="Area3D" parent="." node_paths=PackedStringArray("respawn_pos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -40, 0)
 collision_mask = 40
@@ -167,16 +121,92 @@ respawn_pos = NodePath("../RespawnPoint")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillFloor"]
 shape = SubResource("WorldBoundaryShape3D_pvp1t")
 
-[node name="Cactus" parent="." instance=ExtResource("3_7ys0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4)
+[node name="Islands" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("3_donix")
 
-[node name="Cactus2" parent="." instance=ExtResource("3_7ys0e")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 12.82, 0, 5.8)
+[node name="BasicIsland" type="CSGSphere3D" parent="Islands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -18)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
 
-[node name="TutorialText" parent="." instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128495, -8)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Islands/BasicIsland"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="BasicIsland4" type="CSGSphere3D" parent="Islands"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.1566, 0, 0.810531)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="Cactus" parent="Islands/BasicIsland4" instance=ExtResource("3_7ys0e")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 12.2653, 0, 0.0154939)
+
+[node name="Cactus2" parent="Islands/BasicIsland4" instance=ExtResource("3_7ys0e")]
+transform = Transform3D(1.73867, 0, 0.465874, 0, 1.8, 0, -0.465874, 0, 1.73867, 12.5573, 0, 1.80075)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Islands/BasicIsland4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="BasicIsland2" type="CSGSphere3D" parent="Islands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1, -22)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Islands/BasicIsland2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="Path3D" type="Path3D" parent="Islands/BasicIsland2"]
+curve = SubResource("Curve3D_ybibw")
+
+[node name="DefenseBeast" parent="Islands/BasicIsland2" node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+default_curve = NodePath("../Path3D")
+
+[node name="BasicIsland3" type="CSGSphere3D" parent="Islands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -83)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Islands/BasicIsland3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="TutorialText" parent="Islands" instance=ExtResource("4_1krrg")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128496, -8)
 action_icon = "↧/␺"
 
-[node name="TutorialTextCatch" parent="." instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128495, -75.8275)
+[node name="TutorialTextCatch" parent="Islands" instance=ExtResource("4_1krrg")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128496, -75.8275)
 action_text = "GAME_ACTION_CAST_FISHING"
+
+[node name="TutorialTextSneak" parent="Islands" instance=ExtResource("4_1krrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.1285, -15)
+action_text = "GAME_ACTION_CROUCH"
+action_icon = "↜/␩"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gu4s6")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
