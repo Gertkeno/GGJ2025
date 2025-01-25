@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4qyratd0pfy8"]
+
+[ext_resource type="Script" path="res://System/game_settings.gd" id="1_4s1sl"]
+
+[node name="GameSettings" type="VBoxContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4s1sl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "MENU_CAMERA"
+
+[node name="CameraSlider" type="HSlider" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.05
+max_value = 3.0
+step = 0.05
+value = 1.0
+
+[node name="YInvert" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+text = "MENU_CAMERA_INVERTED"
+
+[node name="Close" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Continue" type="Button" parent="Close"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "MENU_LABEL_CONTINUE"
+
+[node name="Quit" type="Button" parent="Close"]
+layout_mode = 2
+text = "MENU_LABEL_QUIT"
+
+[connection signal="value_changed" from="HBoxContainer/CameraSlider" to="." method="_on_camera_slider_value_changed"]
+[connection signal="toggled" from="HBoxContainer/YInvert" to="." method="_on_y_invert_toggled"]
+[connection signal="pressed" from="Close/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Close/Quit" to="." method="_on_quit_pressed"]

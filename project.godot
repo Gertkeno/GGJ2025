@@ -15,6 +15,10 @@ run/main_scene="res://bubble_world_map.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [input]
 
 forward={
@@ -71,6 +75,30 @@ menu={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+turn_left={
+"deadzone": 0.15,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
+turn_right={
+"deadzone": 0.15,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+turn_up={
+"deadzone": 0.15,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
+]
+}
+turn_down={
+"deadzone": 0.15,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translation/PolyglotGamedev.ar.translation", "res://Translation/PolyglotGamedev.bg.translation", "res://Translation/PolyglotGamedev.bs.translation", "res://Translation/PolyglotGamedev.cs.translation", "res://Translation/PolyglotGamedev.da.translation", "res://Translation/PolyglotGamedev.de.translation", "res://Translation/PolyglotGamedev.el.translation", "res://Translation/PolyglotGamedev.en.translation", "res://Translation/PolyglotGamedev.es.translation", "res://Translation/PolyglotGamedev.fi.translation", "res://Translation/PolyglotGamedev.fr.translation", "res://Translation/PolyglotGamedev.he.translation", "res://Translation/PolyglotGamedev.hu.translation", "res://Translation/PolyglotGamedev.it.translation", "res://Translation/PolyglotGamedev.ja.translation", "res://Translation/PolyglotGamedev.ko.translation", "res://Translation/PolyglotGamedev.nb.translation", "res://Translation/PolyglotGamedev.nl.translation", "res://Translation/PolyglotGamedev.pl.translation", "res://Translation/PolyglotGamedev.pt.translation", "res://Translation/PolyglotGamedev.ro.translation", "res://Translation/PolyglotGamedev.ru.translation", "res://Translation/PolyglotGamedev.sv.translation", "res://Translation/PolyglotGamedev.th.translation", "res://Translation/PolyglotGamedev.tr.translation", "res://Translation/PolyglotGamedev.zh.translation", "res://Translation/PolyglotGamedev.zh_TW.translation", "res://Translation/PolyglotGamedev.pt_PT.translation")
 
 [layer_names]
 

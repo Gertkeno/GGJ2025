@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=15 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
+[ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
+[ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -58,6 +60,14 @@ _data = {
 "moving platofrm": SubResource("Animation_oq74b")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h82wv"]
+albedo_color = Color(0.571918, 0.39397, 0.289686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fkp6"]
+albedo_color = Color(0.0797454, 0.441318, 0.0867042, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pvp1t"]
+
 [node name="BubbleWorldMap" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -67,17 +77,13 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h62p6")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-use_collision = true
-radius = 11.0
-height = 1.0
-
 [node name="Player" parent="." instance=ExtResource("1_swvyc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+collision_layer = 2
+collision_mask = 40
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
 mesh = SubResource("BoxMesh_peba3")
@@ -92,5 +98,76 @@ libraries = {
 }
 autoplay = "moving platofrm"
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="RespawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="BasicIsland" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -18)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="BasicIsland4" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.1566, 0, 0.810531)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="BasicIsland2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, -22)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="BasicIsland3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -83)
+use_collision = true
+radius = 14.0
+material = SubResource("StandardMaterial3D_h82wv")
+metadata/_edit_group_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicIsland3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+operation = 2
+radius = 16.0
+height = 14.0
+material = SubResource("StandardMaterial3D_3fkp6")
+
+[node name="KillFloor" type="Area3D" parent="." node_paths=PackedStringArray("respawn_pos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -40, 0)
+collision_mask = 40
+script = ExtResource("2_5yv2i")
+respawn_pos = NodePath("../RespawnPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillFloor"]
+shape = SubResource("WorldBoundaryShape3D_pvp1t")
+
+[node name="Cactus" parent="." instance=ExtResource("3_7ys0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4)
+
+[node name="Cactus2" parent="." instance=ExtResource("3_7ys0e")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 12.82, 0, 5.8)
