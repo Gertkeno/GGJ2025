@@ -90,3 +90,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_game_settings_continue_pressed() -> void:
 	$Settings.hide()
+
+
+func knockback(force: Vector3) -> void:
+	if hurt_timer.is_stopped():
+		velocity = force + up_direction * JUMP_VELOCITY
+	else:
+		velocity += force
+	hurt_timer.start()
