@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and hurt_timer.is_stopped():
+		var last_collision := get_last_slide_collision()
+		# set respawn point if on *solid* ground
+		if last_collision.get_collider().collision_layer == 1:
+			set_meta("last_jump", position)
 		vertical_velocity = JUMP_VELOCITY * up_direction
 
 	# Get the input direction and handle the movement/deceleration.
@@ -70,10 +74,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			$CameraPivot.rotation.x = clampf($CameraPivot.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 	elif event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event.is_action_pressed("menu"):
+
+	if event.is_action_pressed("menu"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$Settings.show()
 		get_tree().paused = true
+	elif event.is_action_pressed("catch"):
+		if $NetHitbox.has_overlapping_bodies():
+			for hit in $NetHitbox.get_overlapping_bodies():
+				print(hit)
+		else:
+			print("No catch! You fail!")
+			pass # failed to hit
 
 
 func _on_game_settings_continue_pressed() -> void:

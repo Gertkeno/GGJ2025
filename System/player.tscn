@@ -45,6 +45,7 @@ wait_time = 0.6
 one_shot = true
 
 [node name="Settings" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="Settings"]
 anchors_preset = 6
