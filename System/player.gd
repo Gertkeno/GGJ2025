@@ -30,3 +30,15 @@ func _physics_process(delta: float) -> void:
 	velocity = horizontal_velocity + vertical_velocity
 
 	move_and_slide()
+
+
+var screen_size: Vector2
+func _ready() -> void:
+	screen_size = DisplayServer.screen_get_size()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			rotate_y(event.screen_relative.x / screen_size.x * PI)
+			$CameraPivot.rotate_x(event.screen_relative.y / screen_size.y * PI)
