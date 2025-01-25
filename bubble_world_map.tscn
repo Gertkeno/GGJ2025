@@ -91,3 +91,6 @@ libraries = {
 "": SubResource("AnimationLibrary_gb2kq")
 }
 autoplay = "moving platofrm"
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
