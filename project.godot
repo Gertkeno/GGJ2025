@@ -74,7 +74,7 @@ menu={
 
 [physics]
 
-3d/default_gravity=6.5
+3d/default_gravity=4.5
 
 [rendering]
 

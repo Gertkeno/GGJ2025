@@ -13,13 +13,14 @@ script = ExtResource("1_fwsmy")
 shape = SubResource("CapsuleShape3D_bepga")
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.361918, 0)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-spring_length = 4.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482963, 0.12941)
+spring_length = 6.5
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8ofhx")
