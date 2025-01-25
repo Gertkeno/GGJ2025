@@ -23,7 +23,7 @@ cone = true
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 2
-text = "GAME_ACTION_JUMP⟵"
+text = "GAME_ACTION_JUMP ↦/⟵"
 font = ExtResource("1_vqfy1")
 font_size = 102
 outline_size = 22

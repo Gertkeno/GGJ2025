@@ -29,7 +29,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and hurt_timer.is_stopped():
 		var last_collision := get_last_slide_collision()
 		# set respawn point if on *solid* ground
-		if last_collision.get_collider().collision_layer == 1:
+		# This is evil, mayhaps Mac compile?
+		if last_collision and last_collision.get_collider().collision_layer == 1:
 			set_meta("last_jump", position)
 		vertical_velocity = JUMP_VELOCITY * up_direction
 
