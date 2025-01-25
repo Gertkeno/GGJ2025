@@ -14,6 +14,7 @@ static var y_invert: float = 1.0
 
 
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var net_hitbox: Area3D = $NetHitbox
 
 
 func _physics_process(delta: float) -> void:
@@ -80,12 +81,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Settings.show()
 		get_tree().paused = true
 	elif event.is_action_pressed("catch"):
-		if $NetHitbox.has_overlapping_bodies():
-			for hit in $NetHitbox.get_overlapping_bodies():
-				print(hit)
-		else:
-			print("No catch! You fail!")
-			pass # failed to hit
+		if catch():
+			pass
 
 
 func _on_game_settings_continue_pressed() -> void:
@@ -98,3 +95,14 @@ func knockback(force: Vector3) -> void:
 	else:
 		velocity += force
 	hurt_timer.start()
+
+
+func catch() -> bool:
+	if net_hitbox.has_overlapping_bodies():
+		var a_hit: bool = false
+		for hit in net_hitbox.get_overlapping_bodies():
+			print(hit)
+		return a_hit
+	else:
+		print("No catch! You fail!")
+	return false
