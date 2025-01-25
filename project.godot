@@ -72,6 +72,13 @@ menu={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Static World"
+3d_physics/layer_2="Dynamic World"
+3d_physics/layer_4="Bubble Beasts"
+3d_physics/layer_6="Player"
+
 [physics]
 
 3d/default_gravity=4.5
