@@ -102,8 +102,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			set_physics_process(false)
 			$CatchStunTimer.start()
 			var t_finish: float = $CameraPivot.rotation.y
-			var catch_tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5).from(t_finish + PI)
+			var catch_tween := create_tween()
+			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish - PI, 0.3) \
+				.set_ease(Tween.EASE_OUT) \
+				.set_trans(Tween.TRANS_QUAD)
+			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5) \
+				.from(t_finish + PI) \
+				.set_ease(Tween.EASE_OUT) \
+				.set_trans(Tween.TRANS_QUAD) \
+				.set_delay(0.2)
 			set_face_idx(1)
 		else:
 			set_face_idx(2)

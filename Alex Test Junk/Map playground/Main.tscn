@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dldd3obkxo5mx"]
+[gd_scene load_steps=39 format=3 uid="uid://dldd3obkxo5mx"]
 
 [ext_resource type="Shape3D" uid="uid://bsfpaolcoljuf" path="res://Alex Test Junk/Map playground/big_craters_collision.res" id="2_8wcvj"]
 [ext_resource type="PackedScene" uid="uid://dl4hxqrbpe0dd" path="res://Environment/Map Files/Map_Main_2.FBX" id="2_28fgy"]
@@ -13,6 +13,18 @@
 [ext_resource type="Shape3D" uid="uid://cs3rlfvcpwl8h" path="res://Alex Test Junk/pink_platform_collision.res" id="7_hmgw5"]
 [ext_resource type="PackedScene" uid="uid://qitdvbwsg26m" path="res://Environment/Cactus_SIngle_Cluster.tscn" id="9_wqgu7"]
 [ext_resource type="PackedScene" uid="uid://ca5myhyvxhckh" path="res://Alex Test Junk/floating_platform.tscn" id="11_lc8ds"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="12_awwia"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="13_tysme"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="14_me6gm"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="15_084cj"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="16_p27gd"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="17_v0q4d"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="18_ryrr3"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/offset_rotation.gd" id="19_euwyg"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="20_gpp8u"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="21_rt1kp"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="22_l4wjj"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="23_7oxu7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj5du"]
 albedo_texture = ExtResource("2_76pkd")
@@ -28,6 +40,91 @@ size = Vector3(8, 1, 8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r84id"]
 size = Vector3(8, 1, 8)
+
+[sub_resource type="Resource" id="Resource_43obv"]
+script = ExtResource("15_084cj")
+amount = 500
+enabled = true
+override_global_seed = true
+custom_seed = 16
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_nkmku"]
+script = ExtResource("16_p27gd")
+position = Vector3(3, 0, 3)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_tj8wk"]
+script = ExtResource("17_v0q4d")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = false
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_dk6vt"]
+script = ExtResource("18_ryrr3")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_eu3ob"]
+script = ExtResource("19_euwyg")
+operation = 0
+rotation = Vector3(90, 90, 90)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_kyxip"]
+script = ExtResource("20_gpp8u")
+operation = 1
+scale = Vector3(100, 100, 100)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_gqxmd"]
+script = ExtResource("13_tysme")
+stack = Array[ExtResource("14_me6gm")]([SubResource("Resource_43obv"), SubResource("Resource_nkmku"), SubResource("Resource_tj8wk"), SubResource("Resource_dk6vt"), SubResource("Resource_eu3ob"), SubResource("Resource_kyxip")])
+
+[sub_resource type="Curve3D" id="Curve3D_vnv83"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -201.138, 0, -157.623, 0, 0, 0, 0, 0, 0, -202.491, 0, 56.8731, 0, 0, 0, 0, 0, 0, 16.7004, 0, 179.441, 0, 0, 0, 0, 0, 0, 161.665, 0, 89.2301, 0, 0, 0, 0, 0, 0, 211.171, 0, -85.6485, 0, 0, 0, 0, 0, 0, 159.838, 0, -195.893),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Resource" id="Resource_6c6sv"]
+script = ExtResource("23_7oxu7")
+closed = false
+thickness = 200.0
+curve = SubResource("Curve3D_vnv83")
 
 [node name="Node3D" type="Node3D"]
 
@@ -703,18 +800,6 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2"]
 shape = SubResource("BoxShape3D_maklq")
 
-[node name="Node3D20" parent="." instance=ExtResource("5_s8in8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.465, 0, 58.313)
-
-[node name="Node3D21" parent="." instance=ExtResource("5_s8in8")]
-transform = Transform3D(0.989425, 0, 0.145047, 0, 1, 0, -0.145047, 0, 0.989425, 25.7742, 0, 72.5727)
-
-[node name="Node3D22" parent="." instance=ExtResource("5_s8in8")]
-transform = Transform3D(0.402922, 0, 0.915234, 0, 1, 0, -0.915234, 0, 0.402922, 112.334, 0, -2.78411)
-
-[node name="Node3D23" parent="." instance=ExtResource("5_s8in8")]
-transform = Transform3D(0.750584, 0, -0.660775, 0, 1, 0, 0.660775, 0, 0.750584, -150.2, 0, -31.2115)
-
 [node name="Node3D24" parent="." instance=ExtResource("6_nfy6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0883, 10.1432, -155.179)
 
@@ -852,6 +937,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7867, 12.9821, 34.7806)
 
 [node name="PointB" parent="FloatingPlatform3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4872, 0, -1.78453)
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+script = ExtResource("12_awwia")
+modifier_stack = SubResource("Resource_gqxmd")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("21_rt1kp")
+path = "res://Assets/Cac Large.fbx"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("22_l4wjj")
+shape = SubResource("Resource_6c6sv")
 
 [editable path="Map_Main_2"]
 [editable path="FloatingPlatform"]
