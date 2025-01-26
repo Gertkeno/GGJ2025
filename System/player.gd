@@ -12,6 +12,7 @@ static var camera_sensitivity: float = 1.0
 static var y_invert: float = 1.0
 #endregion
 
+@export var catch_particles: PackedScene
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
@@ -92,7 +93,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = true
 	elif event.is_action_pressed("catch"):
 		if catch():
-			pass
+			animator.active = false
+			set_physics_process(false)
+			$CatchStunTimer.start()
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
@@ -118,8 +121,18 @@ func catch() -> bool:
 	if net_hitbox.has_overlapping_bodies():
 		var a_hit: bool = false
 		for hit in net_hitbox.get_overlapping_bodies():
-			print(hit)
+			var clone: GPUParticles3D = catch_particles.instantiate()
+			clone.global_position = hit.global_position
+			add_sibling(clone)
+			clone.emitting = true
+			hit.get_parent().get_parent().queue_free()
+
 		return a_hit
 	else:
 		print("No catch! You fail!")
 	return false
+
+
+func _on_catch_stun_timer_timeout() -> void:
+	set_physics_process(true)
+	animator.active = true
