@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
-func process_behavior(_delta: float) -> void:
+func process_behavior(delta: float) -> void:
 	if is_nav_finished():
 		increment_curve_point()
 		update_target_position()
@@ -25,7 +25,7 @@ func process_behavior(_delta: float) -> void:
 	var direction: Vector3 = local_destination.normalized()
 	bubble_animal.reset_move_speed()
 	bubble_animal.direction = direction
-	bubble_animal.apply_movement()
+	bubble_animal.apply_movement(delta)
 
 
 func init_curve_points(path: Path3D) -> void:

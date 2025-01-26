@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="1_gn4yw"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="2_ek4cg"]
 [ext_resource type="PackedScene" uid="uid://bdfbnb33vy7hb" path="res://Assets/passive.glb" id="3_qpnde"]
-[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="4_bd7m2"]
+[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="4_bd7m2"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_x3urc"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3njs0"]
 
 [node name="PassiveBeast" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.494)
@@ -24,7 +24,7 @@ transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 
 surface_material_override/0 = ExtResource("4_bd7m2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("SphereShape3D_x3urc")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_3njs0")
 
 [editable path="DefaultBehavior/BubbleAnimal/passive"]
