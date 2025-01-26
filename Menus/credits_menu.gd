@@ -106,6 +106,7 @@ func _build_credits() -> void:
 		creature_title.bbcode_enabled = true
 		creature_title.theme = credit_theme
 		creature_title.fit_content = true
+		creature_title.clip_contents = false
 		credits_container.add_child(creature_title)
 		
 	_reset_position.call_deferred()
