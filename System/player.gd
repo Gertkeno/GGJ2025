@@ -5,7 +5,7 @@ const SPEED: float = 5.0
 const CROUCH_SPEED: float = 3.5
 const GROUND_ACCELERATION: float = 40.0
 const AIR_ACCELERATION: float = 5.0
-const JUMP_VELOCITY: float = 4.5
+const JUMP_VELOCITY: float = 5.5
 
 #region control options
 static var camera_sensitivity: float = 1.0

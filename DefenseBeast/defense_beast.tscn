@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bso8oicnpy2nr"]
+[gd_scene load_steps=9 format=3 uid="uid://bso8oicnpy2nr"]
 
 [ext_resource type="Script" path="res://DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="2_30sx1"]
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_ljxhn"]
 [ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="3_cdged"]
-[ext_resource type="PackedScene" uid="uid://dkne88ysu1rjf" path="res://Assets/Bub Defensive.fbx" id="4_a17be"]
+[ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
+[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_25x5b"]
 
@@ -20,11 +21,13 @@ script = ExtResource("1_363l7")
 script = ExtResource("2_ljxhn")
 
 [node name="BubbleAnimal" parent="DefaultBehavior" instance=ExtResource("2_30sx1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_mask = 171
 
-[node name="Bub Defensive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_a17be")]
-transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, -1, 0)
+[node name="defensive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_dcbrm")]
+transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, -1, 0)
+
+[node name="Cube_010" parent="DefaultBehavior/BubbleAnimal/defensive/Defensive/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("5_qagie")
 
 [node name="BullhornArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
 transform = Transform3D(-0.00796779, 0, -0.999969, 0, 1, 0, 0.999969, 0, -0.00796779, 0, 0, 0)
@@ -48,3 +51,5 @@ one_shot = true
 [connection signal="on_notice_player" from="DefaultBehavior/BubbleAnimal" to="." method="_on_bubble_animal_notice_player"]
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/BullhornArea" to="." method="_on_bullhorn_body_entered"]
 [connection signal="timeout" from="DefenseBehavior/DizzyTimer" to="." method="_on_dizzy_timer_timeout"]
+
+[editable path="DefaultBehavior/BubbleAnimal/defensive"]

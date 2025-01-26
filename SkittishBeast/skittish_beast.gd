@@ -7,6 +7,7 @@ class_name SkittishBeast
 
 @export var default_curve: Path3D
 @export_range(1.0, 20.0, 0.1) var distance_to_run_away: float = 7.0
+@export var descriptor: AnimalDescriptor
 
 var rng = RandomNumberGenerator.new()
 
@@ -16,15 +17,13 @@ func _ready() -> void:
 	default_behavior.init_curve_points(default_curve)
 	skittish_behavior.bubble_animal = bubble_animal
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
+
 func _physics_process(delta: float) -> void:
 	if bubble_animal.get_parent() == default_behavior:
 		default_behavior.process_behavior(delta) # do default behavior stuff
 	else:
 		skittish_behavior.process_behavior(delta) # do defense behavior stuff
+
 
 func _on_bubble_animal_notice_player(player: Player) -> void:
 	# do the collisioning
@@ -34,9 +33,9 @@ func _on_bubble_animal_notice_player(player: Player) -> void:
 		
 		bubble_animal.move_speed = 8
 		
-		var displacement = bubble_animal.global_position - player.global_position
+		var displacement: Vector3 = bubble_animal.global_position - player.global_position
 		displacement.normalized()
-		var random_angle = rng.randf_range(-0.349066, 0.349066)
+		var random_angle := rng.randf_range(-0.349066, 0.349066)
 		displacement.rotated(Vector3.UP, random_angle)
 		
 		displacement *= distance_to_run_away
