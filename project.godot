@@ -15,7 +15,7 @@ run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://Assets/bubble_ranch_logo.png"
 boot_splash/fullsize=false
-config/icon="res://icon.svg"
+config/icon="res://Assets/app_logo.png"
 
 [debug]
 
