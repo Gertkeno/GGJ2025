@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=23 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -80,6 +80,20 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Curve3D" id="Curve3D_xgyyy"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.31383, 0, 5.76466, 0, 0, 0, 0, 0, 0, 2.67772, 0, 14.194, 0, 0, 0, 0, 0, 0, -13.639, 0, 15.4584, 0, 0, 0, 0, 0, 0, -19.5395, 0, 6.12592, 0, 0, 0, 0, 0, 0, -11.5919, 0, -0.43689, 0, 0, 0, 0, 0, 0, 2.37667, 0, -1.15939, 0, 0, 0, 0, 0, 0, 6.65153, 0, 1.48981, 0, 0, 0, 0, 0, 0, 7.31383, 0, 5.76466),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_0l7ej"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.64307, 0, -11.666, 0, 0, 0, 0, 0, 0, 1.60158, 0, -8.50307, 0, 0, 0, 0, 0, 0, -1.16597, 0, -1.65009, 0, 0, 0, 0, 0, 0, -2.02762, 0, 5.59502, 0, 0, 0, 0, 0, 0, 0.0960312, 0, 7.98035, 0, 0, 0, 0, 0, 0, 1.76535, 0, 8.68321, 0, 0, 0, 0, 0, 0, 4.70861, 0, 8.41963, 0, 0, 0, 0, 0, 0, 7.73973, 0, 7.67284, 0, 0, 0, 0, 0, 0, 10.8587, 0, 6.79425, 0, 0, 0, 0, 0, 0, 11.913, 0, 4.15849, 0, 0, 0, 0, 0, 0, 13.0552, 0, 2.00595, 0, 0, 0, 0, 0, 0, 15.0759, 0, 0.160919, 0, 0, 0, 0, 0, 0, 14.1095, 0, -2.16733, 0, 0, 0, 0, 0, 0, 13.701, 0, -5.4645, 0, 0, 0, 0, 0, 0, 15.8535, 0, -8.27598, 0, 0, 0, 0, 0, 0, 17.0835, 0, -9.68172, 0, 0, 0, 0, 0, 0, 15.6339, 0, -12.1857, 0, 0, 0, 0, 0, 0, 12.8663, 0, -13.3278, 0, 0, 0, 0, 0, 0, 10.2306, 0, -13.3718, 0, 0, 0, 0, 0, 0, 6.62836, 0, -12.1418, 0, 0, 0, 0, 0, 0, 5.64307, 0, -11.666),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 21
+
 [node name="BubbleWorldMap" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -90,7 +104,7 @@ shadow_enabled = true
 environment = SubResource("Environment_h62p6")
 
 [node name="Player" parent="." instance=ExtResource("1_swvyc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-0.98565, 0, 0.168799, 0, 1, 0, -0.168799, 0, -0.98565, -5.41687, 0.731138, 5.55845)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
@@ -125,6 +139,9 @@ shape = SubResource("WorldBoundaryShape3D_pvp1t")
 [node name="Islands" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("3_donix")
 
+[node name="Node3D" parent="Islands" instance=ExtResource("5_gogxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28103, -10.4569, 189.021)
+
 [node name="BasicIsland" type="CSGSphere3D" parent="Islands"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.169, 0, 19.0243)
 use_collision = true
@@ -140,7 +157,7 @@ height = 14.0
 material = SubResource("StandardMaterial3D_3fkp6")
 
 [node name="BasicIsland4" type="CSGSphere3D" parent="Islands"]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.40609, 0, 15.1559)
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -9.20253, 0, 15.1559)
 use_collision = true
 radius = 14.0
 material = SubResource("StandardMaterial3D_h82wv")
@@ -194,15 +211,15 @@ height = 14.0
 material = SubResource("StandardMaterial3D_3fkp6")
 
 [node name="TutorialText" parent="Islands" instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 0.128496, -8)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -5.05066, 0.240989, 20.7658)
 action_icon = "↧/␺"
 
 [node name="TutorialTextCatch" parent="Islands" instance=ExtResource("4_1krrg")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.51924, 0.128496, -75.8275)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -9.33826, 0.128496, 24.4669)
 action_text = "GAME_ACTION_CAST_FISHING"
 
 [node name="TutorialTextSneak" parent="Islands" instance=ExtResource("4_1krrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.1285, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.115478, 18.1516)
 action_text = "GAME_ACTION_CROUCH"
 action_icon = "↜/␩"
 
@@ -211,5 +228,18 @@ stream = ExtResource("5_gu4s6")
 volume_db = -20.0
 autoplay = true
 
-[node name="Node3D" parent="." instance=ExtResource("5_gogxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28103, -10.4569, 189.021)
+[node name="DefenseBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341921, 0.520967, 44.9135)
+default_curve = NodePath("../PathCourtYard")
+
+[node name="PathCourtYard" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55947, 0.454323, 38.052)
+curve = SubResource("Curve3D_xgyyy")
+
+[node name="DefenseBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8058, -0.110004, 65.7034)
+default_curve = NodePath("../Cacti FIeld")
+
+[node name="Cacti FIeld" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.7399, 0, 75.3291)
+curve = SubResource("Curve3D_0l7ej")
