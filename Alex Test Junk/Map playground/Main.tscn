@@ -3,14 +3,14 @@
 [ext_resource type="Shape3D" uid="uid://bsfpaolcoljuf" path="res://Alex Test Junk/Map playground/big_craters_collision.res" id="2_8wcvj"]
 [ext_resource type="PackedScene" uid="uid://dl4hxqrbpe0dd" path="res://Environment/Map Files/Map_Main_2.FBX" id="2_28fgy"]
 [ext_resource type="Texture2D" uid="uid://dlsvwr0hj6c0h" path="res://Alex Test Junk/Map Texture/UV Map.png" id="2_76pkd"]
-[ext_resource type="PackedScene" path="res://Environment/Cactus_TallArms_Cluster.tscn" id="2_jfmb3"]
+[ext_resource type="PackedScene" uid="uid://kqb5apvck6bb" path="res://Environment/Cactus_TallArms_Cluster.tscn" id="2_jfmb3"]
 [ext_resource type="ArrayMesh" uid="uid://ccs4r5etfg05h" path="res://Environment/Map Files/Map_FloatIsland01.obj" id="3_gg0vi"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="4_hwtjs"]
-[ext_resource type="PackedScene" path="res://Environment/Cactus_cluster.tscn" id="5_6m3iq"]
+[ext_resource type="PackedScene" uid="uid://cfslk25rm24fe" path="res://Environment/Cactus_cluster.tscn" id="5_6m3iq"]
 [ext_resource type="PackedScene" uid="uid://uxv0qovjaeat" path="res://Environment/Cactus_TallArms.tscn" id="6_nfy6x"]
 [ext_resource type="PackedScene" uid="uid://crjbyid8mhpo2" path="res://Environment/Cactus_Single.tscn" id="7_dtur1"]
 [ext_resource type="Shape3D" uid="uid://cs3rlfvcpwl8h" path="res://Alex Test Junk/pink_platform_collision.res" id="7_hmgw5"]
-[ext_resource type="PackedScene" path="res://Environment/Cactus_SIngle_Cluster.tscn" id="9_wqgu7"]
+[ext_resource type="PackedScene" uid="uid://qitdvbwsg26m" path="res://Environment/Cactus_SIngle_Cluster.tscn" id="9_wqgu7"]
 [ext_resource type="PackedScene" uid="uid://ca5myhyvxhckh" path="res://Alex Test Junk/floating_platform.tscn" id="11_lc8ds"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="12_awwia"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="13_tysme"]
@@ -40,7 +40,7 @@ albedo_color = Color(0.40871, 0.0452456, 0.18161, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_maklq"]
 size = Vector3(8, 1, 8)
 
-[sub_resource type="Resource" id="Resource_4dunm"]
+[sub_resource type="Resource" id="Resource_eijsq"]
 script = ExtResource("15_084cj")
 amount = 500
 enabled = true
@@ -49,7 +49,7 @@ custom_seed = 16
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_7xuw3"]
+[sub_resource type="Resource" id="Resource_kogtw"]
 script = ExtResource("16_p27gd")
 position = Vector3(3, 0, 3)
 rotation = Vector3(0, 360, 0)
@@ -60,7 +60,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_cjnd6"]
+[sub_resource type="Resource" id="Resource_pm85x"]
 script = ExtResource("17_v0q4d")
 iterations = 3
 offset_step = 0.2
@@ -72,7 +72,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_81gme"]
+[sub_resource type="Resource" id="Resource_r884k"]
 script = ExtResource("18_ryrr3")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -88,7 +88,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ebl3r"]
+[sub_resource type="Resource" id="Resource_m436j"]
 script = ExtResource("19_euwyg")
 operation = 0
 rotation = Vector3(90, 90, 90)
@@ -98,7 +98,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_dcpab"]
+[sub_resource type="Resource" id="Resource_o1uej"]
 script = ExtResource("20_gpp8u")
 operation = 1
 scale = Vector3(100, 100, 100)
@@ -108,9 +108,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_rnqyk"]
+[sub_resource type="Resource" id="Resource_4l78u"]
 script = ExtResource("13_tysme")
-stack = Array[ExtResource("14_me6gm")]([SubResource("Resource_4dunm"), SubResource("Resource_7xuw3"), SubResource("Resource_cjnd6"), SubResource("Resource_81gme"), SubResource("Resource_ebl3r"), SubResource("Resource_dcpab")])
+stack = Array[ExtResource("14_me6gm")]([SubResource("Resource_eijsq"), SubResource("Resource_kogtw"), SubResource("Resource_pm85x"), SubResource("Resource_r884k"), SubResource("Resource_m436j"), SubResource("Resource_o1uej")])
 
 [sub_resource type="Curve3D" id="Curve3D_vnv83"]
 _data = {
@@ -946,7 +946,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4872, 0, -1.78453)
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.49506, 0)
 script = ExtResource("12_awwia")
-modifier_stack = SubResource("Resource_rnqyk")
+modifier_stack = SubResource("Resource_4l78u")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
