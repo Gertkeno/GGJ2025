@@ -79,11 +79,11 @@ func _build_credits() -> void:
 	else:
 		score_display.text = "Congratulations you scored %d points" % score
 	
-	var content = FileAccess.open(credits_file, FileAccess.READ).get_as_text()
-	var credits_list = content.rsplit("\n", true)
+	var content := FileAccess.open(credits_file, FileAccess.READ).get_as_text()
+	var credits_list := content.rsplit("\n", true)
 	
-	for credit_txt in credits_list:
-		var credit_node = Label.new()
+	for credit_txt: String in credits_list:
+		var credit_node := Label.new()
 		credit_node.text = credit_txt
 		credit_node.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		credit_node.theme = credit_theme
@@ -91,16 +91,16 @@ func _build_credits() -> void:
 		credits_container.add_child(credit_node)
 		
 	if len(creature_list) > 0:
-		var creature_title = Label.new()
+		var creature_title := Label.new()
 		
 		creature_title.text = "Creatures Caught"
 		creature_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		creature_title.theme = credit_theme
 		credits_container.add_child(creature_title)
 
-	for animal in creature_list:
-		var creature_title = RichTextLabel.new()
-		var creature_text = "[center]%s: [color=%x]%s type[/color][/center]" % [animal.name, animal.color.to_rgba32(), AnimalDescriptor.Type.keys()[animal.type]]
+	for animal: AnimalDescriptor in creature_list:
+		var creature_title := RichTextLabel.new()
+		var creature_text: String  = "[center]%s: [color=%x]%s type[/color][/center]" % [animal.name, animal.color.to_rgba32(), AnimalDescriptor.Type.keys()[animal.type]]
 		print(creature_text)
 		creature_title.text = creature_text
 		creature_title.bbcode_enabled = true
@@ -108,7 +108,7 @@ func _build_credits() -> void:
 		creature_title.fit_content = true
 		credits_container.add_child(creature_title)
 		
-	call_deferred("_reset_position")
+	_reset_position.call_deferred()
 
 
 func _reset_position() -> void:
