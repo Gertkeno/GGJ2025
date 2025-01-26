@@ -53,6 +53,7 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
 [node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
