@@ -66,6 +66,7 @@ func _ready() -> void:
 	eye_material = player_mesh.get_surface_override_material(1)
 	arcade_timer.start()
 	$Time.show()
+	_init_credits()
 
 
 func _process(delta: float) -> void:
@@ -167,7 +168,7 @@ func _init_credits() -> void:
 	credits_screen.reset_credits()
 	
 
-func _open_credits() -> void:
+func _open_credits(time_left: float = 0) -> void:
 	var game_over_layer: CanvasLayer = $GameOver as CanvasLayer
 	var time_layer: CanvasLayer = $Time as CanvasLayer
 	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen
@@ -180,5 +181,5 @@ func _open_credits() -> void:
 	
 	# TODO: Need to pass caught animals here
 	# Assuming timer is stopped early when all animals caught
-	credits_screen.set_end_level_stats([], arcade_timer.time_left)
+	credits_screen.set_end_level_stats([], time_left)
 	credits_screen.start_credits()
