@@ -9,7 +9,7 @@ radius = 4.0
 albedo_color = Color(0.551071, 0.392821, 0.243696, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq5ko"]
-albedo_color = Color(0.0163177, 0.38592, 0.187203, 1)
+albedo_color = Color(0.407843, 0.0470588, 0.180392, 1)
 
 [node name="FloatingPlatform" type="Node3D"]
 script = ExtResource("1_eoexu")

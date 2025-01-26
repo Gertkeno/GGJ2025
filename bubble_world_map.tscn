@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=78 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -10,11 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 [ext_resource type="PackedScene" uid="uid://cwb6jcc1488gx" path="res://SkittishBeast/SKittish_Beast_Herd.tscn" id="9_vmhyp"]
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
-[ext_resource type="PackedScene" path="res://System/catch_particles.tscn" id="11_47x8e"]
+[ext_resource type="PackedScene" uid="uid://bmjwtpdlkxidu" path="res://System/catch_particles.tscn" id="11_47x8e"]
 [ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
 [ext_resource type="Script" path="res://System/animal_descriptor.gd" id="11_o5xhf"]
 [ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
 [ext_resource type="PackedScene" uid="uid://be726slndcti8" path="res://BubbleTank/Bubble Tank.fbx" id="15_knbi3"]
+[ext_resource type="PackedScene" uid="uid://ca5myhyvxhckh" path="res://Alex Test Junk/floating_platform.tscn" id="16_ulobg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -81,7 +82,7 @@ _data = {
 albedo_color = Color(0.571918, 0.39397, 0.289686, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fkp6"]
-albedo_color = Color(0.0797454, 0.441318, 0.0867042, 1)
+albedo_color = Color(0.407843, 0.0470588, 0.180392, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_ybibw"]
 _data = {
@@ -820,6 +821,12 @@ descriptor = SubResource("Resource_vuhik")
 [node name="Bubble Tank" parent="." instance=ExtResource("15_knbi3")]
 transform = Transform3D(-0.268685, 0, -0.963228, 0, 1, 0, 0.963228, 0, -0.268685, 19.2712, -9.53674e-07, -81.8696)
 
+[node name="FloatingPlatform" parent="." instance=ExtResource("16_ulobg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8633, -1.00194, 213.641)
+
+[node name="PointB" parent="FloatingPlatform" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56242, 7.34552, -15.8352)
+
 [editable path="SKit_Heard_3"]
 [editable path="Skit_Heard_4"]
 [editable path="Skit_Heard_1"]
@@ -829,3 +836,4 @@ transform = Transform3D(-0.268685, 0, -0.963228, 0, 1, 0, 0.963228, 0, -0.268685
 [editable path="Pas_Heard_4"]
 [editable path="Pas_Heard_5"]
 [editable path="Pas_Heard_6"]
+[editable path="FloatingPlatform"]
