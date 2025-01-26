@@ -67,14 +67,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-theme = ExtResource("2_y6kl4")
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Exit
 "
