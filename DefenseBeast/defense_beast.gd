@@ -15,7 +15,11 @@ func _ready() -> void:
 	await get_tree().process_frame
 	default_behavior.init_curve_points(default_curve)
 	defense_behavior.bubble_animal = bubble_animal
-	pass # Replace with function body.
+
+	if descriptor:
+		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)
+	else:
+		push_warning("Animal %s missing descriptor!" % get_path())
 
 
 func _physics_process(delta: float) -> void:

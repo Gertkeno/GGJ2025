@@ -15,7 +15,8 @@ script = ExtResource("1_3em5o")
 [node name="DefaultBehavior" type="Node3D" parent="."]
 script = ExtResource("1_gn4yw")
 
-[node name="BubbleAnimal" parent="DefaultBehavior" instance=ExtResource("2_ek4cg")]
+[node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_ek4cg")]
+visual_mesh = NodePath("passive/Passive/Skeleton3D/Icosphere_003")
 
 [node name="passive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("3_qpnde")]
 transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, -0.5, 0)

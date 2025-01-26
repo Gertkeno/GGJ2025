@@ -23,8 +23,9 @@ knockback_force = 12.0
 [node name="DefaultBehavior" type="Node3D" parent="."]
 script = ExtResource("2_ljxhn")
 
-[node name="BubbleAnimal" parent="DefaultBehavior" instance=ExtResource("2_30sx1")]
+[node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_30sx1")]
 collision_mask = 171
+visual_mesh = NodePath("defensive/Defensive/Skeleton3D/Cube_010")
 
 [node name="defensive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_dcbrm")]
 transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, -1, 0)
@@ -53,6 +54,7 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
 [node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
