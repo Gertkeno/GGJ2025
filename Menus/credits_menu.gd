@@ -17,6 +17,8 @@ var score: int = -1
 var creature_list: Array[AnimalDescriptor]
 var start_scroll_timer: Timer
 
+static var from_game := true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set_end_level_stats([AnimalDescriptor.new("test", Color.RED, AnimalDescriptor.Type.NEUTRAL)], 20.0)
@@ -24,7 +26,9 @@ func _ready() -> void:
 	start_scroll_timer.one_shot = true
 	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
 	add_child(start_scroll_timer)
-	start_credits()
+	if not from_game:
+		start_credits()
+		CreditsScreen.from_game = true
 
 
 func _physics_process(delta: float) -> void:

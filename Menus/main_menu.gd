@@ -40,4 +40,5 @@ func _on_freeplay_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	music.stop()
+	CreditsScreen.from_game = false
 	get_tree().change_scene_to_file(credits_scene_path)
