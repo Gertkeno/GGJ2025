@@ -48,6 +48,9 @@ func start_credits() -> void:
 func reset_credits() -> void:
 	start_scrolling = false
 	credits_container.position.y = 0
+	
+	for child: Node in credits_container.get_children():
+		credits_container.remove_child(child)
 
 
 static func _calculate_score(creatures: Array[AnimalDescriptor], time_left: float) -> int:

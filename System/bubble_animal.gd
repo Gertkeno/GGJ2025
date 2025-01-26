@@ -14,9 +14,10 @@ func reset_move_speed() -> void:
 	move_speed = default_move_speed
 
 
-func apply_movement() -> void:
+func apply_movement(delta: float) -> void:
 	velocity = direction * move_speed
-	move_and_slide()
+	position += velocity * delta
+	#move_and_slide() # too expensive for 150 actors
 
 
 func _on_vision_collision_entered_tree(node: Node) -> void:

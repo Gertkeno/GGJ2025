@@ -1,7 +1,7 @@
 extends Node3D
 class_name PassiveBeast
 
-@onready var bubble_animal = $DefaultBehavior/BubbleAnimal
+@onready var bubble_animal: BubbleAnimal = $DefaultBehavior/BubbleAnimal
 @onready var default_behavior: DefaultBehavior = $DefaultBehavior
 
 @export var default_curve: Path3D
