@@ -48,7 +48,7 @@ func _on_vision_collision_entered(body: Node3D) -> void:
 func _on_sneak_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
 		if bubble_animal.get_parent() == default_behavior:
-			var p = body as Player
+			var p := body as Player
 			if p.crouching:
 				reparent_to_skittish(body)
 	

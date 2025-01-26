@@ -3,7 +3,7 @@ class_name SkittishBehavior
 
 var player: Player = null
 var bubble_animal: BubbleAnimal = null
-var move_speed = 8
+var move_speed: float = 8
 var destination: Vector3
 
 
