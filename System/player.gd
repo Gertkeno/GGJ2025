@@ -99,6 +99,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var t_finish: float = $CameraPivot.rotation.y
 			var catch_tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5).from(t_finish + PI)
+			set_face_idx(1)
+		else:
+			set_face_idx(2)
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
@@ -118,6 +121,7 @@ func knockback(force: Vector3) -> void:
 	else:
 		velocity += force
 	hurt_timer.start()
+	set_face_idx(3)
 
 
 func catch() -> bool:
@@ -139,3 +143,12 @@ func catch() -> bool:
 func _on_catch_stun_timer_timeout() -> void:
 	set_physics_process(true)
 	animator.active = true
+
+
+# 0 neutral
+# 1 surprised
+# 2 sleepy
+# 3 ouch
+func set_face_idx(idx: int) -> void:
+	eye_material.uv1_offset = Vector3(idx * 0.25, 0, 0)
+
