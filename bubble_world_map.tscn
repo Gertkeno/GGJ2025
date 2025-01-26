@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=29 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="4_7jfbh"]
 [ext_resource type="PackedScene" uid="uid://dldd3obkxo5mx" path="res://Alex Test Junk/Map playground/Main.tscn" id="5_gogxq"]
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
+[ext_resource type="PackedScene" uid="uid://cwb6jcc1488gx" path="res://SkittishBeast/SKittish_Beast_Herd.tscn" id="9_vmhyp"]
+[ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -100,6 +102,27 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
+
+[sub_resource type="Curve3D" id="Curve3D_jo2dq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.75612, 0, 1.19861, 0, 0, 0, 0, 0, 0, -8.10373, 0, 0.0970078, 0, 0, 0, 0, 0, 0, -3.33015, 0, 7.68578, 0, 0, 0, 0, 0, 0, -5.83934, 0, 9.58297, 0, 0, 0, 0, 0, 0, -9.75612, 0, 1.19861),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_j5x0o"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 34.723, 0, 75.0537, 0, 0, 0, 0, 0, 0, 38.9458, 0, 89.1908, 0, 0, 0, 0, 0, 0, 43.597, 0, 88.3952, 0, 0, 0, 0, 0, 0, 39.1906, 0, 71.8101, 0, 0, 0, 0, 0, 0, 34.723, 0, 75.0537),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_spdia"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 46.351, 0, 70.7697, 0, 0, 0, 0, 0, 0, 48.8602, 0, 89.3132, 0, 0, 0, 0, 0, 0, 59.7537, 0, 87.0488, 0, 0, 0, 0, 0, 0, 53.9397, 0, 69.1785, 0, 0, 0, 0, 0, 0, 46.351, 0, 70.7697),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="BubbleWorldMap" type="Node3D"]
 
@@ -258,3 +281,22 @@ default_curve = NodePath("../Hidden Glaide")
 [node name="Hidden Glaide" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.6994, 221.254)
 curve = SubResource("Curve3D_rb61g")
+
+[node name="Node3D" parent="." instance=ExtResource("9_vmhyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1417, -7.43672, 94.1098)
+
+[node name="Node3D2" parent="." instance=ExtResource("9_vmhyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2656, -3.12925, 111.334)
+
+[node name="SkittishBeast" parent="." instance=ExtResource("10_x1135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.945, -0.406347, 88.6881)
+
+[node name="Skit_By cacti" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4204, 0, 81.811)
+curve = SubResource("Curve3D_jo2dq")
+
+[node name="Skit_ByCacti 2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_j5x0o")
+
+[node name="Skit_By Cacti 3" type="Path3D" parent="."]
+curve = SubResource("Curve3D_spdia")
