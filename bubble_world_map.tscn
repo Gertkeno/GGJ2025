@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
-[ext_resource type="PackedScene" uid="uid://cbp7grruglafr" path="res://System/buble_particles.tscn" id="2_f8a13"]
+[ext_resource type="PackedScene" path="res://System/buble_particles.tscn" id="2_f8a13"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
 [ext_resource type="NavigationMesh" uid="uid://cir6womydt81o" path="res://new_navigation_mesh.res" id="3_donix"]
 [ext_resource type="PackedScene" uid="uid://c3xxmyyaacn6y" path="res://TutorialPopup/tutorial_text.tscn" id="4_1krrg"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 [ext_resource type="PackedScene" uid="uid://cwb6jcc1488gx" path="res://SkittishBeast/SKittish_Beast_Herd.tscn" id="9_vmhyp"]
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
-[ext_resource type="PackedScene" uid="uid://bu5xeb3snxqmx" path="res://System/catch_particles.tscn" id="11_47x8e"]
+[ext_resource type="PackedScene" uid="uid://bmjwtpdlkxidu" path="res://System/catch_particles.tscn" id="11_47x8e"]
 [ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
 [ext_resource type="Script" path="res://System/animal_descriptor.gd" id="11_o5xhf"]
 [ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
@@ -96,7 +96,7 @@ point_count = 8
 [sub_resource type="Resource" id="Resource_jqdtc"]
 script = ExtResource("11_o5xhf")
 name = "Michael Buble"
-description = ""
+description = "Guest starring!"
 rating = 0.5
 color = Color(0.874888, 0.00331862, 0.341822, 1)
 type = 2
@@ -104,8 +104,8 @@ type = 2
 [sub_resource type="Resource" id="Resource_pt3cm"]
 script = ExtResource("11_o5xhf")
 name = "Silly"
-description = ""
-rating = 0.5
+description = "Bullies the new guy in town. That would be you."
+rating = 0.2
 color = Color(0.792559, 0.195131, 0.289542, 1)
 type = 2
 
@@ -119,8 +119,8 @@ point_count = 8
 [sub_resource type="Resource" id="Resource_5n2tn"]
 script = ExtResource("11_o5xhf")
 name = "Noah"
-description = ""
-rating = 0.5
+description = "Dangerously dangerous. STEER CLEAR"
+rating = 1.0
 color = Color(0.790739, 0, 0.133507, 1)
 type = 2
 
@@ -134,9 +134,9 @@ point_count = 21
 [sub_resource type="Resource" id="Resource_polnp"]
 script = ExtResource("11_o5xhf")
 name = "Emma"
-description = ""
-rating = 0.5
-color = Color(0.792157, 0, 0.133333, 1)
+description = "Evil and isolated, but stlil very evil. Also has evil intent. Plans to do evil."
+rating = 1.0
+color = Color(0.899774, 0.241417, 0.495247, 1)
 type = 2
 
 [sub_resource type="Curve3D" id="Curve3D_rb61g"]
@@ -173,33 +173,33 @@ type = 0
 [sub_resource type="Resource" id="Resource_7v0ov"]
 script = ExtResource("11_o5xhf")
 name = "Luke"
-description = ""
-rating = 0.5
-color = Color(0.0235294, 0.121569, 0.862745, 1)
+description = "Playing in the crater!"
+rating = 0.2
+color = Color(0.230083, 0.188496, 0.724544, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_tf23y"]
 script = ExtResource("11_o5xhf")
 name = "Valentina"
-description = ""
-rating = 0.5
-color = Color(0.0627451, 0.0941176, 0.933333, 1)
+description = "Working hard in the purple sun"
+rating = 0.4
+color = Color(0.176755, 0.370078, 0.991577, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_mqdcx"]
 script = ExtResource("11_o5xhf")
 name = "Anthony"
-description = ""
-rating = 0.5
+description = "Running circles around you"
+rating = 0.6
 color = Color(0.0784314, 0.141176, 1, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_d57jn"]
 script = ExtResource("11_o5xhf")
 name = "Isabella"
-description = ""
+description = "Currently investigating cactus, very important research."
 rating = 0.5
-color = Color(0.0156863, 0, 0.866667, 1)
+color = Color(0.205156, 0.493954, 0.684977, 1)
 type = 0
 
 [sub_resource type="Curve3D" id="Curve3D_jo2dq"]
@@ -226,41 +226,41 @@ point_count = 5
 [sub_resource type="Resource" id="Resource_y422h"]
 script = ExtResource("11_o5xhf")
 name = "Mateo"
-description = ""
-rating = 0.5
-color = Color(0.0156863, 0.211765, 0.866667, 1)
+description = "Cautious friend for all"
+rating = 0.4
+color = Color(0.267488, 0.291206, 0.614943, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_cmvrw"]
 script = ExtResource("11_o5xhf")
 name = "Amelia"
-description = ""
-rating = 0.5
+description = "Dancing close to the fire! Don't spook me!"
+rating = 0.8
 color = Color(0.0156863, 0.188235, 0.839216, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_cqmdg"]
 script = ExtResource("11_o5xhf")
 name = "Violet"
-description = ""
+description = "Non-violent"
 rating = 0.5
-color = Color(0.0705882, 0.0745098, 1, 1)
+color = Color(0.470266, 0.0222531, 0.639075, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_jqgc1"]
 script = ExtResource("11_o5xhf")
 name = "Henry"
-description = ""
+description = "Heavy lifting rocks"
 rating = 0.5
-color = Color(0.0745098, 0.12549, 1, 1)
+color = Color(0.611835, 0.539777, 0.750231, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_8g8g2"]
 script = ExtResource("11_o5xhf")
 name = "Penelope"
-description = ""
-rating = 0.5
-color = Color(0.0980392, 0.0901961, 1, 1)
+description = "Picking up Pebbles"
+rating = 0.6
+color = Color(0.49601, 0.641814, 0.910331, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_n7o4p"]
@@ -327,137 +327,113 @@ point_count = 20
 [sub_resource type="Resource" id="Resource_b8fg3"]
 script = ExtResource("11_o5xhf")
 name = "Benjamin"
-description = ""
+description = "Does not believe in lightning, nor thunder. It must be your imagination(s)."
 rating = 0.5
-color = Color(0.811765, 0, 0.109804, 1)
+color = Color(0.490433, 0, 0.0486873, 1)
 type = 2
 
 [sub_resource type="Resource" id="Resource_bkncx"]
 script = ExtResource("11_o5xhf")
 name = "Jeremy"
-description = ""
-rating = 0.5
-color = Color(0.141176, 0.901961, 0.0313726, 1)
-type = 1
-
-[sub_resource type="Resource" id="Resource_0isa6"]
-script = ExtResource("11_o5xhf")
-name = "Maria"
-description = ""
-rating = 0.5
-color = Color(0.105882, 1, 0.223529, 1)
-type = 1
-
-[sub_resource type="Resource" id="Resource_s74gf"]
-script = ExtResource("11_o5xhf")
-name = "Nathan"
-description = ""
-rating = 0.5
-color = Color(0.0705882, 1, 0.0901961, 1)
-type = 1
-
-[sub_resource type="Resource" id="Resource_dh3wk"]
-script = ExtResource("11_o5xhf")
-name = "Naomi"
-description = ""
-rating = 0.5
-color = Color(0.0470588, 1, 0.0901961, 1)
+description = "Here to help!"
+rating = 0.18
+color = Color(0.542065, 0.839072, 0.458286, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_bgtd7"]
 script = ExtResource("11_o5xhf")
 name = "Luis"
-description = ""
-rating = 0.5
-color = Color(0.0901961, 1, 0.0588235, 1)
+description = "Part of the Trio, lowest member, but don't tell him."
+rating = 0.2
+color = Color(0.357151, 0.966785, 0.5439, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_8pjey"]
 script = ExtResource("11_o5xhf")
 name = "Christopher"
-description = ""
-rating = 0.5
-color = Color(0.0588235, 1, 0.117647, 1)
+description = "Right-hand man of the Trio's leader."
+rating = 0.4
+color = Color(0.616303, 0.931971, 0.383397, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_d11wf"]
 script = ExtResource("11_o5xhf")
 name = "Allison"
-description = ""
-rating = 0.5
-color = Color(0.0470588, 1, 0.0627451, 1)
+description = "Leader of the Trio."
+rating = 0.6
+color = Color(0.509612, 0.680094, 0.262541, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_cs5w6"]
 script = ExtResource("11_o5xhf")
 name = "Nova"
-description = ""
-rating = 0.5
-color = Color(0.0823529, 1, 0.105882, 1)
+description = "Favorite water is caffinated and orange flavored"
+rating = 0.1
+color = Color(0.82162, 0.872877, 0.375488, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_qxwpu"]
 script = ExtResource("11_o5xhf")
 name = "Hudson"
-description = ""
-rating = 0.5
+description = "Not from hudson software"
+rating = 0.1
 color = Color(0.0745098, 1, 0.105882, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_wd1og"]
 script = ExtResource("11_o5xhf")
 name = "Maya"
-description = ""
-rating = 0.5
-color = Color(0.0666667, 1, 0.0862745, 1)
+description = "Bakes regularly."
+rating = 0.2
+color = Color(0.495926, 1, 0.467735, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_qwya1"]
 script = ExtResource("11_o5xhf")
-name = "Carlos"
-description = ""
-rating = 0.5
+name = "Cactus Carlos"
+description = "The cactus club's founding member, or not."
+rating = 0.6
 color = Color(0.0901961, 1, 0.0901961, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_jomcb"]
 script = ExtResource("11_o5xhf")
-name = "Stella"
-description = ""
+name = "Not Cactus Stella"
+description = "Not part of the cactus club, but they are cordial"
 rating = 0.5
-color = Color(0.113725, 1, 0.129412, 1)
+color = Color(0.503168, 0.868075, 0.454928, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_hgb16"]
 script = ExtResource("11_o5xhf")
-name = "Jack"
-description = ""
-rating = 0.5
-color = Color(0.0823529, 1, 0.113725, 1)
+name = "Cactus Jack"
+description = "Stands by the cactusi at the cactus club"
+rating = 0.4
+color = Color(1.8049e-07, 0.500588, 0.0172202, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_o8txf"]
 script = ExtResource("11_o5xhf")
 name = "Natalie"
-description = ""
-rating = 0.5
-color = Color(0.0588235, 1, 0.14902, 1)
+description = "Crater scientist. Makes craters."
+rating = 0.6
+color = Color(0.426151, 0.62432, 0.353549, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_4f8dr"]
 script = ExtResource("11_o5xhf")
 name = "Logan"
-description = ""
-rating = 0.5
-color = Color(0.0588235, 1, 0.105882, 1)
+description = "Larger than life."
+rating = 0.25
+color = Color(0.630389, 0.929748, 0.355491, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_lo0x3"]
 script = ExtResource("11_o5xhf")
 name = "Emiliano"
-description = ""
-rating = 0.5
-color = Color(0.0823529, 1, 0.0901961, 1)
+description = "Likes ginger bread"
+rating = 0.4
+color = Color(8.80793e-06, 0.79822, 0.0193205, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_atqlt"]
@@ -471,17 +447,41 @@ type = 1
 [sub_resource type="Resource" id="Resource_qetps"]
 script = ExtResource("11_o5xhf")
 name = "Alexander"
-description = ""
-rating = 0.5
+description = "Braving new grounds!"
+rating = 0.7
 color = Color(0.109804, 1, 0.101961, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_vuhik"]
 script = ExtResource("11_o5xhf")
 name = "Matthew"
-description = ""
-rating = 0.5
-color = Color(0.0980392, 1, 0.0705882, 1)
+description = "Lives dangerously. Peace within my friend."
+rating = 0.8
+color = Color(0.310069, 0.842714, 0.274644, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_bo71p"]
+script = ExtResource("11_o5xhf")
+name = "Agamemnon"
+description = "Valued property owner. Get off this platform!"
+rating = 0.8
+color = Color(0.137514, 0.433711, 0.265817, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_s1n0t"]
+script = ExtResource("11_o5xhf")
+name = "Fredrick's Cousin"
+description = "What's this fella's name again?"
+rating = 0.8
+color = Color(0.795972, 0.790384, 1.15514e-06, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_g3ss4"]
+script = ExtResource("11_o5xhf")
+name = "Fredrick"
+description = "How did you get here! Boosted!?"
+rating = 1.0
+color = Color(0.191248, 0.414185, 0.329269, 1)
 type = 1
 
 [node name="BubbleWorldMap" type="Node3D"]
@@ -744,18 +744,6 @@ default_curve = NodePath("../in da back 3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 20.494)
 descriptor = SubResource("Resource_bkncx")
 
-[node name="Pas_Heard2" parent="." instance=ExtResource("12_f60bv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2453, -0.48839, 23.8881)
-
-[node name="PassiveBeast3" parent="Pas_Heard2" index="0"]
-descriptor = SubResource("Resource_0isa6")
-
-[node name="PassiveBeast5" parent="Pas_Heard2" index="1"]
-descriptor = SubResource("Resource_s74gf")
-
-[node name="PassiveBeast6" parent="Pas_Heard2" index="2"]
-descriptor = SubResource("Resource_dh3wk")
-
 [node name="Pas_Heard1" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4227, -1.16384, 69.224)
 
@@ -830,11 +818,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8633, -1.00194, 213.641)
 [node name="PointB" parent="FloatingPlatform" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56242, 7.34552, -15.8352)
 
+[node name="PassiveBeast5" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 35, -0.1, 24.494)
+descriptor = SubResource("Resource_bo71p")
+
+[node name="PassiveBeast6" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -81, 12.4, 46.494)
+descriptor = SubResource("Resource_s1n0t")
+
+[node name="PassiveBeast7" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -76, 17.6, 56.494)
+descriptor = SubResource("Resource_g3ss4")
+
 [editable path="SKit_Heard_3"]
 [editable path="Skit_Heard_4"]
 [editable path="Skit_Heard_1"]
 [editable path="Skit_Heard_2"]
-[editable path="Pas_Heard2"]
 [editable path="Pas_Heard1"]
 [editable path="Pas_Heard_4"]
 [editable path="Pas_Heard_5"]
