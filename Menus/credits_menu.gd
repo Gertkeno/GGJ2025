@@ -42,10 +42,10 @@ func _physics_process(delta: float) -> void:
 func set_end_level_stats(creatures: Array[AnimalDescriptor], time_left: float) -> void:
 	self.creature_list = creatures
 	self.score = _calculate_score(creatures, time_left)
-	music.play()
 
 
 func start_credits() -> void:
+	music.play()
 	back_button.grab_focus()
 	_build_credits()
 	_start_delay_timer()
