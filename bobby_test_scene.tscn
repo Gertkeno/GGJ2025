@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://vnpmxqbs7r86"]
 
-[ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="1_6kdml"]
+[ext_resource type="PackedScene" uid="uid://bso8oicnpy2nr" path="res://DefenseBeast/defense_beast.tscn" id="1_vgsvh"]
 [ext_resource type="Curve3D" uid="uid://hm1okgxcurwp" path="res://DefenseBeast/test_curve.tres" id="2_db824"]
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="3_hdd4q"]
 
@@ -30,7 +30,7 @@ environment = SubResource("Environment_wsdc6")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_6kdml")]
+[node name="DefenseBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_vgsvh")]
 default_curve = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="."]
@@ -47,4 +47,4 @@ radius = 39.21
 height = 1.0
 
 [node name="Player" parent="." instance=ExtResource("3_hdd4q")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -6.85141)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -11.8514)

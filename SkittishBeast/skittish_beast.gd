@@ -32,22 +32,33 @@ func _on_skittish_behavior_finished_fleeing() -> void:
 func _on_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
 		if bubble_animal.get_parent() == default_behavior:
-			skittish_behavior.player = body
-			# skittish_behavior.distance_to_run = distance_to_run_away
-			
-			bubble_animal.move_speed = 8
-			
-			var displacement: Vector3 = bubble_animal.global_position - body.global_position
-			displacement.normalized()
-			var random_angle := rng.randf_range(-0.349066, 0.349066)
-			displacement.rotated(Vector3.UP, random_angle)
-			
-			displacement *= distance_to_run_away
-			displacement += bubble_animal.global_position
-			
-			var destination := Vector3(displacement.x, bubble_animal.global_position.y, displacement.z)
-			skittish_behavior.destination = destination
-			
-			bubble_animal.navigation_agent.target_position = destination
-			
-			bubble_animal.reparent(skittish_behavior)
+			var p = body as Player
+			if p.crouching == false:
+				reparent_to_skittish(body)
+
+
+func _on_sneak_vision_collision_entered(body: Node3D) -> void:
+	if body is Player:
+		if bubble_animal.get_parent() == default_behavior:
+			var p = body as Player
+			if p.crouching:
+				reparent_to_skittish(body)
+	
+func reparent_to_skittish(body: Player):
+	skittish_behavior.player = body
+	# skittish_behavior.distance_to_run = distance_to_run_away
+
+	var displacement: Vector3 = bubble_animal.global_position - body.global_position
+	displacement.normalized()
+	var random_angle := rng.randf_range(-0.349066, 0.349066)
+	displacement.rotated(Vector3.UP, random_angle)
+
+	displacement *= distance_to_run_away
+	displacement += bubble_animal.global_position
+
+	var destination := Vector3(displacement.x, bubble_animal.global_position.y, displacement.z)
+	skittish_behavior.destination = destination
+
+	bubble_animal.navigation_agent.target_position = destination
+
+	bubble_animal.reparent.call_deferred(skittish_behavior)

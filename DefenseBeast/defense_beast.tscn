@@ -18,6 +18,7 @@ height = 4.0
 [node name="DefenseBeast" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
 script = ExtResource("1_363l7")
+knockback_force = 12.0
 
 [node name="DefaultBehavior" type="Node3D" parent="."]
 script = ExtResource("2_ljxhn")
@@ -51,6 +52,12 @@ collision_mask = 32
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
+[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
+shape = SubResource("SphereShape3D_2w21c")
+
 [node name="DefenseBehavior" type="Node3D" parent="."]
 script = ExtResource("3_cdged")
 
@@ -59,6 +66,7 @@ one_shot = true
 
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/BullhornArea" to="." method="_on_bullhorn_body_entered"]
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
 [connection signal="timeout" from="DefenseBehavior/DizzyTimer" to="." method="_on_dizzy_timer_timeout"]
 
 [editable path="DefaultBehavior/BubbleAnimal/defensive"]

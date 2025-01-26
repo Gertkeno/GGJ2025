@@ -43,6 +43,17 @@ func _on_dizzy_timer_timeout() -> void:
 
 func _on_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
-		if bubble_animal.get_parent() == default_behavior:
-			defense_behavior.player = body
-			bubble_animal.reparent.call_deferred(defense_behavior)
+		var p = body as Player
+		if p.crouching == false:
+			if bubble_animal.get_parent() == default_behavior:
+				defense_behavior.player = body
+				bubble_animal.reparent.call_deferred(defense_behavior)
+
+
+func _on_sneak_vision_collision_entered(body: Node3D) -> void:
+	if body is Player:
+		var p = body as Player
+		if p.crouching:
+			if bubble_animal.get_parent() == default_behavior:
+				defense_behavior.player = body
+				bubble_animal.reparent.call_deferred(defense_behavior)
