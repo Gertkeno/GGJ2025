@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://kqb5apvck6bb"]
+
+[ext_resource type="PackedScene" uid="uid://uxv0qovjaeat" path="res://Environment/Cactus_TallArms.tscn" id="1_gnfps"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(0.742993, 0, -0.669299, 0, 1, 0, 0.669299, 0, 0.742993, 0.0707397, 0, 2.37476)
+
+[node name="Node3D2" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(0.426332, 0, 0.904567, 0, 1, 0, -0.904567, 0, 0.426332, -5.14096, 0, -1.00409)
+
+[node name="Node3D3" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(0.606544, 0, 0.79505, 0, 1, 0, -0.79505, 0, 0.606544, 3.45408, 0, -1.28524)
+
+[node name="Node3D4" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(0.514574, 0, -0.857446, 0, 1, 0, 0.857446, 0, 0.514574, -2.40982, 0, -4.61883)
+
+[node name="Node3D5" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(0.0951682, 0, -0.995461, 0, 1, 0, 0.995461, 0, 0.0951682, 2.85163, 0, -5.78358)
+
+[node name="Node3D6" parent="." instance=ExtResource("1_gnfps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.602457, 0, -1.52622)

@@ -151,4 +151,3 @@ func _on_catch_stun_timer_timeout() -> void:
 # 3 ouch
 func set_face_idx(idx: int) -> void:
 	eye_material.uv1_offset = Vector3(idx * 0.25, 0, 0)
-
