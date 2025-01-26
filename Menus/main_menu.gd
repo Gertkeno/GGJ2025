@@ -19,7 +19,7 @@ func _on_start_pressed() -> void:
 	tree.paused = false
 	Player.arcade_mode = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	var main_scene = ResourceLoader.load_threaded_get(main_scene_path)
+	var main_scene := ResourceLoader.load_threaded_get(main_scene_path)
 	tree.change_scene_to_packed(main_scene)
 
 
@@ -28,7 +28,7 @@ func _on_freeplay_pressed() -> void:
 	tree.paused = false
 	Player.arcade_mode = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	var main_scene = ResourceLoader.load_threaded_get(main_scene_path)
+	var main_scene := ResourceLoader.load_threaded_get(main_scene_path)
 	tree.change_scene_to_packed(main_scene)
 
 

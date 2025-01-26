@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bso8oicnpy2nr"]
+[gd_scene load_steps=11 format=3 uid="uid://bso8oicnpy2nr"]
 
 [ext_resource type="Script" path="res://DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="2_30sx1"]
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_ljxhn"]
 [ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="3_cdged"]
 [ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
-[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
+[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
+[ext_resource type="AudioStream" uid="uid://2inmqy8v7gsi" path="res://Audio/AI/SFX_Animal_LP_03.wav" id="6_5fovh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_25x5b"]
 
@@ -59,6 +60,16 @@ collision_mask = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
 shape = SubResource("SphereShape3D_2w21c")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DefaultBehavior/BubbleAnimal"]
+stream = ExtResource("6_5fovh")
+attenuation_model = 1
+volume_db = -20.0
+pitch_scale = 0.64
+autoplay = true
+stream_paused = true
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="DefenseBehavior" type="Node3D" parent="."]
 script = ExtResource("3_cdged")

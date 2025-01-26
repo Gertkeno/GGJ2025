@@ -25,7 +25,6 @@ func _ready() -> void:
 	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
 	add_child(start_scroll_timer)
 	start_credits()
-	music.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -39,6 +38,7 @@ func _physics_process(delta: float) -> void:
 func set_end_level_stats(creatures: Array[AnimalDescriptor], time_left: float) -> void:
 	self.creature_list = creatures
 	self.score = _calculate_score(creatures, time_left)
+	music.play()
 
 
 func start_credits() -> void:
