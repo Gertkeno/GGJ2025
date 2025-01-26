@@ -8,5 +8,6 @@ func _on_body_entered(body: Node3D) -> void:
 		var direction := Vector2(diff.x, diff.z).normalized() #flat
 		body.knockback(Vector3(direction.x, 0, direction.y) * force)
 
-	elif body is CharacterBody3D: #BubbleBeast
+	elif body is BubbleAnimal:
 		pass # delete the bubble beast
+		body.get_parent().get_parent().queue_free()

@@ -61,4 +61,6 @@ func increment_curve_point() -> void:
 
 func update_target_position() -> void:
 	bubble_animal.navigation_agent.target_position = curve_points[current_curve_point]
-	bubble_animal.look_at(curve_points[current_curve_point])
+	var curve_point := curve_points[current_curve_point]
+	curve_point.y = bubble_animal.global_position.y
+	bubble_animal.look_at(curve_point)
