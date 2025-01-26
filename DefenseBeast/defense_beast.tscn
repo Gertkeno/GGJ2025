@@ -67,7 +67,6 @@ attenuation_model = 1
 volume_db = -20.0
 pitch_scale = 0.64
 autoplay = true
-stream_paused = true
 max_distance = 30.0
 bus = &"SFX"
 
