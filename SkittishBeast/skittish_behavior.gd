@@ -8,8 +8,8 @@ var destination: Vector3
 
 signal finished_fleeing
 
-func process_behavior(delta: float) -> void:
 
+func process_behavior(_delta: float) -> void:
 	if is_nav_finished():
 		finished_fleeing.emit()
 	else:

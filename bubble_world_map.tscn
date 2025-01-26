@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
 [ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
 [ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
+[ext_resource type="PackedScene" uid="uid://bmjwtpdlkxidu" path="res://System/catch_particles.tscn" id="11_47x8e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -386,3 +387,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.4979, -1.1137, 125.45)
 
 [node name="PassiveBeast3" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(-0.151175, 0, -0.988507, 0, 1, 0, 0.988507, 0, -0.151175, -47.5082, -1.23703, 93.1456)
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("11_47x8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, -3.3, 24.3)
+emitting = true
+one_shot = false
