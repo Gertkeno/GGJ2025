@@ -10,6 +10,7 @@ const JUMP_VELOCITY: float = 5.5
 #region control options
 static var camera_sensitivity: float = 1.0
 static var y_invert: float = 1.0
+static var arcade_mode: bool = true
 #endregion
 
 @export var catch_particles: PackedScene
@@ -66,8 +67,9 @@ var screen_size: Vector2
 func _ready() -> void:
 	screen_size = DisplayServer.screen_get_size()
 	eye_material = player_mesh.get_surface_override_material(1)
-	arcade_timer.start()
-	$Time.show()
+	if arcade_mode:
+		arcade_timer.start()
+		$Time.show()
 	_init_credits()
 	animals_left = _count_all_animals()
 

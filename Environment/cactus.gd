@@ -10,8 +10,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.knockback(Vector3(direction.x, 0, direction.y) * force)
 
 	elif body is BubbleAnimal:
-		pass # delete the bubble beast
 		var prick_fx: GPUParticles3D = PRICKED.instantiate()
-		body.add_sibling(prick_fx)
 		prick_fx.global_position = body.global_position
+		get_tree().root.add_child(prick_fx)
 		body.get_parent().get_parent().queue_free()
