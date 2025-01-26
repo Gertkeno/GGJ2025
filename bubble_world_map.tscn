@@ -29,6 +29,7 @@ background_color = Color(0.168416, 0.0365861, 0.292327, 1)
 background_energy_multiplier = 2.01
 sky = SubResource("Sky_3q27d")
 ambient_light_color = Color(0.220404, 0.0763794, 0.30455, 1)
+ambient_light_energy = 1.65
 tonemap_mode = 2
 fog_enabled = true
 fog_light_color = Color(0.17056, 0.00958068, 0.206383, 1)
