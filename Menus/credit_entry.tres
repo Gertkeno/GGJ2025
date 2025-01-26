@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://igg7vj4k4wwc"]
+
+[ext_resource type="FontFile" uid="uid://bavfrwdoykxp" path="res://Menus/MrsBeasley/Mrs Beasley.ttf" id="1_4col7"]
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_4col7")

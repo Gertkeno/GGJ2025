@@ -1,0 +1,14 @@
+Credits
+
+Karina - Art
+Robin - Art
+Tim - Art
+Alex - Production and Level Design
+Bobby - Programming
+Garrett - Programming
+Adhan - Programming
+Will - Sound
+
+Resources
+PromptFont - https://shinmera.github.io/promptfont/
+Mrs Beasley - https://fontlibrary.org/en/font/mrs-beasley
