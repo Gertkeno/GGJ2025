@@ -9,7 +9,7 @@ enum Type {SKITTISH, NEUTRAL, DEFENSIVE}
 @export var color: Color = Color.WHITE
 @export var type: Type
 
-func _init(name: String, color: Color, type: Type) -> void:
-	self.name = name
-	self.color = color
-	self.type = type
+func _init(animal_name: String, animal_color: Color, animal_type: Type) -> void:
+	name = animal_name
+	color = animal_color
+	type = animal_type
