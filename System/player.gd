@@ -124,6 +124,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				set_physics_process(false)
 				animals_left -= 1
 				$CatchStunTimer.start()
+				$Audio/Capture.play()
 				var t_finish: float = $CameraPivot.rotation.y
 				var catch_tween := create_tween()
 				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish - PI, 0.3) \
@@ -165,11 +166,13 @@ func knockback(force: Vector3) -> void:
 	else:
 		velocity += force
 	hurt_timer.start()
+	$Audio/PainBounce.play()
 	set_face_idx(3)
 
 
 func catch() -> bool:
 	animator_playback.travel("Swing")
+	$Audio/Swing.play()
 	catch_anticipate.start()
 	await catch_anticipate.timeout
 

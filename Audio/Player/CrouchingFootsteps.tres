@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://40rklma332lq"]
+
+[ext_resource type="AudioStream" uid="uid://c10qentlnflr8" path="res://Audio/Player/SFX_Player_CrouchFS_01.wav" id="1_7gp81"]
+[ext_resource type="AudioStream" uid="uid://ei02vc7qmabv" path="res://Audio/Player/SFX_Player_CrouchFS_02.wav" id="2_b6d7o"]
+[ext_resource type="AudioStream" uid="uid://737ipc2a3kuw" path="res://Audio/Player/SFX_Player_CrouchFS_03.wav" id="3_koqn0"]
+[ext_resource type="AudioStream" uid="uid://cygommtxusaph" path="res://Audio/Player/SFX_Player_CrouchFS_04.wav" id="4_8augv"]
+[ext_resource type="AudioStream" uid="uid://bv3vo27ps8pl1" path="res://Audio/Player/SFX_Player_CrouchFS_05.wav" id="5_s2m0q"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_7gp81")
+stream_1/stream = ExtResource("2_b6d7o")
+stream_2/stream = ExtResource("3_koqn0")
+stream_3/stream = ExtResource("4_8augv")
+stream_4/stream = ExtResource("5_s2m0q")
