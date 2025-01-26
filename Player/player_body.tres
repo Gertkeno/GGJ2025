@@ -3,4 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://db5khksp3fkky" path="res://Player/Textures/player_body.png" id="1_dm6ns"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_dm6ns")
+rim_enabled = true
+rim = 0.03
+rim_tint = 0.0
+backlight_enabled = true
+backlight = Color(0.854698, 0.34024, 0.692062, 1)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://pnktjf1g18vo" path="res://Player/Textures/player_face.png" id="1_3fp8u"]
 
 [resource]
-transparency = 3
-alpha_hash_scale = 1.0
+transparency = 2
+alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("1_3fp8u")
