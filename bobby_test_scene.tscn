@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://vnpmxqbs7r86"]
+[gd_scene load_steps=9 format=3 uid="uid://vnpmxqbs7r86"]
 
 [ext_resource type="Curve3D" uid="uid://hm1okgxcurwp" path="res://DefenseBeast/test_curve.tres" id="2_db824"]
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="3_hdd4q"]
-[ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="4_48s6d"]
+[ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="4_wo4n2"]
+[ext_resource type="Script" path="res://PassiveBeast/passive_beast.gd" id="5_u73f8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_smj01"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,8 +31,8 @@ environment = SubResource("Environment_wsdc6")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_48s6d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.494)
+[node name="PassiveBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_wo4n2")]
+script = ExtResource("5_u73f8")
 default_curve = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="."]
