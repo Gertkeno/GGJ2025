@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=52 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 [ext_resource type="PackedScene" uid="uid://cwb6jcc1488gx" path="res://SkittishBeast/SKittish_Beast_Herd.tscn" id="9_vmhyp"]
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
-[ext_resource type="PackedScene" uid="uid://bmjwtpdlkxidu" path="res://System/catch_particles.tscn" id="11_47x8e"]
+[ext_resource type="PackedScene" path="res://System/catch_particles.tscn" id="11_47x8e"]
 [ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
 [ext_resource type="Script" path="res://System/animal_descriptor.gd" id="11_o5xhf"]
 [ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
@@ -89,12 +89,20 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Resource" id="Resource_jqdtc"]
+script = ExtResource("11_o5xhf")
+name = "Liam"
+description = ""
+rating = 0.5
+color = Color(0.874888, 0.00331862, 0.341822, 1)
+type = 2
+
 [sub_resource type="Resource" id="Resource_pt3cm"]
 script = ExtResource("11_o5xhf")
 name = "Silly"
 description = ""
 rating = 0.5
-color = Color(0.611987, 0.0654196, 0.613562, 1)
+color = Color(0.792559, 0.195131, 0.289542, 1)
 type = 2
 
 [sub_resource type="Curve3D" id="Curve3D_xgyyy"]
@@ -104,12 +112,28 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Resource" id="Resource_5n2tn"]
+script = ExtResource("11_o5xhf")
+name = "Noah"
+description = ""
+rating = 0.5
+color = Color(0.790739, 0, 0.133507, 1)
+type = 2
+
 [sub_resource type="Curve3D" id="Curve3D_0l7ej"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.64307, 0, -11.666, 0, 0, 0, 0, 0, 0, 1.60158, 0, -8.50307, 0, 0, 0, 0, 0, 0, -1.16597, 0, -1.65009, 0, 0, 0, 0, 0, 0, -2.02762, 0, 5.59502, 0, 0, 0, 0, 0, 0, 0.0960312, 0, 7.98035, 0, 0, 0, 0, 0, 0, 1.76535, 0, 8.68321, 0, 0, 0, 0, 0, 0, 4.70861, 0, 8.41963, 0, 0, 0, 0, 0, 0, 7.73973, 0, 7.67284, 0, 0, 0, 0, 0, 0, 10.8587, 0, 6.79425, 0, 0, 0, 0, 0, 0, 11.913, 0, 4.15849, 0, 0, 0, 0, 0, 0, 13.0552, 0, 2.00595, 0, 0, 0, 0, 0, 0, 15.0759, 0, 0.160919, 0, 0, 0, 0, 0, 0, 14.1095, 0, -2.16733, 0, 0, 0, 0, 0, 0, 13.701, 0, -5.4645, 0, 0, 0, 0, 0, 0, 15.8535, 0, -8.27598, 0, 0, 0, 0, 0, 0, 17.0835, 0, -9.68172, 0, 0, 0, 0, 0, 0, 15.6339, 0, -12.1857, 0, 0, 0, 0, 0, 0, 12.8663, 0, -13.3278, 0, 0, 0, 0, 0, 0, 10.2306, 0, -13.3718, 0, 0, 0, 0, 0, 0, 6.62836, 0, -12.1418, 0, 0, 0, 0, 0, 0, 5.64307, 0, -11.666),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 21
+
+[sub_resource type="Resource" id="Resource_polnp"]
+script = ExtResource("11_o5xhf")
+name = "Emma"
+description = ""
+rating = 0.5
+color = Color(0.792157, 0, 0.133333, 1)
+type = 2
 
 [sub_resource type="Curve3D" id="Curve3D_rb61g"]
 _data = {
@@ -118,12 +142,36 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="Resource" id="Resource_ot26p"]
+script = ExtResource("11_o5xhf")
+name = "Theodore"
+description = ""
+rating = 0.5
+color = Color(0.0141252, 0, 0.865152, 1)
+type = 0
+
 [sub_resource type="Resource" id="Resource_lgtga"]
 script = ExtResource("11_o5xhf")
 name = "Pete"
 description = ""
 rating = 0.5
-color = Color(0, 1, 1, 1)
+color = Color(0, 0.360784, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_dwgsi"]
+script = ExtResource("11_o5xhf")
+name = "Elijah"
+description = ""
+rating = 0.5
+color = Color(0, 0.290196, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_d57jn"]
+script = ExtResource("11_o5xhf")
+name = "Isabella"
+description = ""
+rating = 0.5
+color = Color(0.0156863, 0, 0.866667, 1)
 type = 0
 
 [sub_resource type="Curve3D" id="Curve3D_jo2dq"]
@@ -147,6 +195,38 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Resource" id="Resource_y422h"]
+script = ExtResource("11_o5xhf")
+name = "Mateo"
+description = ""
+rating = 0.5
+color = Color(0.0156863, 0.211765, 0.866667, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_cmvrw"]
+script = ExtResource("11_o5xhf")
+name = "Amelia"
+description = ""
+rating = 0.5
+color = Color(0.0156863, 0.188235, 0.839216, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_t742h"]
+script = ExtResource("11_o5xhf")
+name = "Sebastian"
+description = ""
+rating = 0.5
+color = Color(0.0156863, 0.133333, 0.866667, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_s54eg"]
+script = ExtResource("11_o5xhf")
+name = "Sophia"
+description = ""
+rating = 0.5
+color = Color(0.0156863, 0.105882, 0.866667, 1)
+type = 0
+
 [sub_resource type="Curve3D" id="Curve3D_u4avu"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.58463, 0, 135.543, 0, 0, 0, 0, 0, 0, -10.4995, 0, 136.951, 0, 0, 0, 0, 0, 0, -14.6637, 0, 141.35, 0, 0, 0, 0, 0, 0, -13.3147, 0, 150.147, 0, 0, 0, 0, 0, 0, -7.50833, 0, 152.669, 0, 0, 0, 0, 0, 0, -0.939482, 0, 151.672, 0, 0, 0, 0, 0, 0, 1.34789, 0, 145.749, 0, 0, 0, 0, 0, 0, 2.6382, 0, 142.054, 0, 0, 0, 0, 0, 0, 0.995985, 0, 137.831, 0, 0, 0, 0, 0, 0, -1.58463, 0, 135.543),
@@ -168,13 +248,45 @@ _data = {
 }
 point_count = 20
 
+[sub_resource type="Resource" id="Resource_b8fg3"]
+script = ExtResource("11_o5xhf")
+name = "Benjamin"
+description = ""
+rating = 0.5
+color = Color(0.811765, 0, 0.109804, 1)
+type = 2
+
 [sub_resource type="Resource" id="Resource_bkncx"]
 script = ExtResource("11_o5xhf")
 name = "Jeremy"
 description = ""
 rating = 0.5
-color = Color(1, 1, 1, 1)
-type = 0
+color = Color(0.141176, 0.901961, 0.0313726, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_atqlt"]
+script = ExtResource("11_o5xhf")
+name = "Scarlett"
+description = ""
+rating = 0.5
+color = Color(0.160784, 0.976471, 0.141176, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_qetps"]
+script = ExtResource("11_o5xhf")
+name = "Alexander"
+description = ""
+rating = 0.5
+color = Color(0.109804, 1, 0.101961, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_vuhik"]
+script = ExtResource("11_o5xhf")
+name = "Matthew"
+description = ""
+rating = 0.5
+color = Color(0.0980392, 1, 0.0705882, 1)
+type = 1
 
 [node name="BubbleWorldMap" type="Node3D"]
 
@@ -272,6 +384,7 @@ material = SubResource("StandardMaterial3D_3fkp6")
 curve = SubResource("Curve3D_ybibw")
 
 [node name="DefenseBeast" parent="Islands/BasicIsland2" node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+descriptor = SubResource("Resource_jqdtc")
 default_curve = NodePath("../Path3D")
 
 [node name="BasicIsland3" type="CSGSphere3D" parent="Islands"]
@@ -317,6 +430,7 @@ curve = SubResource("Curve3D_xgyyy")
 
 [node name="DefenseBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8058, -0.110004, 65.7034)
+descriptor = SubResource("Resource_5n2tn")
 default_curve = NodePath("../Cacti FIeld")
 
 [node name="Cacti FIeld" type="Path3D" parent="."]
@@ -325,6 +439,7 @@ curve = SubResource("Curve3D_0l7ej")
 
 [node name="DefenseBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -14.9963, 226)
+descriptor = SubResource("Resource_polnp")
 default_curve = NodePath("../Hidden Glaide")
 
 [node name="Hidden Glaide" type="Path3D" parent="."]
@@ -334,8 +449,14 @@ curve = SubResource("Curve3D_rb61g")
 [node name="SKit_Heard_3" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1417, -7.43672, 94.1098)
 
+[node name="SkittishBeast" parent="SKit_Heard_3" index="0"]
+descriptor = SubResource("Resource_ot26p")
+
 [node name="SkittishBeast2" parent="SKit_Heard_3" index="4"]
 descriptor = SubResource("Resource_lgtga")
+
+[node name="SkittishBeast3" parent="SKit_Heard_3" index="5"]
+descriptor = SubResource("Resource_dwgsi")
 
 [node name="Skit_Heard_4" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2656, -2.59589, 109.22)
@@ -343,6 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2656, -2.59589, 109.22)
 [node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.945, -0.406347, 88.6881)
 default_curve = NodePath("../Skit_By cacti")
+descriptor = SubResource("Resource_d57jn")
 
 [node name="Skit_By cacti" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4204, 0, 81.811)
@@ -357,10 +479,12 @@ curve = SubResource("Curve3D_spdia")
 [node name="SkittishBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5174, 0.0591254, 85.58)
 default_curve = NodePath("../Skit_ByCacti 2")
+descriptor = SubResource("Resource_y422h")
 
 [node name="SkittishBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2886, 0.096128, 88.4564)
 default_curve = NodePath("../Skit_By Cacti 3")
+descriptor = SubResource("Resource_cmvrw")
 
 [node name="Skit_Heard_1" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2147, -5.47842, 147.067)
@@ -371,10 +495,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.009, -5.90103, 116.747)
 [node name="SkittishBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35549, -0.00684452, 143.147)
 default_curve = NodePath("../In da back 1")
+descriptor = SubResource("Resource_t742h")
 
 [node name="SkittishBeast5" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.995, 0.401389, 145.215)
 default_curve = NodePath("../in Da back 2")
+descriptor = SubResource("Resource_s54eg")
 
 [node name="In da back 1" type="Path3D" parent="."]
 curve = SubResource("Curve3D_u4avu")
@@ -387,6 +513,7 @@ curve = SubResource("Curve3D_2eank")
 
 [node name="DefenseBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7619, -0.109945, 174.504)
+descriptor = SubResource("Resource_b8fg3")
 default_curve = NodePath("../in da back 3")
 
 [node name="PassiveBeast" parent="." instance=ExtResource("11_k0jlp")]
@@ -410,9 +537,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.2753, -1.1137, 121.814)
 
 [node name="PassiveBeast2" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.4979, -1.1137, 125.45)
+descriptor = SubResource("Resource_atqlt")
 
 [node name="PassiveBeast3" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(-0.151175, 0, -0.988507, 0, 1, 0, 0.988507, 0, -0.151175, -47.5082, -1.23703, 93.1456)
+descriptor = SubResource("Resource_qetps")
 
 [node name="GPUParticles3D" parent="." instance=ExtResource("11_47x8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, -3.3, 24.3)
@@ -421,5 +550,6 @@ one_shot = false
 
 [node name="PassiveBeast4" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8057, -0.710342, 64.6098)
+descriptor = SubResource("Resource_vuhik")
 
 [editable path="SKit_Heard_3"]
