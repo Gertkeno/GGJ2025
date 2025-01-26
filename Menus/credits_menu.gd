@@ -60,19 +60,22 @@ func reset_credits() -> void:
 
 
 static func _calculate_score(creatures: Array[AnimalDescriptor], time_left: float) -> int:
-	var calculated_score := 0
+	var calculated_score: int = 0
 	
 	for animal_descriptor in creatures:
+		var animal_value: int = 0
 		match animal_descriptor.type:
 			AnimalDescriptor.Type.SKITTISH:
-				calculated_score += 20
+				animal_value += 20
 			AnimalDescriptor.Type.NEUTRAL:
-				calculated_score += 5
+				animal_value += 5
 			AnimalDescriptor.Type.DEFENSIVE:
-				calculated_score += 50
+				animal_value += 50
 			_:
 				pass
-				
+		animal_value = animal_value * (animal_descriptor.rating  * 4 + 1)
+		calculated_score += animal_value
+
 	calculated_score += int(0.5 * time_left)
 	calculated_score *= 100
 		
