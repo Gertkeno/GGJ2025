@@ -1,8 +1,8 @@
 class_name CreditsScreen extends Control
 
 
-@export_file("*.tscn") var main_menu_path = "res://main_menu.tscn"
-@export_file("*.txt") var credits_file = "res://credits.txt"
+@export_file("*.tscn") var main_menu_path: String = "res://main_menu.tscn"
+@export_file("*.txt") var credits_file: String = "res://credits.txt"
 @export var credit_theme: Theme
 @export var scroll_speed := 1.0
 @export var scroll_delay := 3.0
@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	if not start_scrolling:
 		return
 	
-	var scroll = scroll_speed * delta
+	var scroll: float = scroll_speed * delta
 	credits_container.position.y -= scroll
 
 
@@ -50,24 +50,24 @@ func reset_credits() -> void:
 	credits_container.position.y = 0
 
 
-func _calculate_score(creature_list: Array[AnimalDescriptor], time_left: float) -> int:
-	var score := 0
+static func _calculate_score(creatures: Array[AnimalDescriptor], time_left: float) -> int:
+	var calculated_score := 0
 	
-	for animal_descriptor in creature_list:
+	for animal_descriptor in creatures:
 		match animal_descriptor.type:
 			AnimalDescriptor.Type.SKITTISH:
-				score += 20
+				calculated_score += 20
 			AnimalDescriptor.Type.NEUTRAL:
-				score += 5
+				calculated_score += 5
 			AnimalDescriptor.Type.DEFENSIVE:
-				score += 50
+				calculated_score += 50
 			_:
 				pass
 				
-	score += 0.5 * time_left
-	score *= 100
+	calculated_score += int(0.5 * time_left)
+	calculated_score *= 100
 		
-	return score
+	return calculated_score
 
 
 func _build_credits() -> void:
