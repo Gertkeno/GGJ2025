@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_ljxhn"]
 [ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="3_cdged"]
 [ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
-[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
+[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_25x5b"]
 
@@ -35,7 +35,7 @@ collision_layer = 128
 collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/BullhornArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.618652, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84752, 0, 0.00979163)
 shape = SubResource("SphereShape3D_25x5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]

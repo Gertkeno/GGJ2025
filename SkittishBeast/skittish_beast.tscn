@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="3_4q112"]
 [ext_resource type="Script" path="res://SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
 [ext_resource type="PackedScene" uid="uid://bb03dilco4x58" path="res://Assets/skittish.glb" id="4_4gt8p"]
-[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
+[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6erl0"]
 
