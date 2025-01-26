@@ -3,6 +3,10 @@ class_name ArcadeTimer extends CanvasLayer
 @onready var time_label = $PanelContainer/MarginContainer/TimeLabel
 
 
+func _ready() -> void:
+	time_label.text = ""
+
+
 func set_time(time_secs: int) -> void :
 	var minutes = time_secs / 60
 	var seconds = time_secs % 60

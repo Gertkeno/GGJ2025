@@ -1,4 +1,4 @@
-extends Control
+class_name CreditsScreen extends Control
 
 
 @export_file("*.tscn") var main_menu_path = "res://main_menu.tscn"
@@ -14,10 +14,15 @@ extends Control
 var start_scrolling: bool
 var score: int = -1
 var creature_list: Array[AnimalDescriptor]
+var start_scroll_timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set_end_level_stats([AnimalDescriptor.new("test", Color.RED, AnimalDescriptor.Type.NEUTRAL)], 20.0)
+	start_scroll_timer = Timer.new()
+	start_scroll_timer.one_shot = true
+	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
+	add_child(start_scroll_timer)
 	start_credits()
 
 
@@ -109,14 +114,11 @@ func _reset_position() -> void:
 
 func _start_delay_timer() -> void:
 	start_scrolling = false
-	var start_scroll_timer := Timer.new()
-	add_child(start_scroll_timer)
-	start_scroll_timer.one_shot = true
-	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
 	start_scroll_timer.start(scroll_delay)
 
 
 func _on_back_pressed() -> void:
+	print("Going back to menu")
 	get_tree().change_scene_to_file(main_menu_path)
 
 

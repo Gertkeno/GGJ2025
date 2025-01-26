@@ -18,7 +18,6 @@ static var y_invert: float = 1.0
 @onready var net_hitbox: Area3D = $NetHitbox
 @onready var animator: AnimationTree = $AnimationTree
 @onready var arcade_timer: Timer = $ArcadeTimer
-@onready var time_display: ArcadeTimer = $Time
 @export var player_mesh: MeshInstance3D
 var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
@@ -65,6 +64,8 @@ var screen_size: Vector2
 func _ready() -> void:
 	screen_size = DisplayServer.screen_get_size()
 	eye_material = player_mesh.get_surface_override_material(1)
+	arcade_timer.start()
+	$Time.show()
 
 
 func _process(delta: float) -> void:
@@ -75,7 +76,7 @@ func _process(delta: float) -> void:
 		$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
 		$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 	animator.set("parameters/Walk/WalkSpeed/scale", velocity.length() / SPEED)
-	time_display.set_time(arcade_timer.time_left)
+	$Time.set_time(arcade_timer.time_left)
 
 
 const CAMERA_ANGLE_MAX = deg_to_rad(70)
@@ -154,3 +155,30 @@ func _on_catch_stun_timer_timeout() -> void:
 # 3 ouch
 func set_face_idx(idx: int) -> void:
 	eye_material.uv1_offset = Vector3(idx * 0.25, 0, 0)
+
+
+func _on_arcade_timer_timeout() -> void:
+	# Do all the end game stuff here
+	_open_credits()
+	
+
+func _init_credits() -> void:
+	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen
+	credits_screen.reset_credits()
+	
+
+func _open_credits() -> void:
+	var game_over_layer: CanvasLayer = $GameOver as CanvasLayer
+	var time_layer: CanvasLayer = $Time as CanvasLayer
+	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen
+	
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	time_layer.hide()
+	game_over_layer.show()
+	
+	# TODO: Need to pass caught animals here
+	# Assuming timer is stopped early when all animals caught
+	credits_screen.set_end_level_stats([], arcade_timer.time_left)
+	credits_screen.start_credits()
