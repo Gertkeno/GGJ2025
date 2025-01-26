@@ -89,6 +89,7 @@ func _build_credits() -> void:
 		credit_node.text = credit_txt
 		credit_node.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		credit_node.theme = credit_theme
+		credit_node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		
 		credits_container.add_child(credit_node)
 		
@@ -98,6 +99,7 @@ func _build_credits() -> void:
 		creature_title.text = "Creatures Caught"
 		creature_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		creature_title.theme = credit_theme
+		creature_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		credits_container.add_child(creature_title)
 
 	for animal: AnimalDescriptor in creature_list:
@@ -109,6 +111,7 @@ func _build_credits() -> void:
 		creature_title.theme = credit_theme
 		creature_title.fit_content = true
 		creature_title.clip_contents = false
+		creature_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		credits_container.add_child(creature_title)
 		
 	_reset_position.call_deferred()
