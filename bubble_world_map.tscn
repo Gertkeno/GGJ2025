@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=39 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
 [ext_resource type="PackedScene" uid="uid://bmjwtpdlkxidu" path="res://System/catch_particles.tscn" id="11_47x8e"]
 [ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
+[ext_resource type="Script" path="res://System/animal_descriptor.gd" id="11_o5xhf"]
 [ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
@@ -91,6 +92,14 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Resource" id="Resource_pt3cm"]
+script = ExtResource("11_o5xhf")
+name = "Silly"
+description = ""
+rating = 0.5
+color = Color(0.611987, 0.0654196, 0.613562, 1)
+type = 2
+
 [sub_resource type="Curve3D" id="Curve3D_xgyyy"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.31383, 0, 5.76466, 0, 0, 0, 0, 0, 0, 2.67772, 0, 14.194, 0, 0, 0, 0, 0, 0, -13.639, 0, 15.4584, 0, 0, 0, 0, 0, 0, -19.5395, 0, 6.12592, 0, 0, 0, 0, 0, 0, -11.5919, 0, -0.43689, 0, 0, 0, 0, 0, 0, 2.37667, 0, -1.15939, 0, 0, 0, 0, 0, 0, 6.65153, 0, 1.48981, 0, 0, 0, 0, 0, 0, 7.31383, 0, 5.76466),
@@ -111,6 +120,14 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
+
+[sub_resource type="Resource" id="Resource_lgtga"]
+script = ExtResource("11_o5xhf")
+name = "Pete"
+description = ""
+rating = 0.5
+color = Color(0, 1, 1, 1)
+type = 0
 
 [sub_resource type="Curve3D" id="Curve3D_jo2dq"]
 _data = {
@@ -153,6 +170,14 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 20
+
+[sub_resource type="Resource" id="Resource_bkncx"]
+script = ExtResource("11_o5xhf")
+name = "Jeremy"
+description = ""
+rating = 0.5
+color = Color(1, 1, 1, 1)
+type = 0
 
 [node name="BubbleWorldMap" type="Node3D"]
 
@@ -290,6 +315,7 @@ autoplay = true
 
 [node name="DefenseBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341921, 0.520967, 44.9135)
+descriptor = SubResource("Resource_pt3cm")
 default_curve = NodePath("../PathCourtYard")
 
 [node name="PathCourtYard" type="Path3D" parent="."]
@@ -314,6 +340,9 @@ curve = SubResource("Curve3D_rb61g")
 
 [node name="Node3D" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1417, -7.43672, 94.1098)
+
+[node name="SkittishBeast2" parent="Node3D" index="5"]
+descriptor = SubResource("Resource_lgtga")
 
 [node name="Node3D2" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2656, -2.59589, 109.22)
@@ -369,6 +398,7 @@ default_curve = NodePath("../in da back 3")
 
 [node name="PassiveBeast" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 20.494)
+descriptor = SubResource("Resource_bkncx")
 
 [node name="Node3D5" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2453, -0.48839, 23.8881)
@@ -398,3 +428,4 @@ one_shot = false
 
 [node name="PassiveBeast4" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8057, -0.710342, 64.6098)
+[editable path="Node3D"]

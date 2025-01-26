@@ -18,6 +18,9 @@ func _ready() -> void:
 
 	if descriptor:
 		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)
+		var low_alpha: Color = descriptor.color
+		low_alpha.a = 0.4
+		bubble_animal.bubble_material.set_shader_parameter("tint_color", low_alpha)
 	else:
 		push_warning("Animal %s missing descriptor!" % get_path())
 
@@ -47,7 +50,7 @@ func _on_dizzy_timer_timeout() -> void:
 
 func _on_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
-		var p = body as Player
+		var p := body as Player
 		if p.crouching == false:
 			if bubble_animal.get_parent() == default_behavior:
 				defense_behavior.player = body
@@ -56,7 +59,7 @@ func _on_vision_collision_entered(body: Node3D) -> void:
 
 func _on_sneak_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
-		var p = body as Player
+		var p := body as Player
 		if p.crouching:
 			if bubble_animal.get_parent() == default_behavior:
 				defense_behavior.player = body

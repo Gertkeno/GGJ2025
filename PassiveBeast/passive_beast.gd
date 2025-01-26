@@ -14,6 +14,9 @@ func _ready() -> void:
 
 	if descriptor:
 		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)
+		var low_alpha: Color = descriptor.color
+		low_alpha.a = 0.4
+		bubble_animal.bubble_material.set_shader_parameter("tint_color", low_alpha)
 	else:
 		push_warning("Animal %s missing descriptor!" % get_path())
 
