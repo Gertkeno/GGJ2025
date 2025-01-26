@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb4isqtwgj7ei"]
+[gd_scene load_steps=6 format=3 uid="uid://cb4isqtwgj7ei"]
 
 [ext_resource type="PackedScene" uid="uid://di7kjb7yshrqr" path="res://Player/_Player.glb" id="1_kgjtv"]
 [ext_resource type="PackedScene" uid="uid://dqeboesep1kmb" path="res://Assets/P_Coral.glb" id="2_b30t1"]
+[ext_resource type="PackedScene" uid="uid://dkne88ysu1rjf" path="res://Assets/Bub Defensive.fbx" id="3_kaqe5"]
+[ext_resource type="PackedScene" uid="uid://d3nsc1fnq0ihd" path="res://Assets/Bub Passive.fbx" id="4_o5ihl"]
+[ext_resource type="PackedScene" uid="uid://lleikludwv7j" path="res://Assets/Bub Skittish.fbx" id="5_04ety"]
 
 [node name="KarinaTestScene" type="Node3D"]
 
 [node name="_Player2" parent="." instance=ExtResource("1_kgjtv")]
-transform = Transform3D(2.35218, 0, 0, 0, 2.35218, 0, 0, 0, 2.35218, -2.56535, 9.53674e-07, 2.18028)
+transform = Transform3D(2.35218, 0, 0, 0, 2.35218, 0, 0, 0, 2.35218, -0.136698, 1.24772, 1.67787)
 
 [node name="P_Coral2" parent="." instance=ExtResource("2_b30t1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64297, 0, -5.90278)
+
+[node name="Bub Defensive" parent="." instance=ExtResource("3_kaqe5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2944, -0.0937328, -0.268777)
+
+[node name="Bub Passive" parent="." instance=ExtResource("4_o5ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94817, 0, 5.34406)
+
+[node name="Bub Skittish" parent="." instance=ExtResource("5_04ety")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6777, 0, 15.8265)

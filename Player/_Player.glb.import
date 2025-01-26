@@ -18036,6 +18036,10 @@ _subresources={
 "M_Player_Transparent": {
 "use_external/enabled": true,
 "use_external/path": "res://Player/player_face.tres"
+},
+"cs_solid_red": {
+"use_external/enabled": true,
+"use_external/path": "res://Bubble/BubbleMat_Net.tres"
 }
 }
 }

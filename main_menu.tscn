@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpudpvvrv7hy3"]
+[gd_scene load_steps=6 format=3 uid="uid://dpudpvvrv7hy3"]
 
 [ext_resource type="Theme" uid="uid://benc2fv0e5te2" path="res://Menus/main_menu.tres" id="1_uuaw3"]
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="2_01yjk"]
 [ext_resource type="Texture2D" uid="uid://db0a43xj6ec6l" path="res://Assets/bubble_ranch_logo.png" id="2_pxsrk"]
+[ext_resource type="Texture2D" uid="uid://ga7auudywedr" path="res://Assets/title screen.png" id="2_vwymw"]
 [ext_resource type="AudioStream" uid="uid://djw6gnusn6co7" path="res://Peachtea - Somewhere in the Elevator.ogg" id="3_vo0oo"]
 
 [node name="MainMenu" type="Control"]
@@ -23,6 +24,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.956863, 0.796078, 0.270588, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+offset_right = 1151.0
+offset_bottom = 650.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_vwymw")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
