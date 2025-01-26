@@ -46,6 +46,23 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="RenderQuality" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RenderQuality"]
+layout_mode = 2
+text = "MENU_OPTIONS_RESOLUTION"
+
+[node name="RenderScale" type="HSlider" parent="RenderQuality"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
 [node name="Close" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4

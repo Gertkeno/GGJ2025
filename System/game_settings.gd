@@ -18,6 +18,10 @@ func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	continue_pressed.emit()
 
+	var rid := get_viewport().get_viewport_rid()
+	var value: float = %RenderScale.value
+	RenderingServer.viewport_set_scaling_3d_scale(rid, value)
+
 
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():

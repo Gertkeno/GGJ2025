@@ -6,6 +6,7 @@ class_name DefenseBeast
 @onready var defense_behavior: DefenseBehavior = $DefenseBehavior
 @onready var dizzy_timer: Timer = $DefenseBehavior/DizzyTimer
 
+@export var descriptor: AnimalDescriptor
 @export var default_curve: Path3D
 @export_range(1.0, 20.0, 0.1) var knockback_force: float = 7.0
 
@@ -36,7 +37,7 @@ func _on_bubble_animal_notice_player(player: Player) -> void:
 	# do the collisioning
 	if bubble_animal.get_parent() == default_behavior:
 		defense_behavior.player = player
-		bubble_animal.reparent(defense_behavior)
+		bubble_animal.reparent.call_deferred(defense_behavior)
 
 
 func _on_bullhorn_body_entered(body: Node3D) -> void:

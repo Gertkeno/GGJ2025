@@ -9,14 +9,16 @@ extends Control
 
 @onready var back_button := $MarginContainer/VBoxContainer/ButtonContainer/Back
 @onready var credits_container := $MarginContainer/VBoxContainer/ScrollContainer/CreditsContainer
+@onready var score_display := $MarginContainer/VBoxContainer/ScoreDisplay
 
 var start_scrolling: bool
+var score: int = -1
+var creature_list: Array[AnimalDescriptor]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_build_credits()
-	back_button.grab_focus()
-	_start_delay_timer()
+	#set_end_level_stats([AnimalDescriptor.new("test", Color.ALICE_BLUE, AnimalDescriptor.Type.NEUTRAL)], 20.0)
+	start_credits()
 
 
 func _physics_process(delta: float) -> void:
@@ -26,8 +28,49 @@ func _physics_process(delta: float) -> void:
 	var scroll = scroll_speed * delta
 	credits_container.position.y -= scroll
 	
+	
+func set_end_level_stats(creatures: Array[AnimalDescriptor], time_left: float) -> void:
+	self.creature_list = creatures
+	self.score = _calculate_score(creatures, time_left)
+	
+	
+func start_credits() -> void:
+	back_button.grab_focus()
+	_build_credits()
+	_start_delay_timer()
+	
+	
+func reset_credits() -> void:
+	start_scrolling = false
+	credits_container.position.y = 0
+	
+	
+func _calculate_score(creature_list: Array[AnimalDescriptor], time_left: float) -> int:
+	var score := 0
+	
+	for animal_descriptor in creature_list:
+		match animal_descriptor.type:
+			AnimalDescriptor.Type.SKITTISH:
+				score += 20
+			AnimalDescriptor.Type.NEUTRAL:
+				score += 5
+			AnimalDescriptor.Type.DEFENSIVE:
+				score += 50
+			_:
+				pass
+				
+	score += 0.5 * time_left
+	score *= 100
+		
+	return score
+
 
 func _build_credits() -> void:
+	if score < 0:
+		score_display.text = "Credits"
+	else:
+		score_display.text = "Congratulations you scored %d points" % score
+	
 	var content = FileAccess.open(credits_file, FileAccess.READ).get_as_text()
 	var credits_list = content.rsplit("\n", true)
 	
@@ -38,6 +81,8 @@ func _build_credits() -> void:
 		credit_node.theme = credit_theme
 		
 		credits_container.add_child(credit_node)
+		
+	credits_container.position.y = 0
 		
 
 func _start_delay_timer() -> void:
