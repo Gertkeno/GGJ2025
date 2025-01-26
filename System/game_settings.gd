@@ -32,3 +32,7 @@ func _on_visibility_changed() -> void:
 
 func _on_master_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+
+
+func _on_toggle_crouch_toggled(toggled_on: bool) -> void:
+	Player.toggle_crouch = toggled_on
