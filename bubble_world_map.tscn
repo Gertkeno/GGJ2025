@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=76 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -91,7 +91,7 @@ point_count = 8
 
 [sub_resource type="Resource" id="Resource_jqdtc"]
 script = ExtResource("11_o5xhf")
-name = "Liam"
+name = "Michael Buble"
 description = ""
 rating = 0.5
 color = Color(0.874888, 0.00331862, 0.341822, 1)
@@ -166,6 +166,30 @@ rating = 0.5
 color = Color(0, 0.290196, 1, 1)
 type = 0
 
+[sub_resource type="Resource" id="Resource_7v0ov"]
+script = ExtResource("11_o5xhf")
+name = "Luke"
+description = ""
+rating = 0.5
+color = Color(0.0235294, 0.121569, 0.862745, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_tf23y"]
+script = ExtResource("11_o5xhf")
+name = "Valentina"
+description = ""
+rating = 0.5
+color = Color(0.0627451, 0.0941176, 0.933333, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_mqdcx"]
+script = ExtResource("11_o5xhf")
+name = "Anthony"
+description = ""
+rating = 0.5
+color = Color(0.0784314, 0.141176, 1, 1)
+type = 0
+
 [sub_resource type="Resource" id="Resource_d57jn"]
 script = ExtResource("11_o5xhf")
 name = "Isabella"
@@ -209,6 +233,54 @@ name = "Amelia"
 description = ""
 rating = 0.5
 color = Color(0.0156863, 0.188235, 0.839216, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_cqmdg"]
+script = ExtResource("11_o5xhf")
+name = "Violet"
+description = ""
+rating = 0.5
+color = Color(0.0705882, 0.0745098, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_jqgc1"]
+script = ExtResource("11_o5xhf")
+name = "Henry"
+description = ""
+rating = 0.5
+color = Color(0.0745098, 0.12549, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_8g8g2"]
+script = ExtResource("11_o5xhf")
+name = "Penelope"
+description = ""
+rating = 0.5
+color = Color(0.0980392, 0.0901961, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_n7o4p"]
+script = ExtResource("11_o5xhf")
+name = "Leonardo"
+description = ""
+rating = 0.5
+color = Color(0.0431373, 0.152941, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_2v5dx"]
+script = ExtResource("11_o5xhf")
+name = "Madison"
+description = ""
+rating = 0.5
+color = Color(0.0666667, 0.109804, 1, 1)
+type = 0
+
+[sub_resource type="Resource" id="Resource_qnc1t"]
+script = ExtResource("11_o5xhf")
+name = "Caleb"
+description = ""
+rating = 0.5
+color = Color(0.109804, 0.141176, 1, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_t742h"]
@@ -262,6 +334,126 @@ name = "Jeremy"
 description = ""
 rating = 0.5
 color = Color(0.141176, 0.901961, 0.0313726, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_0isa6"]
+script = ExtResource("11_o5xhf")
+name = "Maria"
+description = ""
+rating = 0.5
+color = Color(0.105882, 1, 0.223529, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_s74gf"]
+script = ExtResource("11_o5xhf")
+name = "Nathan"
+description = ""
+rating = 0.5
+color = Color(0.0705882, 1, 0.0901961, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_dh3wk"]
+script = ExtResource("11_o5xhf")
+name = "Naomi"
+description = ""
+rating = 0.5
+color = Color(0.0470588, 1, 0.0901961, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_bgtd7"]
+script = ExtResource("11_o5xhf")
+name = "Luis"
+description = ""
+rating = 0.5
+color = Color(0.0901961, 1, 0.0588235, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_8pjey"]
+script = ExtResource("11_o5xhf")
+name = "Christopher"
+description = ""
+rating = 0.5
+color = Color(0.0588235, 1, 0.117647, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_d11wf"]
+script = ExtResource("11_o5xhf")
+name = "Allison"
+description = ""
+rating = 0.5
+color = Color(0.0470588, 1, 0.0627451, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_cs5w6"]
+script = ExtResource("11_o5xhf")
+name = "Nova"
+description = ""
+rating = 0.5
+color = Color(0.0823529, 1, 0.105882, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_qxwpu"]
+script = ExtResource("11_o5xhf")
+name = "Hudson"
+description = ""
+rating = 0.5
+color = Color(0.0745098, 1, 0.105882, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_wd1og"]
+script = ExtResource("11_o5xhf")
+name = "Maya"
+description = ""
+rating = 0.5
+color = Color(0.0666667, 1, 0.0862745, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_qwya1"]
+script = ExtResource("11_o5xhf")
+name = "Carlos"
+description = ""
+rating = 0.5
+color = Color(0.0901961, 1, 0.0901961, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_jomcb"]
+script = ExtResource("11_o5xhf")
+name = "Stella"
+description = ""
+rating = 0.5
+color = Color(0.113725, 1, 0.129412, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_hgb16"]
+script = ExtResource("11_o5xhf")
+name = "Jack"
+description = ""
+rating = 0.5
+color = Color(0.0823529, 1, 0.113725, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_o8txf"]
+script = ExtResource("11_o5xhf")
+name = "Natalie"
+description = ""
+rating = 0.5
+color = Color(0.0588235, 1, 0.14902, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_4f8dr"]
+script = ExtResource("11_o5xhf")
+name = "Logan"
+description = ""
+rating = 0.5
+color = Color(0.0588235, 1, 0.105882, 1)
+type = 1
+
+[sub_resource type="Resource" id="Resource_lo0x3"]
+script = ExtResource("11_o5xhf")
+name = "Emiliano"
+description = ""
+rating = 0.5
+color = Color(0.0823529, 1, 0.0901961, 1)
 type = 1
 
 [sub_resource type="Resource" id="Resource_atqlt"]
@@ -461,6 +653,15 @@ descriptor = SubResource("Resource_dwgsi")
 [node name="Skit_Heard_4" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.2656, -2.59589, 109.22)
 
+[node name="SkittishBeast" parent="Skit_Heard_4" index="0"]
+descriptor = SubResource("Resource_7v0ov")
+
+[node name="SkittishBeast2" parent="Skit_Heard_4" index="4"]
+descriptor = SubResource("Resource_tf23y")
+
+[node name="SkittishBeast3" parent="Skit_Heard_4" index="5"]
+descriptor = SubResource("Resource_mqdcx")
+
 [node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.945, -0.406347, 88.6881)
 default_curve = NodePath("../Skit_By cacti")
@@ -489,8 +690,26 @@ descriptor = SubResource("Resource_cmvrw")
 [node name="Skit_Heard_1" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2147, -5.47842, 147.067)
 
+[node name="SkittishBeast" parent="Skit_Heard_1" index="0"]
+descriptor = SubResource("Resource_cqmdg")
+
+[node name="SkittishBeast2" parent="Skit_Heard_1" index="4"]
+descriptor = SubResource("Resource_jqgc1")
+
+[node name="SkittishBeast3" parent="Skit_Heard_1" index="5"]
+descriptor = SubResource("Resource_8g8g2")
+
 [node name="Skit_Heard_2" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.009, -5.90103, 116.747)
+
+[node name="SkittishBeast" parent="Skit_Heard_2" index="0"]
+descriptor = SubResource("Resource_n7o4p")
+
+[node name="SkittishBeast2" parent="Skit_Heard_2" index="4"]
+descriptor = SubResource("Resource_2v5dx")
+
+[node name="SkittishBeast3" parent="Skit_Heard_2" index="5"]
+descriptor = SubResource("Resource_qnc1t")
 
 [node name="SkittishBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("10_x1135")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35549, -0.00684452, 143.147)
@@ -523,17 +742,62 @@ descriptor = SubResource("Resource_bkncx")
 [node name="Pas_Heard2" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2453, -0.48839, 23.8881)
 
+[node name="PassiveBeast3" parent="Pas_Heard2" index="0"]
+descriptor = SubResource("Resource_0isa6")
+
+[node name="PassiveBeast5" parent="Pas_Heard2" index="1"]
+descriptor = SubResource("Resource_s74gf")
+
+[node name="PassiveBeast6" parent="Pas_Heard2" index="2"]
+descriptor = SubResource("Resource_dh3wk")
+
 [node name="Pas_Heard1" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4227, -1.16384, 69.224)
+
+[node name="PassiveBeast3" parent="Pas_Heard1" index="0"]
+descriptor = SubResource("Resource_bgtd7")
+
+[node name="PassiveBeast5" parent="Pas_Heard1" index="1"]
+descriptor = SubResource("Resource_8pjey")
+
+[node name="PassiveBeast6" parent="Pas_Heard1" index="2"]
+descriptor = SubResource("Resource_d11wf")
 
 [node name="Pas_Heard_4" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6285, -4.78217, 100.44)
 
+[node name="PassiveBeast3" parent="Pas_Heard_4" index="0"]
+descriptor = SubResource("Resource_cs5w6")
+
+[node name="PassiveBeast5" parent="Pas_Heard_4" index="1"]
+descriptor = SubResource("Resource_qxwpu")
+
+[node name="PassiveBeast6" parent="Pas_Heard_4" index="2"]
+descriptor = SubResource("Resource_wd1og")
+
 [node name="Pas_Heard_5" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2217, -1.1137, 133.987)
 
+[node name="PassiveBeast3" parent="Pas_Heard_5" index="0"]
+descriptor = SubResource("Resource_qwya1")
+
+[node name="PassiveBeast5" parent="Pas_Heard_5" index="1"]
+descriptor = SubResource("Resource_jomcb")
+
+[node name="PassiveBeast6" parent="Pas_Heard_5" index="2"]
+descriptor = SubResource("Resource_hgb16")
+
 [node name="Pas_Heard_6" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.2753, -1.1137, 121.814)
+
+[node name="PassiveBeast3" parent="Pas_Heard_6" index="0"]
+descriptor = SubResource("Resource_o8txf")
+
+[node name="PassiveBeast5" parent="Pas_Heard_6" index="1"]
+descriptor = SubResource("Resource_4f8dr")
+
+[node name="PassiveBeast6" parent="Pas_Heard_6" index="2"]
+descriptor = SubResource("Resource_lo0x3")
 
 [node name="PassiveBeast2" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.4979, -1.1137, 125.45)
@@ -553,3 +817,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8057, -0.710342, 64.6098)
 descriptor = SubResource("Resource_vuhik")
 
 [editable path="SKit_Heard_3"]
+[editable path="Skit_Heard_4"]
+[editable path="Skit_Heard_1"]
+[editable path="Skit_Heard_2"]
+[editable path="Pas_Heard2"]
+[editable path="Pas_Heard1"]
+[editable path="Pas_Heard_4"]
+[editable path="Pas_Heard_5"]
+[editable path="Pas_Heard_6"]
