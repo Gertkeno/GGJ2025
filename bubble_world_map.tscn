@@ -1,5 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dydmub3swggmv"]
-[gd_scene load_steps=39 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=38 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -335,7 +334,7 @@ curve = SubResource("Curve3D_rb61g")
 [node name="Node3D" parent="." instance=ExtResource("9_vmhyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1417, -7.43672, 94.1098)
 
-[node name="SkittishBeast2" parent="Node3D" index="5"]
+[node name="SkittishBeast2" parent="Node3D" index="4"]
 descriptor = SubResource("Resource_lgtga")
 
 [node name="Node3D2" parent="." instance=ExtResource("9_vmhyp")]
@@ -422,4 +421,5 @@ one_shot = false
 
 [node name="PassiveBeast4" parent="." instance=ExtResource("11_k0jlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8057, -0.710342, 64.6098)
+
 [editable path="Node3D"]
