@@ -11,6 +11,9 @@ func _on_body_entered(body: Node3D) -> void:
 
 	elif body is BubbleAnimal:
 		var prick_fx: GPUParticles3D = PRICKED.instantiate()
-		prick_fx.global_position = body.global_position
 		get_tree().root.add_child(prick_fx)
+		prick_fx.global_position = body.global_position
+		prick_fx.emitting = true
+		prick_fx.finished.connect(prick_fx.queue_free)
+
 		body.get_parent().get_parent().queue_free()

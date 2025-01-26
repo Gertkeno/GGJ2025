@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 			$CameraPivot.rotation.y = 0.0
 	else:
 		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, AIR_ACCELERATION*delta)
-		
+
 	velocity = horizontal_velocity + vertical_velocity
 
 	move_and_slide()
@@ -134,7 +134,13 @@ func _unhandled_input(event: InputEvent) -> void:
 					.set_ease(Tween.EASE_OUT) \
 					.set_trans(Tween.TRANS_QUAD) \
 					.set_delay(0.2)
-				catch_tween.finished.connect(animator.set.bind("parameters/Swing/TimeScale/scale", 1.0))
+
+				$AnimalCard.show()
+				%AnimalDescriptorCard.set_data(caught_animals.back())
+				catch_tween.finished.connect(func() -> void:
+					animator.set("parameters/Swing/TimeScale/scale", 1.0)
+					$AnimalCard.hide())
+
 				set_face_idx(1)
 				_check_animal_count()
 			else:
@@ -207,24 +213,24 @@ func set_face_idx(idx: int) -> void:
 func _on_arcade_timer_timeout() -> void:
 	# Do all the end game stuff here
 	_open_credits()
-	
+
 
 func _init_credits() -> void:
 	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen
 	credits_screen.reset_credits()
-	
+
 
 func _open_credits(time_left: float = 0) -> void:
 	var game_over_layer: CanvasLayer = $GameOver as CanvasLayer
 	var time_layer: CanvasLayer = $Time as CanvasLayer
 	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen
-	
+
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
+
 	time_layer.hide()
 	game_over_layer.show()
-	
+
 	# Assuming timer is stopped early when all animals caught
 	credits_screen.set_end_level_stats(caught_animals, time_left)
 	credits_screen.start_credits()
@@ -238,7 +244,7 @@ func _count_all_animals() -> int:
 func _check_animal_count() -> void:
 	if animals_left != 0:
 		return
-	
+
 	var time_left: float = arcade_timer.time_left
 	arcade_timer.stop()
 	_open_credits(time_left)
