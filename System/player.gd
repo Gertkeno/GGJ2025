@@ -10,6 +10,7 @@ const JUMP_VELOCITY: float = 5.5
 #region control options
 static var camera_sensitivity: float = 1.0
 static var y_invert: float = 1.0
+static var toggle_crouch: bool = false
 static var arcade_mode: bool = true
 #endregion
 
@@ -54,7 +55,7 @@ func _physics_process(delta: float) -> void:
 
 	if hurt_timer.is_stopped():
 		var accel: float = GROUND_ACCELERATION if is_on_floor() else AIR_ACCELERATION
-		var speed: float = CROUCH_SPEED if Input.is_action_pressed("crouch") else SPEED
+		var speed: float = CROUCH_SPEED if crouching else SPEED
 		horizontal_velocity = horizontal_velocity.move_toward(direction*speed, accel*delta)
 
 		if direction:
@@ -142,9 +143,18 @@ func _unhandled_input(event: InputEvent) -> void:
 				_check_animal_count()
 			else:
 				set_face_idx(2)
+	elif event.is_action("crouch") and toggle_crouch:
+		if event.is_pressed():
+			crouching = not crouching
+
+			var crouch_tween: Tween = create_tween().set_parallel()
+			var final_value: float = 1.0 if crouching else 0.0
+			crouch_tween.tween_property(animator, "parameters/Idle/blend_position:x", final_value, 0.125)
+			crouch_tween.tween_property(animator, "parameters/Walk/Crouch/blend_amount", final_value, 0.125)
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
+
 			var crouch_tween: Tween = create_tween().set_parallel()
 			var final_value: float = 1.0 if crouching else 0.0
 			crouch_tween.tween_property(animator, "parameters/Idle/blend_position:x", final_value, 0.125)
