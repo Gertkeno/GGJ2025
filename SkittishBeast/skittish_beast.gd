@@ -50,4 +50,4 @@ func _on_vision_collision_entered(body: Node3D) -> void:
 			
 			bubble_animal.navigation_agent.target_position = destination
 			
-			bubble_animal.reparent(skittish_behavior)
+			bubble_animal.reparent.call_deferred(skittish_behavior)
