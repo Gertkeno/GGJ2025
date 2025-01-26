@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwmpbi5874ctd"]
+[gd_scene load_steps=5 format=3 uid="uid://dwmpbi5874ctd"]
 
 [ext_resource type="Script" path="res://Menus/credits_menu.gd" id="2_nd4l7"]
+[ext_resource type="Theme" uid="uid://igg7vj4k4wwc" path="res://Menus/credit_entry.tres" id="2_p5s87"]
 [ext_resource type="Theme" uid="uid://benc2fv0e5te2" path="res://Menus/main_menu.tres" id="2_y6kl4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cqcu3"]
@@ -16,11 +17,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_nd4l7")
-scroll_speed = 100.0
-
-[node name="StartScrollTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
+credit_theme = ExtResource("2_p5s87")
+scroll_speed = 50.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -60,10 +58,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="CreditsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-offset_top = 10.06
-offset_right = 1088.0
-offset_bottom = 815.27
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
@@ -79,5 +79,4 @@ size_flags_vertical = 4
 text = "Exit
 "
 
-[connection signal="timeout" from="StartScrollTimer" to="." method="_on_start_scroll_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Back" to="." method="_on_back_pressed"]
