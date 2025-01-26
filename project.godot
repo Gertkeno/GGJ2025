@@ -13,6 +13,8 @@ config_version=5
 config/name="GGJ2025"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://Assets/bubble_ranch_logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [debug]

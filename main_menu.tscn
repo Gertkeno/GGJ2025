@@ -2,12 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://benc2fv0e5te2" path="res://Menus/main_menu.tres" id="1_uuaw3"]
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="2_01yjk"]
+[ext_resource type="Texture2D" uid="uid://db0a43xj6ec6l" path="res://Assets/bubble_ranch_logo.png" id="2_pxsrk"]
 [ext_resource type="AudioStream" uid="uid://djw6gnusn6co7" path="res://Peachtea - Somewhere in the Elevator.ogg" id="3_vo0oo"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_j7rj5"]
-font_size = 64
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -40,13 +36,11 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 150)
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Bubble Ranch: A Cozy Hunt"
-label_settings = SubResource("LabelSettings_j7rj5")
-horizontal_alignment = 1
-autowrap_mode = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_pxsrk")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
