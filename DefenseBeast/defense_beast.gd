@@ -26,13 +26,6 @@ func _physics_process(delta: float) -> void:
 			defense_behavior.process_behavior(delta) # do defense behavior stuff
 
 
-func _input(event: InputEvent) -> void:
-	# TODO have it change behavior if it notices the player.
-	if event.is_action_pressed("jump"):
-		if bubble_animal.get_parent() == defense_behavior:
-			bubble_animal.reparent(default_behavior)
-
-
 func _on_bubble_animal_notice_player(player: Player) -> void:
 	# do the collisioning
 	if bubble_animal.get_parent() == default_behavior:
