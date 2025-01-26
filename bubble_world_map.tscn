@@ -376,9 +376,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2453, -0.48839, 23.8881)
 [node name="Node3D6" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4227, -1.16384, 69.224)
 
-[node name="Node3D7" parent="." instance=ExtResource("12_f60bv")]
-transform = Transform3D(0.184535, 0, -0.982826, 0, 1, 0, 0.982826, 0, 0.184535, 45.1301, -1.1137, 65.9394)
-
 [node name="Node3D8" parent="." instance=ExtResource("12_f60bv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6285, -4.78217, 100.44)
 
@@ -398,3 +395,6 @@ transform = Transform3D(-0.151175, 0, -0.988507, 0, 1, 0, 0.988507, 0, -0.151175
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, -3.3, 24.3)
 emitting = true
 one_shot = false
+
+[node name="PassiveBeast4" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8057, -0.710342, 64.6098)

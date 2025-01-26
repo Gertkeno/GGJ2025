@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwb6jcc1488gx"]
+[gd_scene load_steps=5 format=3 uid="uid://cwb6jcc1488gx"]
 
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="1_qhosc"]
 
@@ -23,13 +23,6 @@ _data = {
 }
 point_count = 12
 
-[sub_resource type="Curve3D" id="Curve3D_e2dp6"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -12.1418, 0, -3.93899, 0, 0, 0, 0, 0, 0, -12.2637, 0, -0.243649, 0, 0, 0, 0, 0, 0, -12.3043, 0, 1.94919, 0, 0, 0, 0, 0, 0, -9.62413, 0, 6.94399, 0, 0, 0, 0, 0, 0, -5.60223, 0, 9.44184, 0, 0, 0, 0, 0, 0, 0.326555, 0, 10.5789, 0, 0, 0, 0, 0, 0, 4.10311, 0, 8.67029, 0, 0, 0, 0, 0, 0, 8.77305, 0, 5.54346, 0, 0, 0, 0, 0, 0, 10.1943, 0, 2.2542, 0, 0, 0, 0, 0, 0, 9.89292, 0, -4.59558, 0, 0, 0, 0, 0, 0, 7.09096, 0, -8.08788, 0, 0, 0, 0, 0, 0, 2.53727, 0, -11.1414, 0, 0, 0, 0, 0, 0, -0.427122, 0, -11.5475, 0, 0, 0, 0, 0, 0, -4.85341, 0, -11.1008, 0, 0, 0, 0, 0, 0, -8.3051, 0, -9.76074, 0, 0, 0, 0, 0, 0, -10.3355, 0, -7.40547, 0, 0, 0, 0, 0, 0, -11.6756, 0, -6.0654, 0, 0, 0, 0, 0, 0, -12.1418, 0, -3.93899),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 18
-
 [node name="Node3D" type="Node3D"]
 
 [node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
@@ -45,9 +38,6 @@ curve = SubResource("Curve3D_wo5s0")
 [node name="3rd" type="Path3D" parent="."]
 curve = SubResource("Curve3D_513h5")
 
-[node name="4rth" type="Path3D" parent="."]
-curve = SubResource("Curve3D_e2dp6")
-
 [node name="SkittishBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0775244, 0, 5.66131)
 default_curve = NodePath("../2nd")
@@ -55,7 +45,3 @@ default_curve = NodePath("../2nd")
 [node name="SkittishBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111936, 0, 7.84012)
 default_curve = NodePath("../3rd")
-
-[node name="SkittishBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159303, 0, 10.1137)
-default_curve = NodePath("../4rth")
