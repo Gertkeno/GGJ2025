@@ -11,6 +11,8 @@ func _ready() -> void:
 	music.play()
 	$Start.grab_focus()
 	ResourceLoader.load_threaded_request(main_scene_path)
+	if OS.get_name() == "Web":
+		$Exit.hide()
 
 
 func _on_exit_pressed() -> void:
