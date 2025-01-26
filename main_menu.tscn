@@ -62,6 +62,7 @@ size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../Freeplay")
 focus_next = NodePath("../Freeplay")
+theme_override_font_sizes/font_size = 65
 text = "Start Arcade"
 
 [node name="Freeplay" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
