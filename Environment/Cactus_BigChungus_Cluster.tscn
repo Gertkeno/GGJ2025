@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp1273y2tkxuy"]
+
+[ext_resource type="PackedScene" uid="uid://b7qv6afa6inmh" path="res://Environment/Cactus_BigChungus.tscn" id="1_g1hgl"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63922, 0, 0.685046)
+
+[node name="Node3D2" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.451532, 0, 0.892255, 0, 1, 0, -0.892255, 0, 0.451532, 17.4955, 0, 9.11736)
+
+[node name="Node3D3" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3207, 0, -3.69623)
+
+[node name="Node3D4" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.969437, 0, -0.245341, 0, 1, 0, 0.245341, 0, -0.969437, -17.2835, 0, 0.637978)
+
+[node name="Node3D5" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.218825, 0, -0.975764, 0, 1, 0, 0.975764, 0, -0.218825, -37.9022, 0, -2.84209)
+
+[node name="Node3D6" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.969437, 0, -0.245341, 0, 1, 0, 0.245341, 0, -0.969437, -29.7419, 0, 8.3103)
+
+[node name="Node3D7" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4431, 0, 0.685046)
+
+[node name="Node3D8" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.451532, 0, 0.892255, 0, 1, 0, -0.892255, 0, 0.451532, 80.5778, 0, 9.11736)
+
+[node name="Node3D9" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.403, 0, -3.69623)
+
+[node name="Node3D10" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.969437, 0, -0.245341, 0, 1, 0, 0.245341, 0, -0.969437, 45.7988, 0, 0.637978)
+
+[node name="Node3D11" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.218825, 0, -0.975764, 0, 1, 0, 0.975764, 0, -0.218825, 25.1801, 0, -2.84209)
+
+[node name="Node3D12" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.969437, 0, -0.245341, 0, 1, 0, 0.245341, 0, -0.969437, 33.3404, 0, 8.3103)
+
+[node name="Node3D13" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.999997, 0, -0.00244346, 0, 1, 0, 0.00244346, 0, -0.999997, 38.4154, 0, 24.7659)
+
+[node name="Node3D14" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.44935, 0, -0.893356, 0, 1, 0, 0.893356, 0, -0.44935, 91.9526, 0, -3.33285)
+
+[node name="Node3D15" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.999997, 0, -0.00244346, 0, 1, 0, 0.00244346, 0, -0.999997, 24.4662, 0, 29.1813)
+
+[node name="Node3D16" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.968834, 0, 0.247709, 0, 1, 0, -0.247709, 0, 0.968834, 54.0598, 0, 24.7747)
+
+[node name="Node3D17" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.21644, 0, 0.976296, 0, 1, 0, -0.976296, 0, 0.21644, 74.6869, 0, 28.2044)
+
+[node name="Node3D18" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.968834, 0, 0.247709, 0, 1, 0, -0.247709, 0, 0.968834, 66.4994, 0, 17.072)
+
+[node name="Node3D19" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.999997, 0, -0.00244346, 0, 1, 0, 0.00244346, 0, -0.999997, -24.6667, 0, 24.92)
+
+[node name="Node3D20" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.44935, 0, -0.893356, 0, 1, 0, 0.893356, 0, -0.44935, -43.8219, 0, 16.5345)
+
+[node name="Node3D21" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(-0.999997, 0, -0.00244346, 0, 1, 0, 0.00244346, 0, -0.999997, -38.6159, 0, 29.3354)
+
+[node name="Node3D22" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.968834, 0, 0.247709, 0, 1, 0, -0.247709, 0, 0.968834, -9.02231, 0, 24.9289)
+
+[node name="Node3D23" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.21644, 0, 0.976296, 0, 1, 0, -0.976296, 0, 0.21644, 11.6048, 0, 28.3586)
+
+[node name="Node3D24" parent="." instance=ExtResource("1_g1hgl")]
+transform = Transform3D(0.968834, 0, 0.247709, 0, 1, 0, -0.247709, 0, 0.968834, 3.4173, 0, 17.2261)
