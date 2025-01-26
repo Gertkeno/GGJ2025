@@ -17,6 +17,11 @@ func _ready() -> void:
 	default_behavior.init_curve_points(default_curve)
 	skittish_behavior.bubble_animal = bubble_animal
 
+	if descriptor:
+		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)
+	else:
+		push_warning("Animal %s missing descriptor!" % get_path())
+
 
 func _physics_process(delta: float) -> void:
 	if bubble_animal.get_parent() == default_behavior:
