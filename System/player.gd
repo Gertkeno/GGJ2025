@@ -14,6 +14,7 @@ static var arcade_mode: bool = true
 #endregion
 
 @export var catch_particles: PackedScene
+@export var buble_particles: PackedScene
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var catch_anticipate: Timer = $CatchSwingAnticipation
@@ -171,13 +172,19 @@ func catch() -> bool:
 
 	var a_hit: bool = false
 	for hit: Node3D in net_hitbox.get_overlapping_bodies():
-		var clone: GPUParticles3D = catch_particles.instantiate()
-		add_sibling(clone)
-		clone.global_position = hit.global_position
-		clone.emitting = true
+		
+		var clone: GPUParticles3D = null
 		var animal: Node3D = hit.get_parent().get_parent()
 		if animal.descriptor != null:
 			caught_animals.append(animal.descriptor)
+			if animal.descriptor.name == "Michael Buble":
+				clone = buble_particles.instantiate()
+		
+		if clone == null:
+			clone = catch_particles.instantiate()
+		add_sibling(clone)
+		clone.global_position = hit.global_position
+		clone.emitting = true
 		animal.queue_free()
 		a_hit = true
 
