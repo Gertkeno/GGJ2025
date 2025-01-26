@@ -136,8 +136,8 @@ func catch() -> bool:
 	var a_hit: bool = false
 	for hit in net_hitbox.get_overlapping_bodies():
 		var clone: GPUParticles3D = catch_particles.instantiate()
-		clone.global_position = hit.global_position
 		add_sibling(clone)
+		clone.global_position = hit.global_position
 		clone.emitting = true
 		hit.get_parent().get_parent().queue_free()
 		a_hit = true
