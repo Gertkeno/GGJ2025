@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 		# This is evil, mayhaps Mac compile?
 		if last_collision and last_collision.get_collider().collision_layer == 1:
 			set_meta("last_jump", position)
+		animator_playback.travel("Jump")
 		vertical_velocity = JUMP_VELOCITY * up_direction
 
 	# Get the input direction and handle the movement/deceleration.
