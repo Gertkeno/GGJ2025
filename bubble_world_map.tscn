@@ -22,9 +22,15 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_8syn1")
 
 [sub_resource type="Environment" id="Environment_h62p6"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.168416, 0.0365861, 0.292327, 1)
+background_energy_multiplier = 2.01
 sky = SubResource("Sky_3q27d")
+ambient_light_color = Color(0.220404, 0.0763794, 0.30455, 1)
 tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.17056, 0.00958068, 0.206383, 1)
+fog_sun_scatter = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_peba3"]
 size = Vector3(8, 1, 8)
