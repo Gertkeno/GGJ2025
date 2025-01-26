@@ -1,7 +1,7 @@
 extends Node3D
 class_name SkittishBeast
 
-@onready var bubble_animal = $DefaultBehavior/BubbleAnimal
+@onready var bubble_animal: BubbleAnimal = $DefaultBehavior/BubbleAnimal
 @onready var default_behavior: DefaultBehavior = $DefaultBehavior
 @onready var skittish_behavior: SkittishBehavior = $SkittishBehavior
 
@@ -9,7 +9,7 @@ class_name SkittishBeast
 @export_range(1.0, 20.0, 0.1) var distance_to_run_away: float = 7.0
 @export var descriptor: AnimalDescriptor
 
-var rng = RandomNumberGenerator.new()
+var rng := RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,7 +41,7 @@ func _on_bubble_animal_notice_player(player: Player) -> void:
 		displacement *= distance_to_run_away
 		displacement += bubble_animal.global_position
 		
-		var destination = Vector3(displacement.x, bubble_animal.global_position.y, displacement.z)
+		var destination := Vector3(displacement.x, bubble_animal.global_position.y, displacement.z)
 		skittish_behavior.destination = destination
 		
 		bubble_animal.navigation_agent.target_position = destination
