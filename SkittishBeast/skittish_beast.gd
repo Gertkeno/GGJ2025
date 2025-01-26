@@ -19,6 +19,9 @@ func _ready() -> void:
 
 	if descriptor:
 		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)
+		var low_alpha: Color = descriptor.color
+		low_alpha.a = 0.4
+		bubble_animal.bubble_material.set_shader_parameter("tint_color", low_alpha)
 	else:
 		push_warning("Animal %s missing descriptor!" % get_path())
 
@@ -37,7 +40,7 @@ func _on_skittish_behavior_finished_fleeing() -> void:
 func _on_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
 		if bubble_animal.get_parent() == default_behavior:
-			var p = body as Player
+			var p := body as Player
 			if p.crouching == false:
 				reparent_to_skittish(body)
 
@@ -49,7 +52,7 @@ func _on_sneak_vision_collision_entered(body: Node3D) -> void:
 			if p.crouching:
 				reparent_to_skittish(body)
 	
-func reparent_to_skittish(body: Player):
+func reparent_to_skittish(body: Player) -> void:
 	skittish_behavior.player = body
 	# skittish_behavior.distance_to_run = distance_to_run_away
 

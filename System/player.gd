@@ -22,6 +22,7 @@ static var y_invert: float = 1.0
 var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
 var caught_animals: Array[AnimalDescriptor]
+var animals_left: int = -1
 
 
 func _physics_process(delta: float) -> void:
@@ -68,6 +69,7 @@ func _ready() -> void:
 	arcade_timer.start()
 	$Time.show()
 	_init_credits()
+	animals_left = _count_all_animals()
 
 
 func _process(delta: float) -> void:
@@ -101,6 +103,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if catch():
 			animator.active = false
 			set_physics_process(false)
+			animals_left -= 1
 			$CatchStunTimer.start()
 			var t_finish: float = $CameraPivot.rotation.y
 			var catch_tween := create_tween()
@@ -113,6 +116,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				.set_trans(Tween.TRANS_QUAD) \
 				.set_delay(0.2)
 			set_face_idx(1)
+			_check_animal_count()
 		else:
 			set_face_idx(2)
 	elif event.is_action("crouch"):
@@ -149,7 +153,8 @@ func catch() -> bool:
 		clone.global_position = hit.global_position
 		clone.emitting = true
 		var animal: Node3D = hit.get_parent().get_parent()
-		caught_animals.append(animal.descriptor)
+		if animal.descriptor != null:
+			caught_animals.append(animal.descriptor)
 		animal.queue_free()
 		a_hit = true
 
@@ -194,3 +199,24 @@ func _open_credits(time_left: float = 0) -> void:
 	# Assuming timer is stopped early when all animals caught
 	credits_screen.set_end_level_stats(caught_animals, time_left)
 	credits_screen.start_credits()
+
+
+func _count_all_animals() -> int:
+	var nodes := get_tree().get_nodes_in_group("Bubble Beasties")
+	return len(nodes)
+
+
+func _check_animal_count() -> void:
+	if animals_left != 0:
+		return
+	
+	var time_left: float = arcade_timer.time_left
+	arcade_timer.stop()
+	_open_credits(time_left)
+
+
+func _on_game_settings_quit_pressed() -> void:
+	var time_left: float = arcade_timer.time_left
+	arcade_timer.stop()
+	$Settings.hide()
+	_open_credits(time_left)

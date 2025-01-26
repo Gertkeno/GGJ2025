@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5tddd"]
 
-[node name="BubbleAnimal" type="CharacterBody3D" groups=["BubbleAnimal"]]
+[node name="BubbleAnimal" type="CharacterBody3D" groups=["Bubble Beasties"]]
 collision_layer = 8
 collision_mask = 163
 script = ExtResource("1_qslwe")
