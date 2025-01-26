@@ -3,5 +3,9 @@
 [ext_resource type="FontFile" uid="uid://bavfrwdoykxp" path="res://Menus/MrsBeasley/Mrs Beasley.ttf" id="1_4col7"]
 
 [resource]
+Label/constants/outline_size = 6
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_4col7")
+RichTextLabel/constants/outline_size = 6
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("1_4col7")

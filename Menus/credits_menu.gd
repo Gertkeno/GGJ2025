@@ -17,7 +17,7 @@ var creature_list: Array[AnimalDescriptor]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#set_end_level_stats([AnimalDescriptor.new("test", Color.ALICE_BLUE, AnimalDescriptor.Type.NEUTRAL)], 20.0)
+	#set_end_level_stats([AnimalDescriptor.new("test", Color.RED, AnimalDescriptor.Type.NEUTRAL)], 20.0)
 	start_credits()
 
 
@@ -27,24 +27,24 @@ func _physics_process(delta: float) -> void:
 	
 	var scroll = scroll_speed * delta
 	credits_container.position.y -= scroll
-	
-	
+
+
 func set_end_level_stats(creatures: Array[AnimalDescriptor], time_left: float) -> void:
 	self.creature_list = creatures
 	self.score = _calculate_score(creatures, time_left)
-	
-	
+
+
 func start_credits() -> void:
 	back_button.grab_focus()
 	_build_credits()
 	_start_delay_timer()
-	
-	
+
+
 func reset_credits() -> void:
 	start_scrolling = false
 	credits_container.position.y = 0
-	
-	
+
+
 func _calculate_score(creature_list: Array[AnimalDescriptor], time_left: float) -> int:
 	var score := 0
 	
@@ -67,7 +67,7 @@ func _calculate_score(creature_list: Array[AnimalDescriptor], time_left: float) 
 
 func _build_credits() -> void:
 	if score < 0:
-		score_display.text = "Credits"
+		score_display.text = "Thanks for Playing!"
 	else:
 		score_display.text = "Congratulations you scored %d points" % score
 	
@@ -82,8 +82,30 @@ func _build_credits() -> void:
 		
 		credits_container.add_child(credit_node)
 		
-	credits_container.position.y = 0
+	if len(creature_list) > 0:
+		var creature_title = Label.new()
 		
+		creature_title.text = "Creatures Caught"
+		creature_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		creature_title.theme = credit_theme
+		credits_container.add_child(creature_title)
+
+	for animal in creature_list:
+		var creature_title = RichTextLabel.new()
+		var creature_text = "[center]%s: [color=%x]%s type[/color][/center]" % [animal.name, animal.color.to_rgba32(), AnimalDescriptor.Type.keys()[animal.type]]
+		print(creature_text)
+		creature_title.text = creature_text
+		creature_title.bbcode_enabled = true
+		creature_title.theme = credit_theme
+		creature_title.fit_content = true
+		credits_container.add_child(creature_title)
+		
+	call_deferred("_reset_position")
+
+
+func _reset_position() -> void:
+	credits_container.position.y = 0
+
 
 func _start_delay_timer() -> void:
 	start_scrolling = false
