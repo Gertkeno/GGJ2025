@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://lgyoq0xx03pq"]
+[gd_scene load_steps=7 format=3 uid="uid://lgyoq0xx03pq"]
 
 [ext_resource type="Script" path="res://SkittishBeast/skittish_beast.gd" id="1_th50f"]
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_vu02e"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="3_4q112"]
 [ext_resource type="Script" path="res://SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
+[ext_resource type="PackedScene" uid="uid://lleikludwv7j" path="res://Assets/Bub Skittish.fbx" id="4_hpw6l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6erl0"]
 
 [node name="SkittishBeast" type="Node3D"]
 script = ExtResource("1_th50f")
@@ -13,6 +16,13 @@ distance_to_run_away = 2.0
 script = ExtResource("2_vu02e")
 
 [node name="BubbleAnimal" parent="DefaultBehavior" instance=ExtResource("3_4q112")]
+
+[node name="Bub Skittish" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_hpw6l")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_6erl0")
 
 [node name="SkittishBehavior" type="Node3D" parent="."]
 script = ExtResource("3_bjsvn")

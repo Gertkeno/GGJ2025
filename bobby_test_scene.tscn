@@ -17,9 +17,8 @@ sky = SubResource("Sky_i0hte")
 tonemap_mode = 2
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0kej5"]
-vertices = PackedVector3Array(-10.5, 1, -0.5, -10.5, 1, 0.5, -7.5, 1, 7.5, -0.5, 1, 10.5, 0.5, 1, 10.5, 7.5, 1, 7.5, 10.5, 1, 0.5, 10.5, 1, -0.5, 7.5, 1, -7.5, 0.5, 1, -10.5, -0.5, 1, -10.5, -7.5, 1, -7.5)
+vertices = PackedVector3Array(-10.5, 0.5, -0.5, -10.5, 0.5, 0.5, -7.5, 0.5, 7.5, -0.5, 0.5, 10.5, 0.5, 0.5, 10.5, 7.5, 0.5, 7.5, 10.5, 0.5, 0.5, 10.5, 0.5, -0.5, 7.5, 0.5, -7.5, 0.5, 0.5, -10.5, -0.5, 0.5, -10.5, -7.5, 0.5, -7.5)
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 2), PackedInt32Array(7, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 7), PackedInt32Array(0, 11, 10), PackedInt32Array(5, 4, 7), PackedInt32Array(7, 4, 2), PackedInt32Array(7, 2, 0), PackedInt32Array(7, 0, 10)]
-cell_height = 0.5
 agent_height = 1.0
 
 [node name="BobbyTestScene" type="Node3D"]
@@ -32,7 +31,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_48s6d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.494)
 default_curve = NodePath("../Path3D")
 
 [node name="Path3D" type="Path3D" parent="."]
