@@ -18,7 +18,7 @@ static var arcade_mode: bool = true
 
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var catch_anticipate: Timer = $CatchSwingAnticipation
-@onready var net_hitbox: Area3D = $NetHitbox
+@onready var net_hitbox: Area3D = $Player/NetHitbox
 @onready var animator: AnimationTree = $AnimationTree
 var animator_playback: AnimationNodeStateMachinePlayback
 @onready var arcade_timer: Timer = $ArcadeTimer
@@ -58,6 +58,8 @@ func _physics_process(delta: float) -> void:
 		horizontal_velocity = horizontal_velocity.move_toward(direction*speed, accel*delta)
 
 		if direction:
+			var vis_y_rotation: float = -input_dir.angle() - PI/2.0
+			$Player.rotation.y = vis_y_rotation
 			rotation.y += $CameraPivot.rotation.y
 			$CameraPivot.rotation.y = 0.0
 	else:
@@ -127,15 +129,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				$CatchStunTimer.start()
 				$Audio/Capture.play()
 				var t_finish: float = $CameraPivot.rotation.y
-				var catch_tween := create_tween()
-				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish - PI, 0.3) \
-					.set_ease(Tween.EASE_OUT) \
-					.set_trans(Tween.TRANS_QUAD)
-				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5) \
-					.from(t_finish + PI) \
-					.set_ease(Tween.EASE_OUT) \
-					.set_trans(Tween.TRANS_QUAD) \
-					.set_delay(0.2)
+				var catch_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT_IN)
+				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 2.2).from(t_finish + TAU)
 
 				$AnimalCard.show()
 				%AnimalDescriptorCard.set_data(caught_animals.back())
