@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_ljxhn"]
 [ext_resource type="Script" path="res://DefenseBeast/defense_behavior.gd" id="3_cdged"]
 [ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
-[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
+[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="5_qagie"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_25x5b"]
 
@@ -52,6 +52,12 @@ collision_mask = 32
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
+[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
+shape = SubResource("SphereShape3D_2w21c")
+
 [node name="DefenseBehavior" type="Node3D" parent="."]
 script = ExtResource("3_cdged")
 
@@ -60,6 +66,7 @@ one_shot = true
 
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/BullhornArea" to="." method="_on_bullhorn_body_entered"]
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
 [connection signal="timeout" from="DefenseBehavior/DizzyTimer" to="." method="_on_dizzy_timer_timeout"]
 
 [editable path="DefaultBehavior/BubbleAnimal/defensive"]

@@ -37,10 +37,18 @@ collision_mask = 32
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -2.64515)
 shape = SubResource("SphereShape3D_yiwvo")
 
+[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1.32849)
+shape = SubResource("SphereShape3D_yiwvo")
+
 [node name="SkittishBehavior" type="Node3D" parent="."]
 script = ExtResource("3_bjsvn")
 
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
 [connection signal="finished_fleeing" from="SkittishBehavior" to="." method="_on_skittish_behavior_finished_fleeing"]
 
 [editable path="DefaultBehavior/BubbleAnimal/skittish"]
