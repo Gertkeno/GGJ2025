@@ -57,23 +57,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Exit")
-focus_neighbor_bottom = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../Freeplay")
+focus_next = NodePath("../Freeplay")
 text = "Start Arcade"
 
 [node name="Freeplay" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Credits")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Start")
 text = "Free Play"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Start")
+focus_neighbor_top = NodePath("../Freeplay")
 focus_neighbor_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Freeplay")
 text = "Credits
 "
 
@@ -83,6 +88,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
 text = "Exit
 "
 
