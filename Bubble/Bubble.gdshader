@@ -53,7 +53,8 @@ float calculate_ripple(vec3 normal, float time) {
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	vec3 time_displacement = NORMAL * calculate_distortion(UV);
+	
+	vec3 time_displacement = NORMAL * calculate_distortion(VERTEX.xy);
 	vec3 ripple_displacement = NORMAL * calculate_ripple(NORMAL, TIME);
 	VERTEX += time_displacement + ripple_displacement;
 }
