@@ -79,7 +79,8 @@ size_flags_vertical = 4
 text = "Exit
 "
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gmn7s")
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Back" to="." method="_on_back_pressed"]
