@@ -14,3 +14,4 @@ PromptFont - https://shinmera.github.io/promptfont/
 Mrs Beasley - https://fontlibrary.org/en/font/mrs-beasley
 8-Bit Bossa - https://opengameart.org/content/bossa-nova
 Somewhere in the Elevator - https://opengameart.org/content/somewhere-in-the-elevator
+Lens Flares and Particles - https://opengameart.org/content/lens-flares-and-particles
