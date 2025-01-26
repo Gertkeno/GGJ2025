@@ -213,3 +213,10 @@ func _check_animal_count() -> void:
 	var time_left: float = arcade_timer.time_left
 	arcade_timer.stop()
 	_open_credits(time_left)
+
+
+func _on_game_settings_quit_pressed() -> void:
+	var time_left: float = arcade_timer.time_left
+	arcade_timer.stop()
+	$Settings.hide()
+	_open_credits(time_left)

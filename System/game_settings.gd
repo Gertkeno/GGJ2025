@@ -1,6 +1,7 @@
 extends Control
 
 signal continue_pressed
+signal quit_pressed
 
 func _on_y_invert_toggled(toggle_on: bool) -> void:
 	Player.y_invert = -1.0 if toggle_on else 1.0
@@ -11,7 +12,8 @@ func _on_camera_slider_value_changed(value: float) -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	quit_pressed.emit()
 
 
 func _on_continue_pressed() -> void:
