@@ -402,6 +402,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8352, 9.34323, -155.392)
 [node name="Cactus19" parent="." instance=ExtResource("4_hwtjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5986, 9.34323, -155.392)
 
+[node name="Cactus81" parent="." instance=ExtResource("4_hwtjs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4459, 9.23832, -102.651)
+
+[node name="Cactus82" parent="." instance=ExtResource("4_hwtjs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2912, 9.34323, -94.1468)
+
 [node name="Cactus20" parent="." instance=ExtResource("4_hwtjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4493, 9.34323, -155.392)
 

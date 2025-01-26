@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=24 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -93,6 +93,13 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 21
+
+[sub_resource type="Curve3D" id="Curve3D_rb61g"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.64199, 0, -7.47423, 0, 0, 0, 0, 0, 0, 7.69323, 0, 13.3801, 0, 0, 0, 0, 0, 0, -6.03888, 0, 11.3306, 0, 0, 0, 0, 0, 0, 1.39081, 0, 7.5901, 0, 0, 0, 0, 0, 0, -4.45047, 0, 4.46451, 0, 0, 0, 0, 0, 0, 2.72303, 0, 1.28769, 0, 0, 0, 0, 0, 0, -4.70666, 0, -2.04286, 0, 0, 0, 0, 0, 0, 2.05692, 0, -4.14368, 0, 0, 0, 0, 0, 0, -4.5017, 0, -7.01308, 0, 0, 0, 0, 0, 0, -1.60259, 0, -7.75012, 0, 0, 0, 0, 0, 0, 1.54452, 0, -8.55025, 0, 0, 0, 0, 0, 0, 7.64199, 0, -7.47423),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
 
 [node name="BubbleWorldMap" type="Node3D"]
 
@@ -243,3 +250,11 @@ default_curve = NodePath("../Cacti FIeld")
 [node name="Cacti FIeld" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.7399, 0, 75.3291)
 curve = SubResource("Curve3D_0l7ej")
+
+[node name="DefenseBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -14.9963, 226)
+default_curve = NodePath("../Hidden Glaide")
+
+[node name="Hidden Glaide" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.6994, 221.254)
+curve = SubResource("Curve3D_rb61g")
