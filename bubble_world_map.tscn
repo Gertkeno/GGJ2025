@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=34 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -31,9 +31,6 @@ tonemap_mode = 2
 fog_enabled = true
 fog_light_color = Color(0.17056, 0.00958068, 0.206383, 1)
 fog_sun_scatter = 0.1
-
-[sub_resource type="BoxMesh" id="BoxMesh_peba3"]
-size = Vector3(8, 1, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhfj1"]
 size = Vector3(8, 1, 8)
@@ -171,10 +168,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 collision_layer = 2
 collision_mask = 40
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
-mesh = SubResource("BoxMesh_peba3")
-skeleton = NodePath("../CollisionShape3D")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
 shape = SubResource("BoxShape3D_bhfj1")
 
@@ -188,7 +181,7 @@ autoplay = "moving platofrm"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="KillFloor" type="Area3D" parent="." node_paths=PackedStringArray("respawn_pos")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -40, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -26.3994, 0)
 collision_mask = 40
 script = ExtResource("2_5yv2i")
 respawn_pos = NodePath("../RespawnPoint")
