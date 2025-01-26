@@ -14,7 +14,10 @@ func _on_exit_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(main_scene_path)
+	var tree: SceneTree = get_tree()
+	tree.paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	tree.change_scene_to_file(main_scene_path)
 
 
 func _on_credits_pressed() -> void:
