@@ -16,12 +16,15 @@ static var arcade_mode: bool = true
 @export var catch_particles: PackedScene
 
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var catch_anticipate: Timer = $CatchSwingAnticipation
 @onready var net_hitbox: Area3D = $NetHitbox
 @onready var animator: AnimationTree = $AnimationTree
+var animator_playback: AnimationNodeStateMachinePlayback
 @onready var arcade_timer: Timer = $ArcadeTimer
 @export var player_mesh: MeshInstance3D
 var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
+var raised_net: bool = false # for animation
 var caught_animals: Array[AnimalDescriptor]
 var animals_left: int = -1
 
@@ -72,6 +75,7 @@ func _ready() -> void:
 		$Time.show()
 	_init_credits()
 	animals_left = _count_all_animals()
+	animator_playback = animator.get("parameters/playback")
 
 
 func _process(delta: float) -> void:
@@ -97,36 +101,49 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+	var can_swing: bool = hurt_timer.is_stopped() and animator_playback.get_current_node() != &"Swing"
 	if event.is_action_pressed("menu"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$Settings.show()
 		get_tree().paused = true
-	elif event.is_action_pressed("catch") and hurt_timer.is_stopped():
-		if catch():
-			animator.active = false
-			set_physics_process(false)
-			animals_left -= 1
-			$CatchStunTimer.start()
-			var t_finish: float = $CameraPivot.rotation.y
-			var catch_tween := create_tween()
-			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish - PI, 0.3) \
-				.set_ease(Tween.EASE_OUT) \
-				.set_trans(Tween.TRANS_QUAD)
-			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5) \
-				.from(t_finish + PI) \
-				.set_ease(Tween.EASE_OUT) \
-				.set_trans(Tween.TRANS_QUAD) \
-				.set_delay(0.2)
-			set_face_idx(1)
-			_check_animal_count()
-		else:
-			set_face_idx(2)
+	elif event.is_action("catch") and can_swing:
+		if raised_net == event.is_pressed():
+			return
+		raised_net = event.is_pressed()
+		var final_value: float = 1.0 if raised_net else 0.0
+		var raise_tween: Tween = create_tween().set_parallel()
+		raise_tween.tween_property(animator, "parameters/Idle/blend_position:y", final_value, 0.125)
+		raise_tween.tween_property(animator, "parameters/Walk/CrouchRaised/blend_amount", final_value, 0.125)
+		raise_tween.tween_property(animator, "parameters/Walk/WalkRaised/blend_amount", final_value, 0.125)
+
+		if not event.is_pressed():
+			var caught: bool = await catch()
+			if caught:
+				animator.set("parameters/Swing/TimeScale/scale", 0.0)
+				set_physics_process(false)
+				animals_left -= 1
+				$CatchStunTimer.start()
+				var t_finish: float = $CameraPivot.rotation.y
+				var catch_tween := create_tween()
+				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish - PI, 0.3) \
+					.set_ease(Tween.EASE_OUT) \
+					.set_trans(Tween.TRANS_QUAD)
+				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5) \
+					.from(t_finish + PI) \
+					.set_ease(Tween.EASE_OUT) \
+					.set_trans(Tween.TRANS_QUAD) \
+					.set_delay(0.2)
+				catch_tween.finished.connect(animator.set.bind("parameters/Swing/TimeScale/scale", 1.0))
+				set_face_idx(1)
+				_check_animal_count()
+			else:
+				set_face_idx(2)
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
 			var crouch_tween: Tween = create_tween().set_parallel()
 			var final_value: float = 1.0 if crouching else 0.0
-			crouch_tween.tween_property(animator, "parameters/Idle/blend_position", final_value, 0.125)
+			crouch_tween.tween_property(animator, "parameters/Idle/blend_position:x", final_value, 0.125)
 			crouch_tween.tween_property(animator, "parameters/Walk/Crouch/blend_amount", final_value, 0.125)
 
 
@@ -145,6 +162,10 @@ func knockback(force: Vector3) -> void:
 
 
 func catch() -> bool:
+	animator_playback.travel("Swing")
+	catch_anticipate.start()
+	await catch_anticipate.timeout
+
 	if not net_hitbox.has_overlapping_bodies():
 		return false
 
@@ -197,7 +218,6 @@ func _open_credits(time_left: float = 0) -> void:
 	time_layer.hide()
 	game_over_layer.show()
 	
-	# TODO: Need to pass caught animals here
 	# Assuming timer is stopped early when all animals caught
 	credits_screen.set_end_level_stats(caught_animals, time_left)
 	credits_screen.start_credits()
