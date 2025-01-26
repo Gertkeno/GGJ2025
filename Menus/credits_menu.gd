@@ -17,6 +17,8 @@ var score: int = -1
 var creature_list: Array[AnimalDescriptor]
 var start_scroll_timer: Timer
 
+static var from_game := true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set_end_level_stats([AnimalDescriptor.new("test", Color.RED, AnimalDescriptor.Type.NEUTRAL)], 20.0)
@@ -24,7 +26,9 @@ func _ready() -> void:
 	start_scroll_timer.one_shot = true
 	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
 	add_child(start_scroll_timer)
-	start_credits()
+	if not from_game:
+		start_credits()
+		CreditsScreen.from_game = true
 
 
 func _physics_process(delta: float) -> void:
@@ -38,10 +42,10 @@ func _physics_process(delta: float) -> void:
 func set_end_level_stats(creatures: Array[AnimalDescriptor], time_left: float) -> void:
 	self.creature_list = creatures
 	self.score = _calculate_score(creatures, time_left)
-	music.play()
 
 
 func start_credits() -> void:
+	music.play()
 	back_button.grab_focus()
 	_build_credits()
 	_start_delay_timer()
@@ -89,6 +93,7 @@ func _build_credits() -> void:
 		credit_node.text = credit_txt
 		credit_node.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		credit_node.theme = credit_theme
+		credit_node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		
 		credits_container.add_child(credit_node)
 		
@@ -98,6 +103,7 @@ func _build_credits() -> void:
 		creature_title.text = "Creatures Caught"
 		creature_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		creature_title.theme = credit_theme
+		creature_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		credits_container.add_child(creature_title)
 
 	for animal: AnimalDescriptor in creature_list:
@@ -109,6 +115,7 @@ func _build_credits() -> void:
 		creature_title.theme = credit_theme
 		creature_title.fit_content = true
 		creature_title.clip_contents = false
+		creature_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		credits_container.add_child(creature_title)
 		
 	_reset_position.call_deferred()

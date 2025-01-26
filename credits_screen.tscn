@@ -81,6 +81,7 @@ text = "Exit
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gmn7s")
+volume_db = -15.0
 bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Back" to="." method="_on_back_pressed"]

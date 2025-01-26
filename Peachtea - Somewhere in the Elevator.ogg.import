@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djw6gnusn6co7"
+path="res://.godot/imported/Peachtea - Somewhere in the Elevator.ogg-944a28c4027b2c7993c018bc89f55bfc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Peachtea - Somewhere in the Elevator.ogg"
+dest_files=["res://.godot/imported/Peachtea - Somewhere in the Elevator.ogg-944a28c4027b2c7993c018bc89f55bfc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
