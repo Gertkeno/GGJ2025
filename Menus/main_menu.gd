@@ -7,6 +7,7 @@ extends VBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Start.grab_focus()
+	ResourceLoader.load_threaded_request(main_scene_path)
 
 
 func _on_exit_pressed() -> void:
@@ -18,7 +19,8 @@ func _on_start_pressed() -> void:
 	tree.paused = false
 	Player.arcade_mode = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	tree.change_scene_to_file(main_scene_path)
+	var main_scene = ResourceLoader.load_threaded_get(main_scene_path)
+	tree.change_scene_to_packed(main_scene)
 
 
 func _on_freeplay_pressed() -> void:
@@ -26,7 +28,8 @@ func _on_freeplay_pressed() -> void:
 	tree.paused = false
 	Player.arcade_mode = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	tree.change_scene_to_file(main_scene_path)
+	var main_scene = ResourceLoader.load_threaded_get(main_scene_path)
+	tree.change_scene_to_packed(main_scene)
 
 
 func _on_credits_pressed() -> void:
