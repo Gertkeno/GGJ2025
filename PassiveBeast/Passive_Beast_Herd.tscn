@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://blw0gytu68u82"]
+
+[ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="1_m8iet"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PassiveBeast" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.671216, 0, 0.741262, 0, 1, 0, -0.741262, 0, 0.671216, -4.4334, 0, 0.214852)
+
+[node name="PassiveBeast2" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(-0.583726, 0, 0.811951, 0, 1, 0, -0.811951, 0, -0.583726, 2.15184, 0, -0.76421)
+
+[node name="PassiveBeast3" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(-0.999842, 0, -0.017749, 0, 1, 0, 0.017749, 0, -0.999842, -1.14619, 0, -4.05569)
+
+[node name="PassiveBeast4" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.872803, 0, 0.488073, 0, 1, 0, -0.488073, 0, 0.872803, 0.0873394, 0.959958, 5.16353)
+
+[node name="PassiveBeast5" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.768004, 0, -0.640445, 0, 1, 0, 0.640445, 0, 0.768004, -4.69083, 0, 5.54162)
+
+[node name="PassiveBeast6" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.888769, 0, -0.458355, 0, 1, 0, 0.458355, 0, 0.888769, 2.52536, -4.76837e-07, 3.84217)

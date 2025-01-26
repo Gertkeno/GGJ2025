@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=34 format=3 uid="uid://dydmub3swggmv"]
 
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 [ext_resource type="PackedScene" uid="uid://cwb6jcc1488gx" path="res://SkittishBeast/SKittish_Beast_Herd.tscn" id="9_vmhyp"]
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://SkittishBeast/skittish_beast.tscn" id="10_x1135"]
+[ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://PassiveBeast/passive_beast.tscn" id="11_k0jlp"]
+[ext_resource type="PackedScene" uid="uid://blw0gytu68u82" path="res://PassiveBeast/Passive_Beast_Herd.tscn" id="12_f60bv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -357,3 +359,30 @@ curve = SubResource("Curve3D_2eank")
 [node name="DefenseBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("4_7jfbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7619, -0.109945, 174.504)
 default_curve = NodePath("../in da back 3")
+
+[node name="PassiveBeast" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 20.494)
+
+[node name="Node3D5" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2453, -0.48839, 23.8881)
+
+[node name="Node3D6" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4227, -1.16384, 69.224)
+
+[node name="Node3D7" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(0.184535, 0, -0.982826, 0, 1, 0, 0.982826, 0, 0.184535, 45.1301, -1.1137, 65.9394)
+
+[node name="Node3D8" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.6285, -4.78217, 100.44)
+
+[node name="Node3D9" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2217, -1.1137, 133.987)
+
+[node name="Node3D10" parent="." instance=ExtResource("12_f60bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.2753, -1.1137, 121.814)
+
+[node name="PassiveBeast2" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.4979, -1.1137, 125.45)
+
+[node name="PassiveBeast3" parent="." instance=ExtResource("11_k0jlp")]
+transform = Transform3D(-0.151175, 0, -0.988507, 0, 1, 0, 0.988507, 0, -0.151175, -47.5082, -1.23703, 93.1456)
