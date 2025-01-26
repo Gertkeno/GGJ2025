@@ -42,8 +42,7 @@ func init_curve_points(path: Path3D) -> void:
 		ray_query.to = path_point - Vector3(0, 50, 0)
 		var collision: Dictionary = world_3d.intersect_ray(ray_query)
 		if collision:
-			print("collision: ", collision["position"])
-			curve_points.append(collision["position"])
+			curve_points.append(collision["position"] + Vector3(0, 0.1, 0))
 		else:
 			curve_points.append(path.curve.get_point_position(pt) + path.global_position)
 	update_target_position()

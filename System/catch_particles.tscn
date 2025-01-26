@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmjwtpdlkxidu"]
+
+[ext_resource type="Texture2D" uid="uid://cif832w53ro27" path="res://System/circle_particles.png" id="1_ue4bm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eivwn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tygl7"]
+albedo_texture = ExtResource("1_ue4bm")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ffg7n"]
+material = SubResource("StandardMaterial3D_tygl7")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+process_material = SubResource("ParticleProcessMaterial_eivwn")
+draw_pass_1 = SubResource("QuadMesh_ffg7n")
