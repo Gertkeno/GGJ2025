@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 const SPEED: float = 5.0
-const CROUCH_SPEED: float = 3.5
+const CROUCH_SPEED: float = 2.5
 const GROUND_ACCELERATION: float = 40.0
 const AIR_ACCELERATION: float = 5.0
 const JUMP_VELOCITY: float = 5.5
@@ -21,6 +21,7 @@ static var y_invert: float = 1.0
 @export var player_mesh: MeshInstance3D
 var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
+var caught_animals: Array[AnimalDescriptor]
 
 
 func _physics_process(delta: float) -> void:
@@ -117,9 +118,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
-			var crouch_tween: Tween = create_tween()
+			var crouch_tween: Tween = create_tween().set_parallel()
 			var final_value: float = 1.0 if crouching else 0.0
 			crouch_tween.tween_property(animator, "parameters/Idle/blend_position", final_value, 0.125)
+			crouch_tween.tween_property(animator, "parameters/Walk/Crouch/blend_amount", final_value, 0.125)
 
 
 func _on_game_settings_continue_pressed() -> void:
@@ -141,12 +143,14 @@ func catch() -> bool:
 		return false
 
 	var a_hit: bool = false
-	for hit in net_hitbox.get_overlapping_bodies():
+	for hit: Node3D in net_hitbox.get_overlapping_bodies():
 		var clone: GPUParticles3D = catch_particles.instantiate()
 		add_sibling(clone)
 		clone.global_position = hit.global_position
 		clone.emitting = true
-		hit.get_parent().get_parent().queue_free()
+		var animal: Node3D = hit.get_parent().get_parent()
+		caught_animals.append(animal.descriptor)
+		animal.queue_free()
 		a_hit = true
 
 	return a_hit
@@ -188,5 +192,5 @@ func _open_credits(time_left: float = 0) -> void:
 	
 	# TODO: Need to pass caught animals here
 	# Assuming timer is stopped early when all animals caught
-	credits_screen.set_end_level_stats([], time_left)
+	credits_screen.set_end_level_stats(caught_animals, time_left)
 	credits_screen.start_credits()
