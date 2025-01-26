@@ -11,6 +11,7 @@ class_name DefenseBeast
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
 	default_behavior.init_curve_points(default_curve)
 	defense_behavior.bubble_animal = bubble_animal
 	pass # Replace with function body.
