@@ -10,6 +10,7 @@ class_name CreditsScreen extends Control
 @onready var back_button := $MarginContainer/VBoxContainer/ButtonContainer/Back
 @onready var credits_container := $MarginContainer/VBoxContainer/ScrollContainer/CreditsContainer
 @onready var score_display := $MarginContainer/VBoxContainer/ScoreDisplay
+@onready var music := $AudioStreamPlayer2D
 
 var start_scrolling: bool
 var score: int = -1
@@ -24,6 +25,7 @@ func _ready() -> void:
 	start_scroll_timer.timeout.connect(_on_start_scroll_timer_timeout)
 	add_child(start_scroll_timer)
 	start_credits()
+	music.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -123,6 +125,7 @@ func _start_delay_timer() -> void:
 
 func _on_back_pressed() -> void:
 	print("Going back to menu")
+	music.stop()
 	get_tree().change_scene_to_file(main_menu_path)
 
 
