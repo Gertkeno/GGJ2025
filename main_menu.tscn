@@ -58,8 +58,7 @@ layout_mode = 2
 size_flags_vertical = 8
 script = ExtResource("2_01yjk")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
-position = Vector2(-32, -309)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
 stream = ExtResource("3_vo0oo")
 volume_db = -10.0
 
