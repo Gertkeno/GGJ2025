@@ -17,6 +17,8 @@ static var y_invert: float = 1.0
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var net_hitbox: Area3D = $NetHitbox
 @onready var animator: AnimationTree = $AnimationTree
+@onready var arcade_timer: Timer = $ArcadeTimer
+@onready var time_display: ArcadeTimer = $Time
 @export var player_mesh: MeshInstance3D
 var eye_material: StandardMaterial3D
 var crouching: bool = false # for enemy detection
@@ -73,6 +75,7 @@ func _process(delta: float) -> void:
 		$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
 		$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
 	animator.set("parameters/Walk/WalkSpeed/scale", velocity.length() / SPEED)
+	time_display.set_time(arcade_timer.time_left)
 
 
 const CAMERA_ANGLE_MAX = deg_to_rad(70)
