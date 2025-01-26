@@ -5,7 +5,6 @@ const default_move_speed: float = 4.0
 
 signal on_notice_player(player: Player)
 
-@export var descriptor: AnimalDescriptor
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 var direction: Vector3 = Vector3.ZERO
 var move_speed: float = default_move_speed

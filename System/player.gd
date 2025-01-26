@@ -91,11 +91,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$Settings.show()
 		get_tree().paused = true
-	elif event.is_action_pressed("catch"):
+	elif event.is_action_pressed("catch") and hurt_timer.is_stopped():
 		if catch():
 			animator.active = false
 			set_physics_process(false)
 			$CatchStunTimer.start()
+			var t_finish: float = $CameraPivot.rotation.y
+			var catch_tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+			catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 1.5).from(t_finish + PI)
 	elif event.is_action("crouch"):
 		if crouching != event.is_pressed():
 			crouching = event.is_pressed()
@@ -118,19 +121,19 @@ func knockback(force: Vector3) -> void:
 
 
 func catch() -> bool:
-	if net_hitbox.has_overlapping_bodies():
-		var a_hit: bool = false
-		for hit in net_hitbox.get_overlapping_bodies():
-			var clone: GPUParticles3D = catch_particles.instantiate()
-			clone.global_position = hit.global_position
-			add_sibling(clone)
-			clone.emitting = true
-			hit.get_parent().get_parent().queue_free()
+	if not net_hitbox.has_overlapping_bodies():
+		return false
 
-		return a_hit
-	else:
-		print("No catch! You fail!")
-	return false
+	var a_hit: bool = false
+	for hit in net_hitbox.get_overlapping_bodies():
+		var clone: GPUParticles3D = catch_particles.instantiate()
+		clone.global_position = hit.global_position
+		add_sibling(clone)
+		clone.emitting = true
+		hit.get_parent().get_parent().queue_free()
+		a_hit = true
+
+	return a_hit
 
 
 func _on_catch_stun_timer_timeout() -> void:
