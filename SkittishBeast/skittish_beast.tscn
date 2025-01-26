@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://lgyoq0xx03pq"]
+
+[ext_resource type="Script" path="res://SkittishBeast/skittish_beast.gd" id="1_th50f"]
+[ext_resource type="Script" path="res://System/default_behavior.gd" id="2_vu02e"]
+[ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="3_4q112"]
+[ext_resource type="Script" path="res://SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
+
+[node name="SkittishBeast" type="Node3D"]
+script = ExtResource("1_th50f")
+distance_to_run_away = 2.0
+
+[node name="DefaultBehavior" type="Node3D" parent="."]
+script = ExtResource("2_vu02e")
+
+[node name="BubbleAnimal" parent="DefaultBehavior" instance=ExtResource("3_4q112")]
+
+[node name="SkittishBehavior" type="Node3D" parent="."]
+script = ExtResource("3_bjsvn")
+
+[connection signal="on_notice_player" from="DefaultBehavior/BubbleAnimal" to="." method="_on_bubble_animal_notice_player"]
+[connection signal="finished_fleeing" from="SkittishBehavior" to="." method="_on_skittish_behavior_finished_fleeing"]

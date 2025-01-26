@@ -32,6 +32,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1.938)
 shape = SubResource("SphereShape3D_g7hgu")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 debug_enabled = true
 
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_collision_entered_tree"]

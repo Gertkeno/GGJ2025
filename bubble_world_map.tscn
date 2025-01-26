@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dydmub3swggmv"]
+[gd_scene load_steps=25 format=3 uid="uid://dydmub3swggmv"]
 
+[ext_resource type="Texture2D" uid="uid://cfxmhsls032xs" path="res://Alex Test Junk/rogland_clear_night_2k.hdr" id="1_osgt6"]
 [ext_resource type="PackedScene" uid="uid://ugfu6pob7c41" path="res://System/player.tscn" id="1_swvyc"]
 [ext_resource type="Script" path="res://System/kill_zone.gd" id="2_5yv2i"]
 [ext_resource type="PackedScene" uid="uid://dt1jvf850kdle" path="res://Environment/cactus.tscn" id="3_7ys0e"]
@@ -9,12 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dldd3obkxo5mx" path="res://Alex Test Junk/Map playground/Main.tscn" id="5_gogxq"]
 [ext_resource type="AudioStream" uid="uid://b037a5psk1fow" path="res://Audio/Ambient/SFX_Ambi_Bed.wav" id="5_gu4s6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w5c4u"]
+panorama = ExtResource("1_osgt6")
 
 [sub_resource type="Sky" id="Sky_3q27d"]
-sky_material = SubResource("ProceduralSkyMaterial_8syn1")
+sky_material = SubResource("PanoramaSkyMaterial_w5c4u")
 
 [sub_resource type="Environment" id="Environment_h62p6"]
 background_mode = 2
