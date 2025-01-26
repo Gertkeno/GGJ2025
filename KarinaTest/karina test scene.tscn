@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://cb4isqtwgj7ei"]
+[gd_scene load_steps=3 format=3 uid="uid://cb4isqtwgj7ei"]
+
+[ext_resource type="PackedScene" uid="uid://di7kjb7yshrqr" path="res://Player/_Player.glb" id="1_kgjtv"]
+[ext_resource type="PackedScene" uid="uid://dqeboesep1kmb" path="res://Assets/P_Coral.glb" id="2_b30t1"]
 
 [node name="KarinaTestScene" type="Node3D"]
+
+[node name="_Player2" parent="." instance=ExtResource("1_kgjtv")]
+transform = Transform3D(2.35218, 0, 0, 0, 2.35218, 0, 0, 0, 2.35218, -2.56535, 9.53674e-07, 2.18028)
+
+[node name="P_Coral2" parent="." instance=ExtResource("2_b30t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64297, 0, -5.90278)
