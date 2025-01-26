@@ -173,6 +173,7 @@ func knockback(force: Vector3) -> void:
 func catch() -> bool:
 	animator_playback.travel("Swing")
 	$Audio/Swing.play()
+	%SwingParticles.emitting = true
 	catch_anticipate.start()
 	await catch_anticipate.timeout
 
