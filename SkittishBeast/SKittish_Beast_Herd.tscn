@@ -32,8 +32,9 @@ point_count = 18
 
 [node name="Node3D" type="Node3D"]
 
-[node name="SkittishBeast" parent="." instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163002, 0, 3.33754)
+default_curve = NodePath("../Inner")
 
 [node name="Inner" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ah0ab")
@@ -47,11 +48,14 @@ curve = SubResource("Curve3D_513h5")
 [node name="4rth" type="Path3D" parent="."]
 curve = SubResource("Curve3D_e2dp6")
 
-[node name="SkittishBeast2" parent="." instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0775244, 0, 5.66131)
+default_curve = NodePath("../2nd")
 
-[node name="SkittishBeast3" parent="." instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111936, 0, 7.84012)
+default_curve = NodePath("../3rd")
 
-[node name="SkittishBeast4" parent="." instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast4" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159303, 0, 10.1137)
+default_curve = NodePath("../4rth")
