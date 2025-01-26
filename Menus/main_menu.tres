@@ -1,6 +1,9 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://benc2fv0e5te2"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://benc2fv0e5te2"]
 
 [ext_resource type="FontFile" uid="uid://bavfrwdoykxp" path="res://Menus/MrsBeasley/Mrs Beasley.ttf" id="1_fxlj3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1puda"]
+bg_color = Color(0.54099, 0.540991, 0.54099, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rr80"]
 bg_color = Color(0.493545, 0.493546, 0.493545, 1)
@@ -8,6 +11,7 @@ bg_color = Color(0.493545, 0.493546, 0.493545, 1)
 [resource]
 default_font = ExtResource("1_fxlj3")
 Button/font_sizes/font_size = 32
+Button/styles/focus = SubResource("StyleBoxFlat_1puda")
 Button/styles/hover = SubResource("StyleBoxFlat_0rr80")
 MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
