@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://lgyoq0xx03pq"]
+[gd_scene load_steps=9 format=3 uid="uid://lgyoq0xx03pq"]
 
 [ext_resource type="Script" path="res://SkittishBeast/skittish_beast.gd" id="1_th50f"]
 [ext_resource type="Script" path="res://System/default_behavior.gd" id="2_vu02e"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="3_4q112"]
 [ext_resource type="Script" path="res://SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
 [ext_resource type="PackedScene" uid="uid://bb03dilco4x58" path="res://Assets/skittish.glb" id="4_4gt8p"]
-[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
+[ext_resource type="Material" path="res://Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6erl0"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_yiwvo"]
+
 [node name="SkittishBeast" type="Node3D"]
 script = ExtResource("1_th50f")
-distance_to_run_away = 2.0
+distance_to_run_away = 5.0
 
 [node name="DefaultBehavior" type="Node3D" parent="."]
 script = ExtResource("2_vu02e")
@@ -28,10 +30,17 @@ surface_material_override/0 = ExtResource("5_1lv1g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 shape = SubResource("SphereShape3D_6erl0")
 
+[node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -2.64515)
+shape = SubResource("SphereShape3D_yiwvo")
+
 [node name="SkittishBehavior" type="Node3D" parent="."]
 script = ExtResource("3_bjsvn")
 
-[connection signal="on_notice_player" from="DefaultBehavior/BubbleAnimal" to="." method="_on_bubble_animal_notice_player"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
 [connection signal="finished_fleeing" from="SkittishBehavior" to="." method="_on_skittish_behavior_finished_fleeing"]
 
 [editable path="DefaultBehavior/BubbleAnimal/skittish"]

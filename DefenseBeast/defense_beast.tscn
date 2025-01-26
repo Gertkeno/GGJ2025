@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bso8oicnpy2nr"]
+[gd_scene load_steps=10 format=3 uid="uid://bso8oicnpy2nr"]
 
 [ext_resource type="Script" path="res://DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://System/bubble_animal.tscn" id="2_30sx1"]
@@ -12,6 +12,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tyumq"]
 radius = 1.0
 height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2w21c"]
 
 [node name="DefenseBeast" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
@@ -42,14 +44,21 @@ shape = SubResource("SphereShape3D_25x5b")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tyumq")
 
+[node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
+shape = SubResource("SphereShape3D_2w21c")
+
 [node name="DefenseBehavior" type="Node3D" parent="."]
 script = ExtResource("3_cdged")
 
 [node name="DizzyTimer" type="Timer" parent="DefenseBehavior"]
 one_shot = true
 
-[connection signal="on_notice_player" from="DefaultBehavior/BubbleAnimal" to="." method="_on_bubble_animal_notice_player"]
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/BullhornArea" to="." method="_on_bullhorn_body_entered"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
 [connection signal="timeout" from="DefenseBehavior/DizzyTimer" to="." method="_on_dizzy_timer_timeout"]
 
 [editable path="DefaultBehavior/BubbleAnimal/defensive"]

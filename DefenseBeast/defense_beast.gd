@@ -26,13 +26,6 @@ func _physics_process(delta: float) -> void:
 			defense_behavior.process_behavior(delta) # do defense behavior stuff
 
 
-func _on_bubble_animal_notice_player(player: Player) -> void:
-	# do the collisioning
-	if bubble_animal.get_parent() == default_behavior:
-		defense_behavior.player = player
-		bubble_animal.reparent.call_deferred(defense_behavior)
-
-
 func _on_bullhorn_body_entered(body: Node3D) -> void:
 	if body is Player:
 		if dizzy_timer.is_stopped():
@@ -46,3 +39,10 @@ func _on_bullhorn_body_entered(body: Node3D) -> void:
 
 func _on_dizzy_timer_timeout() -> void:
 	bubble_animal.reparent(default_behavior)
+
+
+func _on_vision_collision_entered(body: Node3D) -> void:
+	if body is Player:
+		if bubble_animal.get_parent() == default_behavior:
+			defense_behavior.player = body
+			bubble_animal.reparent.call_deferred(defense_behavior)
