@@ -12,11 +12,10 @@ func _ready() -> void:
 
 
 func set_time(time_secs: int) -> void :
-	@warning_ignore("integer_division")
-	
 	if time_secs < critical_bound and not critical_time_entered:
 		_start_critical_flashing()
 	
+	@warning_ignore("integer_division")
 	var minutes: int = time_secs / 60
 	var seconds: int = time_secs % 60
 	

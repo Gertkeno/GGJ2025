@@ -231,6 +231,7 @@ func _init_credits() -> void:
 
 
 func _open_credits(time_left: float = 0) -> void:
+	$AnimalCard.hide()
 	var game_over_layer: CanvasLayer = $GameOver as CanvasLayer
 	var time_layer: CanvasLayer = $Time as CanvasLayer
 	var credits_screen: CreditsScreen = $GameOver/CreditsScreen as CreditsScreen

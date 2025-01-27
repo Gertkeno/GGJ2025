@@ -28,7 +28,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+enabled=PackedStringArray("res://addons/editorscriptmanager/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
 
 [file_customization]
 

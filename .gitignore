@@ -5,4 +5,5 @@
 *.translation
 .DS_Store
 Builds
-
+Animals/Pictures/*.png
+Animals/Pictures/*.png.import
