@@ -134,11 +134,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 2.0).from(t_finish + TAU)
 
 				$AnimalCard.show()
+				$AnimalCardShownTime.stop()
+				$AnimalCardShownTime.start()
+
 				%AnimalDescriptorCard.set_data(caught_animals.back())
 				catch_tween.finished.connect(func() -> void:
-					animator.set("parameters/Swing/TimeScale/scale", 1.0)
-					$AnimalCardShownTime.stop()
-					$AnimalCardShownTime.start())
+					animator.set("parameters/Swing/TimeScale/scale", 1.0))
 
 				set_face_idx(1)
 				_check_animal_count()
