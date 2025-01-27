@@ -137,8 +137,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				%AnimalDescriptorCard.set_data(caught_animals.back())
 				catch_tween.finished.connect(func() -> void:
 					animator.set("parameters/Swing/TimeScale/scale", 1.0)
-					await get_tree().create_timer(5.0).timeout
-					$AnimalCard.hide())
+					$AnimalCardShownTime.stop()
+					$AnimalCardShownTime.start())
 
 				set_face_idx(1)
 				_check_animal_count()
@@ -210,6 +210,10 @@ func catch() -> bool:
 
 func _on_catch_stun_timer_timeout() -> void:
 	set_physics_process(true)
+
+
+func _on_animal_card_shown_time_timeout() -> void:
+	$AnimalCard.hide()
 
 
 # 0 neutral
