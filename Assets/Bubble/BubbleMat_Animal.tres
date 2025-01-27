@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ub384db6bbl5"]
+
+[ext_resource type="Shader" path="res://Assets/Bubble/Bubble.gdshader" id="1_asa8j"]
+[ext_resource type="Texture2D" uid="uid://bvb4a33lypxvj" path="res://Assets/Bubble/Marble 13 - 256x256.png" id="2_mnykk"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_asa8j")
+shader_parameter/noise_scale = 0.34
+shader_parameter/tint_color = Color(0.309804, 0.501961, 0.835294, 0.392157)
+shader_parameter/rim_color = Color(0.459601, 0.627507, 0.984821, 1)
+shader_parameter/fresnel_power = 2.665
+shader_parameter/fresnel_offset = 0.739
+shader_parameter/distortion_speed = 0.632
+shader_parameter/distortion_direction = Vector2(0, 0.31)
+shader_parameter/distortion_scale = 0.339
+shader_parameter/distortion_factor = 0.36
+shader_parameter/ripple_state = 0.0
+shader_parameter/ripple_strength = 0.567
+shader_parameter/ripple_speed = 16.667
+shader_parameter/point_strength = 1.316
+shader_parameter/ripple_direction = Vector3(0.46, 1.09, 1.71)
+shader_parameter/noise_texture = ExtResource("2_mnykk")

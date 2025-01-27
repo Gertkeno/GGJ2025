@@ -31,7 +31,7 @@ func _ready() -> void:
 		CreditsScreen.from_game = true
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not start_scrolling:
 		return
 	

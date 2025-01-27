@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://blw0gytu68u82"]
+
+[ext_resource type="PackedScene" uid="uid://cnhgr7fee8oqu" path="res://Animals/PassiveBeast/passive_beast.tscn" id="1_m8iet"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PassiveBeast3" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(-0.999842, 0, -0.017749, 0, 1, 0, 0.017749, 0, -0.999842, -1.14619, 0, -2.12882)
+
+[node name="PassiveBeast5" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.768004, 0, -0.640445, 0, 1, 0, 0.640445, 0, 0.768004, -4.69083, 0, 5.54162)
+
+[node name="PassiveBeast6" parent="." instance=ExtResource("1_m8iet")]
+transform = Transform3D(0.169969, 0, 0.985449, 0, 1, 0, -0.985449, 0, 0.169969, 2.52536, -4.76837e-07, 3.84217)

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fkjepmp4j4iu"]
-
-[ext_resource type="Material" uid="uid://c14wcr4tvi78f" path="res://Bubble/BubbleMat.tres" id="1_r7nj5"]
-
-[node name="CSGSphere3D" type="CSGSphere3D"]
-radial_segments = 42
-rings = 66
-material = ExtResource("1_r7nj5")

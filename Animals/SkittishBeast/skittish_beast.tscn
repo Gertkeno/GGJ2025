@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://lgyoq0xx03pq"]
+
+[ext_resource type="Script" path="res://Animals/SkittishBeast/skittish_beast.gd" id="1_th50f"]
+[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="2_vu02e"]
+[ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="3_4q112"]
+[ext_resource type="Script" path="res://Animals/SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
+[ext_resource type="PackedScene" uid="uid://bb03dilco4x58" path="res://Assets/skittish.glb" id="4_4gt8p"]
+[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
+[ext_resource type="AudioStream" uid="uid://bj5bns5otsuxj" path="res://Audio/AI/SFX_Animal_LP_02.wav" id="6_qudo5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6erl0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yiwvo"]
+
+[node name="SkittishBeast" type="Node3D"]
+script = ExtResource("1_th50f")
+distance_to_run_away = 5.0
+
+[node name="DefaultBehavior" type="Node3D" parent="."]
+script = ExtResource("2_vu02e")
+
+[node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("3_4q112")]
+visual_mesh = NodePath("skittish/Skittish/Skeleton3D/Cube_003")
+
+[node name="skittish" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_4gt8p")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, -0.5, 0)
+
+[node name="Cube_003" parent="DefaultBehavior/BubbleAnimal/skittish/Skittish/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("5_1lv1g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+shape = SubResource("SphereShape3D_6erl0")
+
+[node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -2.64515)
+shape = SubResource("SphereShape3D_yiwvo")
+
+[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1.32849)
+shape = SubResource("SphereShape3D_yiwvo")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DefaultBehavior/BubbleAnimal"]
+stream = ExtResource("6_qudo5")
+attenuation_model = 1
+volume_db = -28.0
+pitch_scale = 0.8
+autoplay = true
+stream_paused = true
+max_distance = 33.0
+
+[node name="SkittishBehavior" type="Node3D" parent="."]
+script = ExtResource("3_bjsvn")
+
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/VisionArea" to="." method="_on_vision_collision_entered"]
+[connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
+[connection signal="finished_fleeing" from="SkittishBehavior" to="." method="_on_skittish_behavior_finished_fleeing"]
+
+[editable path="DefaultBehavior/BubbleAnimal/skittish"]

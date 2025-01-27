@@ -1,7 +1,7 @@
 extends Area3D
 
 @export_range(1.0, 20.0, 0.1) var force: float = 7.0
-const PRICKED = preload("res://System/pricked_particles.tscn")
+const PRICKED = preload("res://Assets/Particles/pricked_particles.tscn")
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
