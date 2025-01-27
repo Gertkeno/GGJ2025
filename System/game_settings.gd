@@ -36,3 +36,7 @@ func _on_master_volume_value_changed(value: float) -> void:
 
 func _on_toggle_crouch_toggled(toggled_on: bool) -> void:
 	Player.toggle_crouch = toggled_on
+
+
+func _on_fullscreen_toggled(toggle_on: bool) -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if toggle_on else DisplayServer.WINDOW_MODE_WINDOWED)

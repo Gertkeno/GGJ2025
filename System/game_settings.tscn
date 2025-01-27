@@ -63,6 +63,10 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="Fullscreen" type="CheckButton" parent="RenderQuality"]
+layout_mode = 2
+text = "Fullscreen"
+
 [node name="ToggleCrouch" type="CheckButton" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -86,6 +90,7 @@ text = "MENU_LABEL_QUIT"
 [connection signal="value_changed" from="Sensitivity/CameraSlider" to="." method="_on_camera_slider_value_changed"]
 [connection signal="toggled" from="Sensitivity/YInvert" to="." method="_on_y_invert_toggled"]
 [connection signal="value_changed" from="Audio/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="toggled" from="RenderQuality/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="ToggleCrouch" to="." method="_on_toggle_crouch_toggled"]
 [connection signal="pressed" from="Close/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Close/Quit" to="." method="_on_quit_pressed"]
