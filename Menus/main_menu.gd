@@ -3,7 +3,7 @@ extends VBoxContainer
 @export_file("*.tscn") var main_scene_path: String = "res://bubble_world_map.tscn"
 @export_file("*.tscn") var credits_scene_path: String = "res://credits_screen.tscn"
 
-@onready var music = $AudioStreamPlayer2D
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer2D
 
 
 # Called when the node enters the scene tree for the first time.

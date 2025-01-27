@@ -73,7 +73,7 @@ static func _calculate_score(creatures: Array[AnimalDescriptor], time_left: floa
 				animal_value += 50
 			_:
 				pass
-		animal_value = animal_value * (animal_descriptor.rating  * 4 + 1)
+		animal_value = int(animal_value * (animal_descriptor.rating  * 4 + 1))
 		calculated_score += animal_value
 
 	calculated_score += int(0.5 * time_left)

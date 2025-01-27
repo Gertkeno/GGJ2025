@@ -131,12 +131,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				$Audio/Capture.play()
 				var t_finish: float = $CameraPivot.rotation.y
 				var catch_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT_IN)
-				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 2.2).from(t_finish + TAU)
+				catch_tween.tween_property($CameraPivot, "rotation:y", t_finish, 2.0).from(t_finish + TAU)
 
 				$AnimalCard.show()
 				%AnimalDescriptorCard.set_data(caught_animals.back())
 				catch_tween.finished.connect(func() -> void:
 					animator.set("parameters/Swing/TimeScale/scale", 1.0)
+					await get_tree().create_timer(5.0).timeout
 					$AnimalCard.hide())
 
 				set_face_idx(1)
@@ -209,7 +210,6 @@ func catch() -> bool:
 
 func _on_catch_stun_timer_timeout() -> void:
 	set_physics_process(true)
-	animator.active = true
 
 
 # 0 neutral
