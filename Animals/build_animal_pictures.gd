@@ -2,12 +2,11 @@
 extends EditorScript
 
 ## INSTRUCTIONS
-# Open res://Environment/Map/bubble_world_map.tscn; in 3D main screen >
-# Perspective disable gizmos and grid, run the editor script to generate animal
-# thumbnails
+# Open res://Environment/Map/bubble_world_map.tscn; press run
 #
-# This will also alter the materials per animal, recommend immediately closing
-# and re-opening the world map to discard this change.
+# Only CSG gizmos are sadly drawn in the sub viewport, changes to each animal's
+# bubble color is not reflected in git
+
 
 var cycleref: EditorScript
 

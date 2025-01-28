@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GGJ2025"
+config/name="Bubble Ranch"
 run/main_scene="res://Menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://Assets/bubble_ranch_logo.png"

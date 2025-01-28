@@ -90,7 +90,8 @@ func _process(delta: float) -> void:
 		$CameraPivot.rotate_y(-camera_move.x)
 		$CameraPivot/SpringArm3D.rotate_x(camera_move.y * y_invert)
 		$CameraPivot/SpringArm3D.rotation.x = clampf($CameraPivot/SpringArm3D.rotation.x, -CAMERA_ANGLE_MAX, CAMERA_ANGLE_MAX)
-	animator.set("parameters/Walk/WalkSpeed/scale", velocity.length() / SPEED)
+	var speed: float = CROUCH_SPEED if crouching else SPEED
+	animator.set("parameters/Walk/WalkSpeed/scale", velocity.length() / speed)
 	$Time.set_time(arcade_timer.time_left)
 
 
