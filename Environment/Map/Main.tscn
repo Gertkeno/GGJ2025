@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dldd3obkxo5mx"]
+[gd_scene load_steps=44 format=3 uid="uid://dldd3obkxo5mx"]
 
 [ext_resource type="Shape3D" uid="uid://bsfpaolcoljuf" path="res://Environment/Map/big_craters_collision.res" id="2_8wcvj"]
 [ext_resource type="PackedScene" uid="uid://dl4hxqrbpe0dd" path="res://Environment/Map/Map_Main_2.FBX" id="2_28fgy"]
@@ -37,10 +37,14 @@ albedo_color = Color(0.571918, 0.39397, 0.289686, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xp6ic"]
 albedo_color = Color(0.40871, 0.0452456, 0.18161, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m3a8x"]
+height = 6.0
+radius = 13.6
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_maklq"]
 size = Vector3(8, 1, 8)
 
-[sub_resource type="Resource" id="Resource_eijsq"]
+[sub_resource type="Resource" id="Resource_x7l2y"]
 script = ExtResource("15_084cj")
 amount = 500
 enabled = true
@@ -49,7 +53,7 @@ custom_seed = 16
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_kogtw"]
+[sub_resource type="Resource" id="Resource_ygtqc"]
 script = ExtResource("16_p27gd")
 position = Vector3(3, 0, 3)
 rotation = Vector3(0, 360, 0)
@@ -60,7 +64,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_pm85x"]
+[sub_resource type="Resource" id="Resource_rcae1"]
 script = ExtResource("17_v0q4d")
 iterations = 3
 offset_step = 0.2
@@ -72,7 +76,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_r884k"]
+[sub_resource type="Resource" id="Resource_scaft"]
 script = ExtResource("18_ryrr3")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -88,7 +92,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_m436j"]
+[sub_resource type="Resource" id="Resource_dopmc"]
 script = ExtResource("19_euwyg")
 operation = 0
 rotation = Vector3(90, 90, 90)
@@ -98,7 +102,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_o1uej"]
+[sub_resource type="Resource" id="Resource_5oi0x"]
 script = ExtResource("20_gpp8u")
 operation = 1
 scale = Vector3(100, 100, 100)
@@ -108,9 +112,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4l78u"]
+[sub_resource type="Resource" id="Resource_pqd2d"]
 script = ExtResource("13_tysme")
-stack = Array[ExtResource("14_me6gm")]([SubResource("Resource_eijsq"), SubResource("Resource_kogtw"), SubResource("Resource_pm85x"), SubResource("Resource_r884k"), SubResource("Resource_m436j"), SubResource("Resource_o1uej")])
+stack = Array[ExtResource("14_me6gm")]([SubResource("Resource_x7l2y"), SubResource("Resource_ygtqc"), SubResource("Resource_rcae1"), SubResource("Resource_scaft"), SubResource("Resource_dopmc"), SubResource("Resource_5oi0x")])
 
 [sub_resource type="Curve3D" id="Curve3D_vnv83"]
 _data = {
@@ -185,7 +189,6 @@ shape = ExtResource("7_hmgw5")
 
 [node name="MapFloatIsland17" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.3378, -4.44426, 50.2039)
-visible = false
 mesh = ExtResource("3_gg0vi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MapFloatIsland17"]
@@ -636,7 +639,6 @@ transform = Transform3D(-0.0504709, 0, -0.998726, 0, 1, 0, 0.998726, 0, -0.05047
 
 [node name="BasicIsland" type="CSGSphere3D" parent="Cactus52"]
 transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 217.667, -15.3429, -49.5621)
-use_collision = true
 radius = 14.0
 material = SubResource("StandardMaterial3D_87k3a")
 metadata/_edit_group_ = true
@@ -647,6 +649,12 @@ operation = 2
 radius = 16.0
 height = 14.0
 material = SubResource("StandardMaterial3D_xp6ic")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cactus52/BasicIsland"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cactus52/BasicIsland/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("CylinderShape3D_m3a8x")
 
 [node name="Cactus53" parent="." instance=ExtResource("4_hwtjs")]
 transform = Transform3D(-0.999963, 0, 0.00856946, 0, 1, 0, -0.00856946, 0, -0.999963, -22.4039, 9.35952, -191.469)
@@ -946,7 +954,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4872, 0, -1.78453)
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.49506, 0)
 script = ExtResource("12_awwia")
-modifier_stack = SubResource("Resource_4l78u")
+modifier_stack = SubResource("Resource_pqd2d")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
