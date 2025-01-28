@@ -10,4 +10,4 @@ func set_data(data: AnimalDescriptor) -> void:
 	if animal_picture:
 		$Picture.texture = animal_picture
 	else:
-		$Pictures.texture = load("res://icon.svg")
+		$Picture.texture = load("res://icon.svg")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdwqcdrie01x5"]
+
+[ext_resource type="Script" path="res://Animals/PassiveBeast/passive_beast.gd" id="1_qgwy6"]
+[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="2_b6bql"]
+[ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="3_inxbl"]
+[ext_resource type="PackedScene" uid="uid://l76da1sleber" path="res://addons/godot_plush/godot_plush_sitting.glb" id="4_hn6mm"]
+[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_pln7a"]
+[ext_resource type="AudioStream" uid="uid://vh7cvcngq0ka" path="res://Audio/AI/SFX_Animal_LP_01.wav" id="6_aguej"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ohnfy"]
+radius = 0.92041
+
+[node name="PassiveBeast" type="Node3D"]
+script = ExtResource("1_qgwy6")
+
+[node name="DefaultBehavior" type="Node3D" parent="."]
+script = ExtResource("2_b6bql")
+
+[node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("3_inxbl")]
+visual_mesh = NodePath("godot_plush_sitting/godot_plush_sitted")
+
+[node name="godot_plush_sitting" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_hn6mm")]
+
+[node name="godot_plush_sitted" parent="DefaultBehavior/BubbleAnimal/godot_plush_sitting" index="0"]
+surface_material_override/0 = ExtResource("5_pln7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, -1.31134e-08)
+shape = SubResource("SphereShape3D_ohnfy")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DefaultBehavior/BubbleAnimal"]
+stream = ExtResource("6_aguej")
+attenuation_model = 1
+volume_db = -35.0
+autoplay = true
+max_distance = 33.0
+
+[editable path="DefaultBehavior/BubbleAnimal/godot_plush_sitting"]
