@@ -20,12 +20,12 @@ script = ExtResource("1_3em5o")
 script = ExtResource("1_gn4yw")
 
 [node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_ek4cg")]
-visual_mesh = NodePath("passive/Passive/Skeleton3D/Icosphere_003")
+visual_mesh = NodePath("Visual/passive/Passive/Skeleton3D/Icosphere_003")
 
-[node name="passive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("3_qpnde")]
+[node name="passive" parent="DefaultBehavior/BubbleAnimal/Visual" index="0" instance=ExtResource("3_qpnde")]
 transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, -0.1, 0)
 
-[node name="Icosphere_003" parent="DefaultBehavior/BubbleAnimal/passive/Passive/Skeleton3D" index="0"]
+[node name="Icosphere_003" parent="DefaultBehavior/BubbleAnimal/Visual/passive/Passive/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("4_bd7m2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
@@ -43,4 +43,5 @@ volume_db = -35.0
 autoplay = true
 max_distance = 33.0
 
-[editable path="DefaultBehavior/BubbleAnimal/passive"]
+[editable path="DefaultBehavior/BubbleAnimal"]
+[editable path="DefaultBehavior/BubbleAnimal/Visual/passive"]

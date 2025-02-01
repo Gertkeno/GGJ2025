@@ -7,24 +7,19 @@ var curve_points: PackedVector3Array = []
 var current_curve_point: int = 0
 
 
-func _physics_process(_delta: float) -> void:
-	# If the animal is not in path, we need to navigate to it
-	# if bubble_animal.
-	# debug
-	# if bubble_animal.navigation_agent.is_target_reachable() == false:
-	# 	var dbg = 0
-	pass
-
-
 func process_behavior(delta: float) -> void:
-	if is_nav_finished():
+	if curve_points.size() == 0:
+		return;
+
+	var destination := curve_points[current_curve_point]
+	var difference := destination - bubble_animal.global_position
+
+	if difference.length_squared() < 4:
 		increment_curve_point()
-		update_target_position()
-	var destination: Vector3 = bubble_animal.navigation_agent.get_next_path_position()
-	var local_destination: Vector3 = destination - bubble_animal.global_position
-	var direction: Vector3 = local_destination.normalized()
-	bubble_animal.reset_move_speed()
-	bubble_animal.direction = direction
+		process_behavior(delta)
+		return;
+
+	bubble_animal.direction = difference.normalized()
 	bubble_animal.apply_movement(delta)
 
 
@@ -42,25 +37,12 @@ func init_curve_points(path: Path3D) -> void:
 		ray_query.to = path_point - Vector3(0, 50, 0)
 		var collision: Dictionary = world_3d.intersect_ray(ray_query)
 		if collision:
-			curve_points.append(collision["position"] + Vector3(0, 0.1, 0))
+			curve_points.append(collision["position"])# + Vector3(0, 0.5, 0))
 		else:
 			curve_points.append(path.curve.get_point_position(pt) + path.global_position)
-	update_target_position()
-
-
-func is_nav_finished() -> bool:
-	return bubble_animal.navigation_agent.is_target_reached()
-	# return bubble_animal.navigation_agent.is_navigation_finished() # && \
-	#  bubble_animal.navigation_agent.distance_to_target() <= bubble_animal.navigation_agent.target_desired_distance
 
 
 func increment_curve_point() -> void:
 	current_curve_point += 1;
 	current_curve_point = current_curve_point % curve_points.size()
-
-
-func update_target_position() -> void:
-	bubble_animal.navigation_agent.target_position = curve_points[current_curve_point]
-	var curve_point := curve_points[current_curve_point]
-	curve_point.y = bubble_animal.global_position.y
-	bubble_animal.look_at(curve_point)
+	bubble_animal.look_at(curve_points[current_curve_point])

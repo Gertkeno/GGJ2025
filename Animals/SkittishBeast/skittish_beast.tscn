@@ -8,7 +8,8 @@
 [ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
 [ext_resource type="AudioStream" uid="uid://bj5bns5otsuxj" path="res://Audio/AI/SFX_Animal_LP_02.wav" id="6_qudo5"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_6erl0"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lmifg"]
+height = 1.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yiwvo"]
 
@@ -20,20 +21,20 @@ distance_to_run_away = 5.0
 script = ExtResource("2_vu02e")
 
 [node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("3_4q112")]
-visual_mesh = NodePath("skittish/Skittish/Skeleton3D/Cube_003")
+visual_mesh = NodePath("Visual/skittish/Skittish/Skeleton3D/Cube_003")
 
-[node name="skittish" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_4gt8p")]
-transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, -0.5, 0)
+[node name="skittish" parent="DefaultBehavior/BubbleAnimal/Visual" index="0" instance=ExtResource("4_4gt8p")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0, 0)
 
-[node name="Cube_003" parent="DefaultBehavior/BubbleAnimal/skittish/Skittish/Skeleton3D" index="0"]
+[node name="Cube_003" parent="DefaultBehavior/BubbleAnimal/Visual/skittish/Skittish/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("5_1lv1g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
-shape = SubResource("SphereShape3D_6erl0")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.3)
+shape = SubResource("CapsuleShape3D_lmifg")
 
 [node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -2)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.5, -2)
 collision_layer = 8
 collision_mask = 32
 monitorable = false
@@ -42,7 +43,7 @@ monitorable = false
 shape = SubResource("SphereShape3D_yiwvo")
 
 [node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, -0.803456)
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.5, -0.803456)
 collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
@@ -63,4 +64,5 @@ script = ExtResource("3_bjsvn")
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
 [connection signal="finished_fleeing" from="SkittishBehavior" to="." method="_on_skittish_behavior_finished_fleeing"]
 
-[editable path="DefaultBehavior/BubbleAnimal/skittish"]
+[editable path="DefaultBehavior/BubbleAnimal"]
+[editable path="DefaultBehavior/BubbleAnimal/Visual/skittish"]

@@ -17,7 +17,6 @@ height = 4.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_2w21c"]
 
 [node name="DefenseBeast" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, 0)
 script = ExtResource("1_363l7")
 knockback_force = 12.0
 
@@ -26,16 +25,16 @@ script = ExtResource("2_ljxhn")
 
 [node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_30sx1")]
 collision_mask = 171
-visual_mesh = NodePath("defensive/Defensive/Skeleton3D/Cube_010")
+visual_mesh = NodePath("Visual/defensive/Defensive/Skeleton3D/Cube_010")
 
-[node name="defensive" parent="DefaultBehavior/BubbleAnimal" instance=ExtResource("4_dcbrm")]
-transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, -1, 0)
+[node name="defensive" parent="DefaultBehavior/BubbleAnimal/Visual" index="0" instance=ExtResource("4_dcbrm")]
+transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, 0, 0)
 
-[node name="Cube_010" parent="DefaultBehavior/BubbleAnimal/defensive/Defensive/Skeleton3D" index="0"]
+[node name="Cube_010" parent="DefaultBehavior/BubbleAnimal/Visual/defensive/Defensive/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("5_qagie")
 
 [node name="BullhornArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(-0.00796779, 0, -0.999969, 0, 1, 0, 0.999969, 0, -0.00796779, 0, 0, 0)
+transform = Transform3D(-0.00796779, 0, -0.999969, 0, 1, 0, 0.999969, 0, -0.00796779, 0, 1, 0)
 collision_layer = 128
 collision_mask = 32
 
@@ -44,10 +43,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84752, 0, 0.00979163)
 shape = SubResource("SphereShape3D_25x5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_tyumq")
 
 [node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea"]
@@ -55,6 +55,7 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
 [node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
@@ -81,4 +82,5 @@ one_shot = true
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/SneakVisionArea" to="." method="_on_sneak_vision_collision_entered"]
 [connection signal="timeout" from="DefenseBehavior/DizzyTimer" to="." method="_on_dizzy_timer_timeout"]
 
-[editable path="DefaultBehavior/BubbleAnimal/defensive"]
+[editable path="DefaultBehavior/BubbleAnimal"]
+[editable path="DefaultBehavior/BubbleAnimal/Visual/defensive"]

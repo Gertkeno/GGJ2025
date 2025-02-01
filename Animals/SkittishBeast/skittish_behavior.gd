@@ -11,14 +11,10 @@ signal finished_fleeing
 
 
 func process_behavior(delta: float) -> void:
-	if is_nav_finished():
+	var difference := destination - bubble_animal.global_position
+	if difference.length_squared() <= 9:
 		finished_fleeing.emit()
+		bubble_animal.reset_move_speed()
 	else:
-		bubble_animal.move_speed = move_speed
-		bubble_animal.direction = bubble_animal.global_position.direction_to(destination)
-		bubble_animal.look_at(destination)
+		bubble_animal.direction = difference.normalized()
 		bubble_animal.apply_movement(delta)
-
-func is_nav_finished() -> bool:
-	return bubble_animal.navigation_agent.is_navigation_finished()
-	# return bubble_animal.navigation_agent.is_target_reached()

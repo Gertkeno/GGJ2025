@@ -1,24 +1,102 @@
-[gd_scene load_steps=4 format=3 uid="uid://by4by86dfprkd"]
+[gd_scene load_steps=5 format=3 uid="uid://by4by86dfprkd"]
 
 [ext_resource type="Script" path="res://Animals/bubble_animal.gd" id="1_qslwe"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bx24e"]
+[sub_resource type="Animation" id="Animation_u0j0o"]
+resource_name = "Bouncey"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.1, 0), Vector3(0, 0.15, 0), Vector3(0, -0.1, 0), Vector3(0, 0.15, 0), Vector3(0, -0.1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.18675), Vector3(0, 0, 0), Vector3(0, 0, -0.174533), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 0.955, 1), Vector3(0.925, 1, 1), Vector3(1, 0.945, 1), Vector3(0.925, 1, 1), Vector3(1, 0.955, 1)]
+}
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_5tddd"]
+[sub_resource type="Animation" id="Animation_w82fa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojngp"]
+_data = {
+"Bouncey": SubResource("Animation_u0j0o"),
+"RESET": SubResource("Animation_w82fa")
+}
 
 [node name="BubbleAnimal" type="CharacterBody3D" groups=["Bubble Beasties"]]
 collision_layer = 8
 collision_mask = 160
 script = ExtResource("1_qslwe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_bx24e")
+[node name="Visual" type="Marker3D" parent="."]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.431424, 0, 0, 0, -1.26316e-08, -0.416704, 0, 0.288976, -1.82147e-08, 0, 0, -0.687681)
-visible = false
-mesh = SubResource("CapsuleMesh_5tddd")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-avoidance_enabled = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojngp")
+}
+autoplay = "Bouncey"

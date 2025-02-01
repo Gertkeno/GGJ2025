@@ -35,8 +35,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_skittish_behavior_finished_fleeing() -> void:
 	bubble_animal.reparent(default_behavior)
-	
-	
+	default_behavior.increment_curve_point()
+
+
 func _on_vision_collision_entered(body: Node3D) -> void:
 	if body is Player:
 		if bubble_animal.get_parent() == default_behavior:
@@ -51,7 +52,8 @@ func _on_sneak_vision_collision_entered(body: Node3D) -> void:
 			var p := body as Player
 			if p.crouching:
 				reparent_to_skittish(body)
-	
+
+
 func reparent_to_skittish(body: Player) -> void:
 	skittish_behavior.player = body
 	# skittish_behavior.distance_to_run = distance_to_run_away
@@ -67,6 +69,7 @@ func reparent_to_skittish(body: Player) -> void:
 	var destination := Vector3(displacement.x, bubble_animal.global_position.y, displacement.z)
 	skittish_behavior.destination = destination
 
-	bubble_animal.navigation_agent.target_position = destination
+	bubble_animal.move_speed = skittish_behavior.move_speed
+	bubble_animal.look_at(destination)
 
 	bubble_animal.reparent.call_deferred(skittish_behavior)

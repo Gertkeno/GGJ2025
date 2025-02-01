@@ -19,7 +19,7 @@ func _run() -> void:
 
 	var subviewport := SubViewport.new()
 	subviewport.size = Vector2i(128, 128)
-	subviewport.msaa_3d = Viewport.MSAA_2X
+	subviewport.msaa_3d = Viewport.MSAA_4X
 	subviewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	var thumbnail_camera := Camera3D.new()
 	thumbnail_camera.fov = 40

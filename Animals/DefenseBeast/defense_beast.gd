@@ -46,6 +46,7 @@ func _on_bullhorn_body_entered(body: Node3D) -> void:
 
 func _on_dizzy_timer_timeout() -> void:
 	bubble_animal.reparent(default_behavior)
+	bubble_animal.move_speed = bubble_animal.default_move_speed
 
 
 func _on_vision_collision_entered(body: Node3D) -> void:
@@ -54,6 +55,7 @@ func _on_vision_collision_entered(body: Node3D) -> void:
 		if p.crouching == false:
 			if bubble_animal.get_parent() == default_behavior:
 				defense_behavior.player = body
+				bubble_animal.move_speed = 8
 				bubble_animal.reparent.call_deferred(defense_behavior)
 
 
@@ -63,4 +65,5 @@ func _on_sneak_vision_collision_entered(body: Node3D) -> void:
 		if p.crouching:
 			if bubble_animal.get_parent() == default_behavior:
 				defense_behavior.player = body
+				bubble_animal.move_speed = 8
 				bubble_animal.reparent.call_deferred(defense_behavior)
