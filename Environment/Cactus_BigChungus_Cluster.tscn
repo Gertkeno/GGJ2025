@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp1273y2tkxuy"]
-
-[ext_resource type="MultiMesh" uid="uid://cnuv0hnqm1ly8" path="res://Environment/Cactus_BigChungus_Cluster_multimesh.res" id="1_i2ebx"]
-
-[node name="Marker3D" type="Marker3D"]
-
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 13)
-multimesh = ExtResource("1_i2ebx")
