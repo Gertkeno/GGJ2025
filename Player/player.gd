@@ -142,10 +142,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				catch_tween.finished.connect(func() -> void:
 					animator.set("parameters/Swing/TimeScale/scale", 1.0))
 
-				set_face_idx(1)
+				set_face_idx(Face.SURPRISED)
 				_check_animal_count()
 			else:
-				set_face_idx(2)
+				set_face_idx(Face.SAD)
 	elif event.is_action("crouch") and toggle_crouch:
 		if event.is_pressed():
 			crouching = not crouching
@@ -176,7 +176,7 @@ func knockback(force: Vector3) -> void:
 		velocity += force
 	hurt_timer.start()
 	$Audio/PainBounce.play()
-	set_face_idx(3)
+	set_face_idx(Face.OUCH)
 
 
 func catch() -> bool:
@@ -218,12 +218,17 @@ func _on_animal_card_shown_time_timeout() -> void:
 	$AnimalCard.hide()
 
 
-# 0 neutral
-# 1 surprised
-# 2 sleepy
-# 3 ouch
-func set_face_idx(idx: int) -> void:
+enum Face {
+	NEUTRAL,
+	SURPRISED,
+	SAD,
+	OUCH
+}
+
+func set_face_idx(idx: Face) -> void:
 	eye_material.uv1_offset = Vector3(idx * 0.25, 0, 0)
+	get_tree().create_timer(2.0).timeout.connect(func() -> void:
+		eye_material.uv1_offset = Vector3.ZERO) # reset
 
 
 func _on_arcade_timer_timeout() -> void:
