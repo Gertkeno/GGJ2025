@@ -1,7 +1,7 @@
 extends Node3D
 class_name DefenseBeast
 
-@onready var bubble_animal: Node3D = $DefaultBehavior/BubbleAnimal
+@onready var bubble_animal: BubbleAnimal = $DefaultBehavior/BubbleAnimal
 @onready var default_behavior: DefaultBehavior = $DefaultBehavior
 @onready var defense_behavior: DefenseBehavior = $DefenseBehavior
 @onready var dizzy_timer: Timer = $DefenseBehavior/DizzyTimer

@@ -40,6 +40,7 @@ func init_curve_points(path: Path3D) -> void:
 			curve_points.append(collision["position"])# + Vector3(0, 0.5, 0))
 		else:
 			curve_points.append(path.curve.get_point_position(pt) + path.global_position)
+			print_debug("Failed to collide with ground: %d " % pt, get_path())
 
 
 func increment_curve_point() -> void:
