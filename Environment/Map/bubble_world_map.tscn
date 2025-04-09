@@ -1464,7 +1464,7 @@ script = ExtResource("27_xa7am")
 shape = SubResource("Resource_dsuhr")
 
 [node name="P_LilyPads" parent="ProtonScatter2" instance=ExtResource("29_efmt7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05886, -1.11372, 50.9477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87019, -1.11372, 51.3092)
 
 [node name="ProtonScatter3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.006, 0)

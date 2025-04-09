@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bbjjjlb6xqn5k"]
+
+[ext_resource type="Shader" uid="uid://b84046dfaxmx3" path="res://Assets/mat_foliage_shader.gdshader" id="1_sappu"]
+[ext_resource type="Texture2D" uid="uid://d2y8bfujm3voa" path="res://Assets/P_Coral_T_Foliage.png" id="2_nbpci"]
+
+[sub_resource type="Gradient" id="Gradient_sappu"]
+offsets = PackedFloat32Array(0.028169, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ps52"]
+noise_type = 0
+seed = 361
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ffjb6"]
+width = 256
+height = 256
+color_ramp = SubResource("Gradient_sappu")
+noise = SubResource("FastNoiseLite_7ps52")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sappu")
+shader_parameter/_texture = ExtResource("2_nbpci")
+shader_parameter/_noise = SubResource("NoiseTexture2D_ffjb6")

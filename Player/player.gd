@@ -6,6 +6,7 @@ const CROUCH_SPEED: float = 2.5
 const GROUND_ACCELERATION: float = 40.0
 const AIR_ACCELERATION: float = 5.0
 const JUMP_VELOCITY: float = 5.5
+const ROTATION_SPEED: float = TAU * 2
 
 #region control options
 static var camera_sensitivity: float = 1.0
@@ -29,6 +30,18 @@ var crouching: bool = false # for enemy detection
 var raised_net: bool = false # for animation
 var caught_animals: Array[AnimalDescriptor]
 var animals_left: int = -1
+
+
+func move_toward_angle(value: float, target: float, delta: float) -> float:
+	var diff := fmod(target - value, TAU)
+	var dir := signf(diff)
+	if absf(diff) > PI:
+		dir = -dir # angle probably closer in opposite direction
+
+	if absf(diff) > delta:
+		return value + dir * delta
+	else:
+		return target
 
 
 func _physics_process(delta: float) -> void:
@@ -60,7 +73,7 @@ func _physics_process(delta: float) -> void:
 
 		if direction:
 			var vis_y_rotation: float = -input_dir.angle() - PI/2.0
-			$Player.rotation.y = vis_y_rotation
+			$Player.rotation.y = move_toward_angle($Player.rotation.y, vis_y_rotation, ROTATION_SPEED * delta)
 			rotation.y += $CameraPivot.rotation.y
 			$CameraPivot.rotation.y = 0.0
 	else:
