@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crjbyid8mhpo2"]
 
-[ext_resource type="Script" path="res://Environment/cactus.gd" id="1_r46y4"]
+[ext_resource type="Script" uid="uid://d3ecrctnlge12" path="res://Environment/cactus.gd" id="1_r46y4"]
 [ext_resource type="PackedScene" uid="uid://3tm6gv7vdugs" path="res://Assets/Cac Small.fbx" id="1_su1qy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0h2dn"]

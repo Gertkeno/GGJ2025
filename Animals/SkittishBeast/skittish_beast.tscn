@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://lgyoq0xx03pq"]
 
-[ext_resource type="Script" path="res://Animals/SkittishBeast/skittish_beast.gd" id="1_th50f"]
-[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="2_vu02e"]
+[ext_resource type="Script" uid="uid://cpb1itr7uo17" path="res://Animals/SkittishBeast/skittish_beast.gd" id="1_th50f"]
+[ext_resource type="Script" uid="uid://chgebubnsk1oe" path="res://Animals/default_behavior.gd" id="2_vu02e"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="3_4q112"]
-[ext_resource type="Script" path="res://Animals/SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
+[ext_resource type="Script" uid="uid://dr6tg1byfax12" path="res://Animals/SkittishBeast/skittish_behavior.gd" id="3_bjsvn"]
 [ext_resource type="PackedScene" uid="uid://bb03dilco4x58" path="res://Assets/skittish.glb" id="4_4gt8p"]
 [ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_1lv1g"]
 [ext_resource type="AudioStream" uid="uid://bj5bns5otsuxj" path="res://Audio/AI/SFX_Animal_LP_02.wav" id="6_qudo5"]

@@ -3,7 +3,7 @@
 desc=$(git describe --tags)
 
 function godot_export() {
-	echo "Exporting $1...."
+	echo "Exporting $1..."
 
 	suffix=".x86_64"
 	if [ "$1" == "html5" ]; then
@@ -24,8 +24,10 @@ function godot_export() {
 
 	godot --headless --quiet --export-release "$1" "$build_dir/$name$suffix" || exit
 
-	echo "zipping!"
-	zip "Builds/${1}_${desc}.zip" -j "$build_dir"/*
+	echo "Zipping $1!"
+	zip_name="Builds/${1}_${desc}.zip"
+	rm -f "$zip_name"
+	zip "$zip_name" -j "$build_dir"/*
 
 	channel="$1"
 

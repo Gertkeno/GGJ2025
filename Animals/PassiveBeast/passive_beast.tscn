@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnhgr7fee8oqu"]
 
-[ext_resource type="Script" path="res://Animals/PassiveBeast/passive_beast.gd" id="1_3em5o"]
-[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="1_gn4yw"]
+[ext_resource type="Script" uid="uid://bwdo1bb4lgmtx" path="res://Animals/PassiveBeast/passive_beast.gd" id="1_3em5o"]
+[ext_resource type="Script" uid="uid://chgebubnsk1oe" path="res://Animals/default_behavior.gd" id="1_gn4yw"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="2_ek4cg"]
 [ext_resource type="PackedScene" uid="uid://bdfbnb33vy7hb" path="res://Assets/passive.glb" id="3_qpnde"]
 [ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="4_bd7m2"]

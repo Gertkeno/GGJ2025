@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Bubble Ranch"
 run/main_scene="res://Menus/main_menu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/image="res://Assets/bubble_ranch_logo.png"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/fullsize=false
+boot_splash/image="res://Assets/bubble_ranch_logo.png"
 config/icon="res://Assets/app_logo.png"
 
 [debug]

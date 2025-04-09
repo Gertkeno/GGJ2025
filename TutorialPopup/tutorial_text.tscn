@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3xxmyyaacn6y"]
 
-[ext_resource type="Script" path="res://TutorialPopup/tutorial_text.gd" id="1_jj304"]
+[ext_resource type="Script" uid="uid://b0d3kbdw33hdj" path="res://TutorialPopup/tutorial_text.gd" id="1_jj304"]
 [ext_resource type="Material" uid="uid://lvl0e73x7fgp" path="res://TutorialPopup/HologramMat.tres" id="1_upbiv"]
 [ext_resource type="FontFile" uid="uid://ew066fir1d13" path="res://TutorialPopup/PromptFont/promptfont.otf" id="1_vqfy1"]
 

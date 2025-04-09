@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ca5myhyvxhckh"]
 
-[ext_resource type="Script" path="res://Environment/Map/floating_platform.gd" id="1_eoexu"]
+[ext_resource type="Script" uid="uid://sa2gp3h7hy1t" path="res://Environment/Map/floating_platform.gd" id="1_eoexu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a0msa"]
 radius = 4.0

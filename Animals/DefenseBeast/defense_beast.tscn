@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bso8oicnpy2nr"]
 
-[ext_resource type="Script" path="res://Animals/DefenseBeast/defense_beast.gd" id="1_363l7"]
+[ext_resource type="Script" uid="uid://cea2kyp427w4q" path="res://Animals/DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="2_30sx1"]
-[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="2_ljxhn"]
-[ext_resource type="Script" path="res://Animals/DefenseBeast/defense_behavior.gd" id="3_cdged"]
+[ext_resource type="Script" uid="uid://chgebubnsk1oe" path="res://Animals/default_behavior.gd" id="2_ljxhn"]
+[ext_resource type="Script" uid="uid://8v23nv0ksw0m" path="res://Animals/DefenseBeast/defense_behavior.gd" id="3_cdged"]
 [ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
 [ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_qagie"]
 [ext_resource type="AudioStream" uid="uid://2inmqy8v7gsi" path="res://Audio/AI/SFX_Animal_LP_03.wav" id="6_5fovh"]

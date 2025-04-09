@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdwqcdrie01x5"]
 
-[ext_resource type="Script" path="res://Animals/PassiveBeast/passive_beast.gd" id="1_qgwy6"]
-[ext_resource type="Script" path="res://Animals/default_behavior.gd" id="2_b6bql"]
+[ext_resource type="Script" uid="uid://bwdo1bb4lgmtx" path="res://Animals/PassiveBeast/passive_beast.gd" id="1_qgwy6"]
+[ext_resource type="Script" uid="uid://chgebubnsk1oe" path="res://Animals/default_behavior.gd" id="2_b6bql"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="3_inxbl"]
 [ext_resource type="PackedScene" uid="uid://l76da1sleber" path="res://addons/godot_plush/godot_plush_sitting.glb" id="4_hn6mm"]
 [ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_pln7a"]

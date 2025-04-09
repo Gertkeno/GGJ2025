@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://uxv0qovjaeat"]
 
 [ext_resource type="PackedScene" uid="uid://c3wlvu7w5pbu5" path="res://Assets/Cac Large.fbx" id="1_4k5kb"]
-[ext_resource type="Script" path="res://Environment/cactus.gd" id="1_acu03"]
+[ext_resource type="Script" uid="uid://d3ecrctnlge12" path="res://Environment/cactus.gd" id="1_acu03"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hj5i"]
 radius = 0.67034

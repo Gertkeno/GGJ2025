@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4qyratd0pfy8"]
 
-[ext_resource type="Script" path="res://Menus/game_settings.gd" id="1_4s1sl"]
+[ext_resource type="Script" uid="uid://dj6i0xbq8p4y4" path="res://Menus/game_settings.gd" id="1_4s1sl"]
 
 [node name="GameSettings" type="VBoxContainer"]
 process_mode = 3
