@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5xeb3snxqmx"]
+[gd_scene format=3 uid="uid://bu5xeb3snxqmx"]
 
 [ext_resource type="Texture2D" uid="uid://cif832w53ro27" path="res://Assets/Particles/circle_particles.png" id="1_ue4bm"]
 
@@ -45,7 +45,7 @@ particles_anim_loop = true
 [sub_resource type="QuadMesh" id="QuadMesh_ffg7n"]
 material = SubResource("StandardMaterial3D_tygl7")
 
-[node name="GPUParticles3D2" type="GPUParticles3D"]
+[node name="GPUParticles3D2" type="GPUParticles3D" unique_id=361024162]
 emitting = false
 amount = 20
 lifetime = 1.5

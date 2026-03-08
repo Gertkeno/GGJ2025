@@ -1,26 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3xxmyyaacn6y"]
+[gd_scene format=3 uid="uid://c3xxmyyaacn6y"]
 
 [ext_resource type="Script" uid="uid://b0d3kbdw33hdj" path="res://TutorialPopup/tutorial_text.gd" id="1_jj304"]
 [ext_resource type="Material" uid="uid://lvl0e73x7fgp" path="res://TutorialPopup/HologramMat.tres" id="1_upbiv"]
 [ext_resource type="FontFile" uid="uid://ew066fir1d13" path="res://TutorialPopup/PromptFont/promptfont.otf" id="1_vqfy1"]
 
-[node name="TutorialText" type="Node3D"]
+[node name="TutorialText" type="Node3D" unique_id=1453185756]
 script = ExtResource("1_jj304")
 action_text = "GAME_ACTION_JUMP"
 action_icon = "↦/⟵"
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=43438899]
 transform = Transform3D(0.593496, 0, 0, 0, 0.593496, 0, 0, 0, 0.593496, 0, 0, 0)
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D"]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1928981235]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1713991668]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 radius = 0.927075
 height = 1.0
 cone = true
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=2032372900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.16121, 0)
 billboard = 2
 text = "GAME_ACTION_JUMP ↦/⟵"
@@ -28,7 +28,7 @@ font = ExtResource("1_vqfy1")
 font_size = 102
 outline_size = 22
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=1662494786]
 transform = Transform3D(-0.593496, -5.18851e-08, 0, 5.18851e-08, -0.593496, 0, 0, 0, 0.593496, -0.00424457, 1.1713, -0.00407481)
 material_override = ExtResource("1_upbiv")
 radius = 0.963568

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca5myhyvxhckh"]
+[gd_scene format=3 uid="uid://ca5myhyvxhckh"]
 
 [ext_resource type="Script" uid="uid://sa2gp3h7hy1t" path="res://Environment/Map/floating_platform.gd" id="1_eoexu"]
 
@@ -11,26 +11,26 @@ albedo_color = Color(0.551071, 0.392821, 0.243696, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq5ko"]
 albedo_color = Color(0.407843, 0.0470588, 0.180392, 1)
 
-[node name="FloatingPlatform" type="Node3D"]
+[node name="FloatingPlatform" type="Node3D" unique_id=1841992783]
 script = ExtResource("1_eoexu")
 
-[node name="PointA" type="Marker3D" parent="."]
+[node name="PointA" type="Marker3D" parent="." unique_id=1014726455]
 
-[node name="PointB" type="Marker3D" parent="."]
+[node name="PointB" type="Marker3D" parent="." unique_id=1817766689]
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=2068367440]
 collision_layer = 2
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=47907683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("CylinderShape3D_a0msa")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="AnimatableBody3D"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="AnimatableBody3D" unique_id=4189742]
 radius = 4.0
 material = SubResource("StandardMaterial3D_2usjr")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="AnimatableBody3D/CSGSphere3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="AnimatableBody3D/CSGSphere3D" unique_id=1406642178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 operation = 2
 radius = 5.0

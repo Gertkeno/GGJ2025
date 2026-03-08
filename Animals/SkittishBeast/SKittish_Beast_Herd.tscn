@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwb6jcc1488gx"]
+[gd_scene format=3 uid="uid://cwb6jcc1488gx"]
 
 [ext_resource type="PackedScene" uid="uid://lgyoq0xx03pq" path="res://Animals/SkittishBeast/skittish_beast.tscn" id="1_qhosc"]
 
@@ -23,25 +23,25 @@ _data = {
 }
 point_count = 15
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=1123846060]
 
-[node name="Inner" type="Path3D" parent="."]
+[node name="Inner" type="Path3D" parent="." unique_id=1974566624]
 curve = SubResource("Curve3D_513h5")
 
-[node name="Mid" type="Path3D" parent="."]
+[node name="Mid" type="Path3D" parent="." unique_id=1941927647]
 curve = SubResource("Curve3D_ah0ab")
 
-[node name="Outer" type="Path3D" parent="."]
+[node name="Outer" type="Path3D" parent="." unique_id=111382154]
 curve = SubResource("Curve3D_wo5s0")
 
-[node name="SkittishBeast" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast" parent="." unique_id=1832906119 node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163002, 0, 3.33754)
 default_curve = NodePath("../Inner")
 
-[node name="SkittishBeast2" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast2" parent="." unique_id=1027202409 node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0775244, 0, 5.66131)
 default_curve = NodePath("../Mid")
 
-[node name="SkittishBeast3" parent="." node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
+[node name="SkittishBeast3" parent="." unique_id=336863906 node_paths=PackedStringArray("default_curve") instance=ExtResource("1_qhosc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111936, 0, 7.84012)
 default_curve = NodePath("../Outer")

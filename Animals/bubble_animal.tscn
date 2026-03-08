@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://by4by86dfprkd"]
+[gd_scene format=3 uid="uid://by4by86dfprkd"]
 
 [ext_resource type="Script" uid="uid://o0rcx5lvblh8" path="res://Animals/bubble_animal.gd" id="1_qslwe"]
 
@@ -88,15 +88,13 @@ _data = {
 &"RESET": SubResource("Animation_w82fa")
 }
 
-[node name="BubbleAnimal" type="CharacterBody3D" groups=["Bubble Beasties"]]
+[node name="BubbleAnimal" type="CharacterBody3D" unique_id=377914425 groups=["Bubble Beasties"]]
 collision_layer = 8
 collision_mask = 160
 script = ExtResource("1_qslwe")
 
-[node name="Visual" type="Marker3D" parent="."]
+[node name="Visual" type="Marker3D" parent="." unique_id=1737786667]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ojngp")
-}
-autoplay = "Bouncey"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=291959526]
+libraries/ = SubResource("AnimationLibrary_ojngp")
+autoplay = &"Bouncey"

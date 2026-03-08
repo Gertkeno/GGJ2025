@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7qv6afa6inmh"]
+[gd_scene format=3 uid="uid://b7qv6afa6inmh"]
 
 [ext_resource type="PackedScene" uid="uid://c3wlvu7w5pbu5" path="res://Assets/Cac Large.fbx" id="1_dq350"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=1353616683]
 
-[node name="Cac Large" parent="." instance=ExtResource("1_dq350")]
+[node name="Cac Large" parent="." unique_id=1157637650 instance=ExtResource("1_dq350")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.0917225)
 
 [editable path="Cac Large"]

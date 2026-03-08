@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4qyratd0pfy8"]
+[gd_scene format=3 uid="uid://b4qyratd0pfy8"]
 
 [ext_resource type="Script" uid="uid://dj6i0xbq8p4y4" path="res://Menus/game_settings.gd" id="1_4s1sl"]
 
-[node name="GameSettings" type="VBoxContainer"]
+[node name="GameSettings" type="VBoxContainer" unique_id=301155702]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,14 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4s1sl")
 
-[node name="Sensitivity" type="HBoxContainer" parent="."]
+[node name="Sensitivity" type="HBoxContainer" parent="." unique_id=635542345]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Sensitivity"]
+[node name="Label" type="Label" parent="Sensitivity" unique_id=6178248]
 layout_mode = 2
 text = "MENU_CAMERA"
 
-[node name="CameraSlider" type="HSlider" parent="Sensitivity"]
+[node name="CameraSlider" type="HSlider" parent="Sensitivity" unique_id=2049893385]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -27,18 +27,18 @@ max_value = 3.0
 step = 0.05
 value = 1.0
 
-[node name="YInvert" type="CheckButton" parent="Sensitivity"]
+[node name="YInvert" type="CheckButton" parent="Sensitivity" unique_id=1075893085]
 layout_mode = 2
 text = "MENU_CAMERA_INVERTED"
 
-[node name="Audio" type="HBoxContainer" parent="."]
+[node name="Audio" type="HBoxContainer" parent="." unique_id=1132795521]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Audio"]
+[node name="Label" type="Label" parent="Audio" unique_id=695354793]
 layout_mode = 2
 text = "MENU_OPTIONS_SOUND_VOLUME"
 
-[node name="MasterVolume" type="HSlider" parent="Audio"]
+[node name="MasterVolume" type="HSlider" parent="Audio" unique_id=270406925]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -46,14 +46,14 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="RenderQuality" type="HBoxContainer" parent="."]
+[node name="RenderQuality" type="HBoxContainer" parent="." unique_id=968395509]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RenderQuality"]
+[node name="Label" type="Label" parent="RenderQuality" unique_id=1979149987]
 layout_mode = 2
 text = "MENU_OPTIONS_RESOLUTION"
 
-[node name="RenderScale" type="HSlider" parent="RenderQuality"]
+[node name="RenderScale" type="HSlider" parent="RenderQuality" unique_id=1639832825]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -63,26 +63,26 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="Fullscreen" type="CheckButton" parent="RenderQuality"]
+[node name="Fullscreen" type="CheckButton" parent="RenderQuality" unique_id=562923280]
 layout_mode = 2
 text = "Fullscreen"
 
-[node name="ToggleCrouch" type="CheckButton" parent="."]
+[node name="ToggleCrouch" type="CheckButton" parent="." unique_id=1190359531]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Toggle Crouch"
 
-[node name="Close" type="HBoxContainer" parent="."]
+[node name="Close" type="HBoxContainer" parent="." unique_id=1937113713]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Continue" type="Button" parent="Close"]
+[node name="Continue" type="Button" parent="Close" unique_id=92693458]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "MENU_LABEL_CONTINUE"
 
-[node name="Quit" type="Button" parent="Close"]
+[node name="Quit" type="Button" parent="Close" unique_id=1825507422]
 layout_mode = 2
 text = "MENU_LABEL_QUIT"
 

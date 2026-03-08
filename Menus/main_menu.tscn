@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpudpvvrv7hy3"]
+[gd_scene format=3 uid="uid://dpudpvvrv7hy3"]
 
 [ext_resource type="Theme" uid="uid://benc2fv0e5te2" path="res://Menus/main_menu.tres" id="1_872md"]
 [ext_resource type="Texture2D" uid="uid://bvn7p8srg3mg3" path="res://Assets/title screen_2.png" id="2_eytra"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c1jqtnmhu48k4" path="res://Menus/main_menu.gd" id="4_tkihy"]
 [ext_resource type="AudioStream" uid="uid://djw6gnusn6co7" path="res://Audio/Peachtea - Somewhere in the Elevator.ogg" id="5_ndxm5"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1874843849]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_872md")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1996218179]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.956863, 0.796078, 0.270588, 1)
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=801243993]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,7 @@ texture = ExtResource("2_eytra")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1663375921]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,33 +46,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=951042532]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1966346185]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_y1p6a")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1057909936]
 layout_mode = 2
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_right = 200
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1382819817]
 layout_mode = 2
 size_flags_vertical = 8
 script = ExtResource("4_tkihy")
 main_scene_path = "res://Environment/Map/bubble_world_map.tscn"
 credits_scene_path = "res://Menus/credits_screen.tscn"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=751542979]
 stream = ExtResource("5_ndxm5")
 volume_db = -10.0
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=1050474658]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Exit")
@@ -81,7 +81,7 @@ focus_next = NodePath("../Freeplay")
 theme_override_font_sizes/font_size = 65
 text = "Start Arcade"
 
-[node name="Freeplay" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
+[node name="Freeplay" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=2110767639]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Start")
@@ -90,7 +90,7 @@ focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Start")
 text = "Free Play"
 
-[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=1337606228]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Freeplay")
@@ -100,7 +100,7 @@ focus_previous = NodePath("../Freeplay")
 text = "Credits
 "
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=2009036465]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Credits")

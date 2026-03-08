@@ -10,7 +10,8 @@ class_name PassiveBeast
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().process_frame
-	default_behavior.init_curve_points(default_curve)
+	if default_curve:
+		default_behavior.init_curve_points(default_curve)
 
 	if descriptor:
 		bubble_animal.bubble_material.set_shader_parameter("rim_color", descriptor.color)

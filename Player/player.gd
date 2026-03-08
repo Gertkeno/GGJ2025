@@ -32,6 +32,9 @@ var caught_animals: Array[AnimalDescriptor]
 var animals_left: int = -1
 
 
+@export var skele: Skeleton3D 
+@onready var neckbone: int = skele.find_bone("head.x")
+
 func move_toward_angle(value: float, target: float, delta: float) -> float:
 	var diff := fmod(target - value, TAU)
 	var dir := signf(diff)

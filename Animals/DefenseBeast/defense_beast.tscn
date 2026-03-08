@@ -1,12 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://bso8oicnpy2nr"]
+[gd_scene format=3 uid="uid://bso8oicnpy2nr"]
 
 [ext_resource type="Script" uid="uid://cea2kyp427w4q" path="res://Animals/DefenseBeast/defense_beast.gd" id="1_363l7"]
 [ext_resource type="PackedScene" uid="uid://by4by86dfprkd" path="res://Animals/bubble_animal.tscn" id="2_30sx1"]
 [ext_resource type="Script" uid="uid://chgebubnsk1oe" path="res://Animals/default_behavior.gd" id="2_ljxhn"]
 [ext_resource type="Script" uid="uid://8v23nv0ksw0m" path="res://Animals/DefenseBeast/defense_behavior.gd" id="3_cdged"]
 [ext_resource type="PackedScene" uid="uid://4tk1x4ghtj65" path="res://Assets/defensive.glb" id="4_dcbrm"]
-[ext_resource type="Material" uid="uid://ub384db6bbl5" path="res://Assets/Bubble/BubbleMat_Animal.tres" id="5_qagie"]
+[ext_resource type="Shader" uid="uid://gidr14mq58di" path="res://Assets/Bubble/Bubble.gdshader" id="5_4svk6"]
 [ext_resource type="AudioStream" uid="uid://2inmqy8v7gsi" path="res://Audio/AI/SFX_Animal_LP_03.wav" id="6_5fovh"]
+[ext_resource type="Texture2D" uid="uid://bvb4a33lypxvj" path="res://Assets/Bubble/Marble 13 - 256x256.png" id="6_p4bup"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2ub2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_4svk6")
+shader_parameter/noise_texture = ExtResource("6_p4bup")
+shader_parameter/noise_scale = 0.34
+shader_parameter/tint_color = Color(0.309804, 0.501961, 0.835294, 0.392157)
+shader_parameter/rim_color = Color(0.459601, 0.627507, 0.984821, 1)
+shader_parameter/fresnel_power = 2.665
+shader_parameter/fresnel_offset = 0.739
+shader_parameter/distortion_speed = 0.632
+shader_parameter/distortion_direction = Vector2(0, 0.31)
+shader_parameter/distortion_scale = 0.339
+shader_parameter/distortion_factor = 0.36
+shader_parameter/ripple_state = 0.0
+shader_parameter/ripple_strength = 0.567
+shader_parameter/ripple_speed = 16.667
+shader_parameter/point_strength = 1.316
+shader_parameter/ripple_direction = Vector3(0.46, 1.09, 1.71)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_25x5b"]
 
@@ -16,53 +37,53 @@ height = 4.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2w21c"]
 
-[node name="DefenseBeast" type="Node3D"]
+[node name="DefenseBeast" type="Node3D" unique_id=1849061925]
 script = ExtResource("1_363l7")
 knockback_force = 12.0
 
-[node name="DefaultBehavior" type="Node3D" parent="."]
+[node name="DefaultBehavior" type="Node3D" parent="." unique_id=836665215]
 script = ExtResource("2_ljxhn")
 
-[node name="BubbleAnimal" parent="DefaultBehavior" node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_30sx1")]
+[node name="BubbleAnimal" parent="DefaultBehavior" unique_id=1180833290 node_paths=PackedStringArray("visual_mesh") instance=ExtResource("2_30sx1")]
 collision_mask = 171
 visual_mesh = NodePath("Visual/defensive/Defensive/Skeleton3D/Cube_010")
 
-[node name="defensive" parent="DefaultBehavior/BubbleAnimal/Visual" index="0" instance=ExtResource("4_dcbrm")]
+[node name="defensive" parent="DefaultBehavior/BubbleAnimal/Visual" parent_id_path=PackedInt32Array(1180833290, 1737786667) index="0" unique_id=550744351 instance=ExtResource("4_dcbrm")]
 transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, 0, 0)
 
-[node name="Cube_010" parent="DefaultBehavior/BubbleAnimal/Visual/defensive/Defensive/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("5_qagie")
+[node name="Cube_010" parent="DefaultBehavior/BubbleAnimal/Visual/defensive/Defensive/Skeleton3D" parent_id_path=PackedInt32Array(550744351, 429405928) index="0" unique_id=2050293072]
+surface_material_override/0 = SubResource("ShaderMaterial_h2ub2")
 
-[node name="BullhornArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+[node name="BullhornArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal" unique_id=1342136340]
 transform = Transform3D(-0.00796779, 0, -0.999969, 0, 1, 0, 0.999969, 0, -0.00796779, 0, 1, 0)
 collision_layer = 128
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/BullhornArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/BullhornArea" unique_id=629642358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84752, 0, 0.00979163)
 shape = SubResource("SphereShape3D_25x5b")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal" unique_id=802055949]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_tyumq")
 
-[node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+[node name="VisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal" unique_id=1528037262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/VisionArea" unique_id=1292273735]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -3.81997)
 shape = SubResource("SphereShape3D_2w21c")
 
-[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal"]
+[node name="SneakVisionArea" type="Area3D" parent="DefaultBehavior/BubbleAnimal" unique_id=1810874188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultBehavior/BubbleAnimal/SneakVisionArea" unique_id=2047222509]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.54753)
 shape = SubResource("SphereShape3D_2w21c")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DefaultBehavior/BubbleAnimal"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DefaultBehavior/BubbleAnimal" unique_id=482518753]
 stream = ExtResource("6_5fovh")
 attenuation_model = 1
 volume_db = -20.0
@@ -71,10 +92,10 @@ autoplay = true
 max_distance = 30.0
 bus = &"SFX"
 
-[node name="DefenseBehavior" type="Node3D" parent="."]
+[node name="DefenseBehavior" type="Node3D" parent="." unique_id=657017551]
 script = ExtResource("3_cdged")
 
-[node name="DizzyTimer" type="Timer" parent="DefenseBehavior"]
+[node name="DizzyTimer" type="Timer" parent="DefenseBehavior" unique_id=516367581]
 one_shot = true
 
 [connection signal="body_entered" from="DefaultBehavior/BubbleAnimal/BullhornArea" to="." method="_on_bullhorn_body_entered"]

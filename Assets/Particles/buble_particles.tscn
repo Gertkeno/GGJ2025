@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbp7grruglafr"]
+[gd_scene format=3 uid="uid://cbp7grruglafr"]
 
 [ext_resource type="Texture2D" uid="uid://osnxu77ggao4" path="res://Assets/Particles/buble.png" id="1_w78om"]
 
@@ -45,7 +45,7 @@ particles_anim_loop = true
 [sub_resource type="QuadMesh" id="QuadMesh_ffg7n"]
 material = SubResource("StandardMaterial3D_tygl7")
 
-[node name="GPUParticles3D" type="GPUParticles3D"]
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=1040130417]
 emitting = false
 amount = 20
 lifetime = 1.5

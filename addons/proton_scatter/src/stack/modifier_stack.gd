@@ -1,4 +1,5 @@
 @tool
+class_name ProtonScatterModifierStack
 extends Resource
 
 
@@ -7,13 +8,13 @@ signal value_changed
 signal transforms_ready
 
 
-const ProtonScatter := preload("../scatter.gd")
 const TransformList := preload("../common/transform_list.gd")
 
 
 @export var stack: Array[ScatterBaseModifier] = []
 
 var just_created := false
+var parent: ProtonScatter
 
 
 func start_update(scatter_node: ProtonScatter, domain):

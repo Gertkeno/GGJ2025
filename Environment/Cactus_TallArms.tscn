@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uxv0qovjaeat"]
+[gd_scene format=3 uid="uid://uxv0qovjaeat"]
 
 [ext_resource type="PackedScene" uid="uid://c3wlvu7w5pbu5" path="res://Assets/Cac Large.fbx" id="1_4k5kb"]
 [ext_resource type="Script" uid="uid://d3ecrctnlge12" path="res://Environment/cactus.gd" id="1_acu03"]
@@ -15,27 +15,27 @@ height = 2.66
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yn82n"]
 
-[node name="Node3D" type="Area3D"]
+[node name="Node3D" type="Area3D" unique_id=2089962776]
 collision_layer = 128
 collision_mask = 40
 script = ExtResource("1_acu03")
 
-[node name="Cac Large" parent="." instance=ExtResource("1_4k5kb")]
+[node name="Cac Large" parent="." unique_id=1672131760 instance=ExtResource("1_4k5kb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=141860194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.56138, 0)
 shape = SubResource("CapsuleShape3D_5hj5i")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=21842151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091711, 5.16208, -1.42712)
 shape = SubResource("CapsuleShape3D_o4h8s")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=987157238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2035, 5.38069, 0.869274)
 shape = SubResource("CapsuleShape3D_3sgjk")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=630659252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28798, 2.27811, 0.670567)
 shape = SubResource("CapsuleShape3D_yn82n")
 

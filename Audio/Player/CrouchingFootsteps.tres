@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://40rklma332lq"]
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://40rklma332lq"]
 
 [ext_resource type="AudioStream" uid="uid://c10qentlnflr8" path="res://Audio/Player/SFX_Player_CrouchFS_01.wav" id="1_7gp81"]
 [ext_resource type="AudioStream" uid="uid://ei02vc7qmabv" path="res://Audio/Player/SFX_Player_CrouchFS_02.wav" id="2_b6d7o"]
