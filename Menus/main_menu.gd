@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 @export_file("*.tscn") var main_scene_path: String = "res://bubble_world_map.tscn"
 @export_file("*.tscn") var credits_scene_path: String = "res://credits_screen.tscn"
@@ -9,10 +9,10 @@ extends VBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music.play()
-	$Start.grab_focus()
+	%Start.grab_focus()
 	ResourceLoader.load_threaded_request(main_scene_path)
 	if OS.get_name() == "Web":
-		$Exit.hide()
+		%Exit.hide()
 
 
 func _on_exit_pressed() -> void:

@@ -15,6 +15,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_872md")
+script = ExtResource("4_tkihy")
+main_scene_path = "uid://ub3amii6nf4n"
+credits_scene_path = "uid://dwmpbi5874ctd"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1996218179]
 layout_mode = 1
@@ -64,15 +67,9 @@ theme_override_constants/margin_right = 200
 [node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1382819817]
 layout_mode = 2
 size_flags_vertical = 8
-script = ExtResource("4_tkihy")
-main_scene_path = "res://Environment/Map/bubble_world_map.tscn"
-credits_scene_path = "res://Menus/credits_screen.tscn"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=751542979]
-stream = ExtResource("5_ndxm5")
-volume_db = -10.0
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=1050474658]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Exit")
@@ -101,6 +98,7 @@ text = "Credits
 "
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" unique_id=2009036465]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Credits")
@@ -109,7 +107,11 @@ focus_next = NodePath("../Start")
 text = "Exit
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Start" to="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Freeplay" to="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" method="_on_freeplay_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Credits" to="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Exit" to="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer" method="_on_exit_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=751542979]
+stream = ExtResource("5_ndxm5")
+volume_db = -10.0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Freeplay" to="." method="_on_freeplay_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer/Exit" to="." method="_on_exit_pressed"]

@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_nd4l7")
-main_menu_path = "res://Menus/main_menu.tscn"
+main_menu_path = "uid://dpudpvvrv7hy3"
 credit_theme = ExtResource("2_p5s87")
 scroll_speed = 50.0
 

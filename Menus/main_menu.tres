@@ -2,8 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://bavfrwdoykxp" path="res://Menus/MrsBeasley/Mrs Beasley.ttf" id="1_fxlj3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1puda"]
-bg_color = Color(0.54099, 0.540991, 0.54099, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s41n"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 0.807843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.40392157, 0.5803922, 0.9019608, 0.8117647)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -11,8 +16,17 @@ corner_radius_bottom_left = 8
 expand_margin_top = 8.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rr80"]
-bg_color = Color(0.493545, 0.493546, 0.493545, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s482"]
+bg_color = Color(0.23101297, 0.31570205, 0.59033066, 0.80784315)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 8.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apvvh"]
+bg_color = Color(0.26388043, 0.35693222, 0.64906496, 0.80784315)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -29,12 +43,23 @@ corner_radius_bottom_left = 8
 expand_margin_top = 8.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr246"]
+bg_color = Color(0.5489123, 0.56912404, 0.9223951, 0.80784315)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 8.0
+expand_margin_bottom = 4.0
+
 [resource]
 default_font = ExtResource("1_fxlj3")
 Button/font_sizes/font_size = 32
-Button/styles/focus = SubResource("StyleBoxFlat_1puda")
-Button/styles/hover = SubResource("StyleBoxFlat_0rr80")
+Button/styles/focus = SubResource("StyleBoxFlat_0s41n")
+Button/styles/hover = SubResource("StyleBoxFlat_8s482")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_apvvh")
 Button/styles/normal = SubResource("StyleBoxFlat_b6i78")
+Button/styles/pressed = SubResource("StyleBoxFlat_tr246")
 MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
