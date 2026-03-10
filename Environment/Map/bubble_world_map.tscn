@@ -20,18 +20,19 @@
 [ext_resource type="PackedScene" uid="uid://ca5myhyvxhckh" path="res://Environment/Map/floating_platform.tscn" id="16_ulobg"]
 [ext_resource type="PackedScene" uid="uid://dqeboesep1kmb" path="res://Assets/P_Coral.glb" id="18_435w7"]
 [ext_resource type="PackedScene" uid="uid://cdwqcdrie01x5" path="res://Animals/PassiveBeast/passive_beast_godotplush.tscn" id="18_d3wro"]
-[ext_resource type="Script" uid="uid://c8v6tn3d8lj4y" path="res://addons/proton_scatter/src/scatter.gd" id="19_k0sfs"]
-[ext_resource type="Script" uid="uid://bn2h1lk4u5vpc" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="20_5nhls"]
-[ext_resource type="Script" uid="uid://dym3i73nv5i35" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="21_duyo4"]
-[ext_resource type="Script" uid="uid://dc1ucqqe7iw28" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="22_xs6x4"]
-[ext_resource type="Script" uid="uid://css6i6wd7sevn" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="23_f4ckf"]
-[ext_resource type="Script" uid="uid://4aafh2nh7ti2" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="24_wbgv5"]
-[ext_resource type="Script" uid="uid://co2v43dtw6owx" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="25_nw7f5"]
-[ext_resource type="Script" uid="uid://dhsixsr0tkcqt" path="res://addons/proton_scatter/src/scatter_item.gd" id="26_xgw64"]
-[ext_resource type="Script" uid="uid://bhqrb84uhy8rj" path="res://addons/proton_scatter/src/scatter_shape.gd" id="27_xa7am"]
-[ext_resource type="Script" uid="uid://bn4drsnpso3s5" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="28_v361c"]
+[ext_resource type="Script" uid="uid://bflglwa2i624t" path="res://addons/proton_scatter/src/scatter.gd" id="19_k0sfs"]
+[ext_resource type="Script" uid="uid://bst50xfkn7ew1" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="20_5nhls"]
+[ext_resource type="Script" uid="uid://c6mxfsgun1juq" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="21_duyo4"]
+[ext_resource type="Script" uid="uid://digdbu0o8c07m" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="22_xs6x4"]
+[ext_resource type="Script" uid="uid://bsj23e85kl6ah" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="23_f4ckf"]
+[ext_resource type="Script" uid="uid://vjwx2lxre8vf" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="24_wbgv5"]
+[ext_resource type="Script" uid="uid://cjp260bv0ghr1" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="25_nw7f5"]
+[ext_resource type="Script" uid="uid://cl1k7qvm5ykqx" path="res://addons/proton_scatter/src/scatter_item.gd" id="26_xgw64"]
+[ext_resource type="Script" uid="uid://bd5auskiu32rv" path="res://addons/proton_scatter/src/scatter_shape.gd" id="27_xa7am"]
+[ext_resource type="Script" uid="uid://cibg2why6dmrl" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="28_v361c"]
 [ext_resource type="PackedScene" uid="uid://coxtb87ffgi6s" path="res://Assets/P_LilyPads.glb" id="29_efmt7"]
 [ext_resource type="PackedScene" uid="uid://dy4uo77nx577f" path="res://Assets/P_Flowers.glb" id="30_4enkr"]
+[ext_resource type="PackedScene" uid="uid://ub3amii6nf4n" path="res://Menus/loading_screen.tscn" id="33_mey6h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8syn1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1205,7 +1206,7 @@ transform = Transform3D(-0.268685, 0, -0.963228, 0, 1, 0, 0.963228, 0, -0.268685
 [node name="FloatingPlatform" parent="." unique_id=1111883483 instance=ExtResource("16_ulobg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8633, -1.00194, 213.641)
 
-[node name="PointB" parent="FloatingPlatform" index="1"]
+[node name="PointB" parent="FloatingPlatform" index="1" unique_id=1817766689]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56242, 7.34552, -15.8352)
 
 [node name="PassiveBeast5" parent="." unique_id=539161763 instance=ExtResource("11_k0jlp")]
@@ -1362,6 +1363,10 @@ path = "res://Assets/P_Grass.glb"
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 5.48192, 9.4287, -7.86006)
 script = ExtResource("27_xa7am")
 shape = SubResource("Resource_r3f0j")
+
+[node name="LoadingScreen" parent="." unique_id=757536107 instance=ExtResource("33_mey6h")]
+z_index = 100
+is_post_load = true
 
 [editable path="SKit_Heard_3"]
 [editable path="Skit_Heard_4"]

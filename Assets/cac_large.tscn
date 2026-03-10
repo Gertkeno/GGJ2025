@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgww35r4yywu7"]
+
+[ext_resource type="PackedScene" uid="uid://c3wlvu7w5pbu5" path="res://Assets/Cac Large.fbx" id="1_ivrrr"]
+
+[node name="Cac Large" unique_id=1289509860 instance=ExtResource("1_ivrrr")]
+
+[node name="Cac Tall" parent="." index="0" unique_id=989788675]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+lod_bias = 0.1

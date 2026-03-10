@@ -243,8 +243,7 @@ enum Face {
 
 func set_face_idx(idx: Face) -> void:
 	eye_material.uv1_offset = Vector3(idx * 0.25, 0, 0)
-	get_tree().create_timer(2.0).timeout.connect(func() -> void:
-		eye_material.uv1_offset = Vector3.ZERO) # reset
+	$FaceResetTimer.start()
 
 
 func _on_arcade_timer_timeout() -> void:
@@ -293,3 +292,8 @@ func _on_game_settings_quit_pressed() -> void:
 	arcade_timer.stop()
 	$Settings.hide()
 	_open_credits(time_left)
+
+
+func _on_face_reset_timer_timeout() -> void:
+	eye_material.uv1_offset = Vector3.ZERO # reset
+
