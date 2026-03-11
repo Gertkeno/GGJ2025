@@ -17,6 +17,9 @@ fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0.4679487)
 repeat = 2
 
+[sub_resource type="LabelSettings" id="LabelSettings_7kywr"]
+font_size = 80
+
 [node name="LoadingScreen" type="Control" unique_id=757536107]
 layout_mode = 3
 anchors_preset = 15
@@ -64,12 +67,11 @@ offset_bottom = 35.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=595879025]
+[node name="RichTextLabel" type="Label" parent="VBoxContainer" unique_id=1213869027]
 layout_mode = 2
 size_flags_vertical = 3
-bbcode_enabled = true
-text = "[font_size=80][rainbow speed=10 freq=0.05]Loading..."
-fit_content = true
+text = "Loading..."
+label_settings = SubResource("LabelSettings_7kywr")
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=148937027]

@@ -4,7 +4,6 @@ extends Control
 # blocked almost entirely by single threaded rendering pipeline with no
 # notifications on progress.
 
-
 ## Mark true when placed in main scene, this node will show 100% and fade out
 @export var is_post_load: bool = false
 
@@ -23,7 +22,6 @@ func _ready() -> void:
 		queue_free()
 		return
 
-
 	var success := ResourceLoader.load_threaded_request(main_scene_path, "PackedScene", true)
 	if success != OK:
 		push_warning("failed to thread load request, just send it lol")
@@ -38,14 +36,12 @@ func _process(_delta: float) -> void:
 
 	if ResourceLoader.THREAD_LOAD_LOADED:
 		var next: PackedScene = ResourceLoader.load_threaded_get(main_scene_path)
-		print("Done loading! ", next)
 		%ProgressBar.value = 50
 		set_process(false)
 		var tree := get_tree()
 		await tree.process_frame
 		tree.change_scene_to_packed(next)
 	elif ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-		print("Still loading! ", progress[0])
 		%ProgressBar.value = progress[0] * 50
 	else:
 		push_warning("Something failed during load ", status)
